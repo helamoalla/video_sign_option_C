@@ -194,3 +194,16 @@ This prototype still requires:
 - Improved 3D avatar animation
 - Larger multilingual sign language datasets
 - Production video generation APIs
+
+# Useful github Updated
+
+https://github.com/helamoalla/hamnosys_to_sigml     
+
+https://github.com/helamoalla/sl_generation_blender
+
+# Useful github original
+
+https://github.com/carolNeves/HamNoSys2SiGML
+
+
+https://github.com/lanthaon/sl-animation-blender/tree/main
