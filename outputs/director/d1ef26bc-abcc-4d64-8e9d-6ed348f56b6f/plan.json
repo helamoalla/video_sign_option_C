@@ -1,0 +1,18 @@
+{
+  "title": "La Nuit Tunisienne à Paris",
+  "voiceover": "Imaginez-vous dans un endroit où la cuisine est une expérience, où chaque bouchée est un voyage. Bienvenue au restaurant Tunisien élégant de Paris.",
+  "scenes": [
+    {
+      "prompt": "Une séquence de nuit à Paris, avec des lumières douces sur la Seine, la Tour Eiffel en arrière-plan. La caméra tourne lentement sur le pont, montrant les passants qui se dirigent vers le restaurant.",
+      "duration": 5
+    },
+    {
+      "prompt": "Une séquence intérieure du restaurant, avec des lumières chaleureuses et des tables décorées avec soin. La caméra montre les plats délicieux et les serveurs qui servent avec sourire.",
+      "duration": 5
+    },
+    {
+      "prompt": "Une séquence de cuisine, avec les chefs qui préparent les plats avec soin et passion. La caméra montre les ingrédients frais et les techniques de cuisine traditionnelle.",
+      "duration": 5
+    }
+  ]
+}

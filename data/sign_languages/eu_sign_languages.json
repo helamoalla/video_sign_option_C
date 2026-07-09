@@ -1,0 +1,287 @@
+{
+  "always_available": {
+    "code": "LSA",
+    "name": "Arabic Sign Language",
+    "target": "diaspora_arabic",
+    "provider": "cwasa_multilang",
+    "asset_folder": "lsa"
+  },
+  "fallback": {
+    "country": "FR",
+    "sign_language_code": "LSF",
+    "asset_folder": "lsf",
+    "reason": "manual fallback"
+  },
+  "countries": [
+    {
+      "country_code": "AT",
+      "country_name": "Austria",
+      "sign_language_name": "Austrian Sign Language",
+      "sign_language_code": "ÖGS",
+      "representative_organization": "Österreichischer Gehörlosenbund",
+      "provider": "human_video_mock",
+      "asset_folder": "mock",
+      "lsa_available": true
+    },
+    {
+      "country_code": "BE",
+      "country_name": "Belgium",
+      "sign_language_name": "French Belgian Sign Language / Flemish Sign Language",
+      "sign_language_code": "LSFB/VGT",
+      "representative_organization": "Fédération Francophone des Sourds de Belgique / Doof Vlaanderen",
+      "provider": "human_video_mock",
+      "asset_folder": "mock",
+      "lsa_available": true
+    },
+    {
+      "country_code": "BG",
+      "country_name": "Bulgaria",
+      "sign_language_name": "Bulgarian Sign Language",
+      "sign_language_code": "BulSL",
+      "representative_organization": "Union of the Deaf in Bulgaria",
+      "provider": "human_video_mock",
+      "asset_folder": "mock",
+      "lsa_available": true
+    },
+    {
+      "country_code": "HR",
+      "country_name": "Croatia",
+      "sign_language_name": "Croatian Sign Language",
+      "sign_language_code": "HZJ",
+      "representative_organization": "Croatian Association of the Deaf and Hard of Hearing",
+      "provider": "human_video_mock",
+      "asset_folder": "mock",
+      "lsa_available": true
+    },
+    {
+      "country_code": "CY",
+      "country_name": "Cyprus",
+      "sign_language_name": "Cypriot Sign Language",
+      "sign_language_code": "CSL",
+      "representative_organization": "Cyprus Deaf Federation",
+      "provider": "human_video_mock",
+      "asset_folder": "mock",
+      "lsa_available": true
+    },
+    {
+      "country_code": "CZ",
+      "country_name": "Czechia",
+      "sign_language_name": "Czech Sign Language",
+      "sign_language_code": "ČZJ",
+      "representative_organization": "Czech Union of the Deaf",
+      "provider": "human_video_mock",
+      "asset_folder": "mock",
+      "lsa_available": true
+    },
+    {
+      "country_code": "DK",
+      "country_name": "Denmark",
+      "sign_language_name": "Danish Sign Language",
+      "sign_language_code": "DTS",
+      "representative_organization": "Danske Døves Landsforbund",
+      "provider": "human_video_mock",
+      "asset_folder": "mock",
+      "lsa_available": true
+    },
+    {
+      "country_code": "EE",
+      "country_name": "Estonia",
+      "sign_language_name": "Estonian Sign Language",
+      "sign_language_code": "EVK",
+      "representative_organization": "Estonian Association of the Deaf",
+      "provider": "human_video_mock",
+      "asset_folder": "mock",
+      "lsa_available": true
+    },
+    {
+      "country_code": "FI",
+      "country_name": "Finland",
+      "sign_language_name": "Finnish Sign Language",
+      "sign_language_code": "FinSL",
+      "representative_organization": "Finnish Association of the Deaf",
+      "provider": "human_video_mock",
+      "asset_folder": "mock",
+      "lsa_available": true
+    },
+    {
+      "country_code": "FR",
+      "country_name": "France",
+      "sign_language_name": "French Sign Language",
+      "sign_language_code": "LSF",
+      "representative_organization": "Fédération Nationale des Sourds de France",
+      "provider": "cwasa_multilang",
+      "asset_folder": "lsf",
+      "lsa_available": true
+    },
+    {
+      "country_code": "DE",
+      "country_name": "Germany",
+      "sign_language_name": "German Sign Language",
+      "sign_language_code": "DGS",
+      "representative_organization": "Deutscher Gehörlosen-Bund",
+      "provider": "cwasa_multilang",
+      "asset_folder": "dgs",
+      "lsa_available": true
+    },
+    {
+      "country_code": "GR",
+      "country_name": "Greece",
+      "sign_language_name": "Greek Sign Language",
+      "sign_language_code": "GSL",
+      "representative_organization": "Hellenic Federation of the Deaf",
+      "provider": "human_video_mock",
+      "asset_folder": "mock",
+      "lsa_available": true
+    },
+    {
+      "country_code": "HU",
+      "country_name": "Hungary",
+      "sign_language_name": "Hungarian Sign Language",
+      "sign_language_code": "MJNY",
+      "representative_organization": "Hungarian Association of the Deaf and Hard of Hearing",
+      "provider": "human_video_mock",
+      "asset_folder": "mock",
+      "lsa_available": true
+    },
+    {
+      "country_code": "IE",
+      "country_name": "Ireland",
+      "sign_language_name": "Irish Sign Language",
+      "sign_language_code": "ISL",
+      "representative_organization": "Irish Deaf Society",
+      "provider": "human_video_mock",
+      "asset_folder": "mock",
+      "lsa_available": true
+    },
+    {
+      "country_code": "IT",
+      "country_name": "Italy",
+      "sign_language_name": "Italian Sign Language",
+      "sign_language_code": "LIS",
+      "representative_organization": "Ente Nazionale Sordi",
+      "provider": "human_video_mock",
+      "asset_folder": "mock",
+      "lsa_available": true
+    },
+    {
+      "country_code": "LV",
+      "country_name": "Latvia",
+      "sign_language_name": "Latvian Sign Language",
+      "sign_language_code": "LSL",
+      "representative_organization": "Latvian Association of the Deaf",
+      "provider": "human_video_mock",
+      "asset_folder": "mock",
+      "lsa_available": true
+    },
+    {
+      "country_code": "LT",
+      "country_name": "Lithuania",
+      "sign_language_name": "Lithuanian Sign Language",
+      "sign_language_code": "LGK",
+      "representative_organization": "Lithuanian Deaf Association",
+      "provider": "human_video_mock",
+      "asset_folder": "mock",
+      "lsa_available": true
+    },
+    {
+      "country_code": "LU",
+      "country_name": "Luxembourg",
+      "sign_language_name": "Luxembourg Sign Language / neighbouring LS influence",
+      "sign_language_code": "LSL/DSGS",
+      "representative_organization": "Luxembourg deaf associations",
+      "provider": "human_video_mock",
+      "asset_folder": "mock",
+      "lsa_available": true
+    },
+    {
+      "country_code": "MT",
+      "country_name": "Malta",
+      "sign_language_name": "Maltese Sign Language",
+      "sign_language_code": "LSM",
+      "representative_organization": "Malta Deaf Association",
+      "provider": "human_video_mock",
+      "asset_folder": "mock",
+      "lsa_available": true
+    },
+    {
+      "country_code": "NL",
+      "country_name": "Netherlands",
+      "sign_language_name": "Sign Language of the Netherlands",
+      "sign_language_code": "NGT",
+      "representative_organization": "Dovenschap",
+      "provider": "human_video_mock",
+      "asset_folder": "mock",
+      "lsa_available": true
+    },
+    {
+      "country_code": "PL",
+      "country_name": "Poland",
+      "sign_language_name": "Polish Sign Language",
+      "sign_language_code": "PJM",
+      "representative_organization": "Polish Association of the Deaf",
+      "provider": "human_video_mock",
+      "asset_folder": "mock",
+      "lsa_available": true
+    },
+    {
+      "country_code": "PT",
+      "country_name": "Portugal",
+      "sign_language_name": "Portuguese Sign Language",
+      "sign_language_code": "LGP",
+      "representative_organization": "Federação Portuguesa das Associações de Surdos",
+      "provider": "human_video_mock",
+      "asset_folder": "mock",
+      "lsa_available": true
+    },
+    {
+      "country_code": "RO",
+      "country_name": "Romania",
+      "sign_language_name": "Romanian Sign Language",
+      "sign_language_code": "LSR",
+      "representative_organization": "National Association of the Deaf from Romania",
+      "provider": "human_video_mock",
+      "asset_folder": "mock",
+      "lsa_available": true
+    },
+    {
+      "country_code": "SK",
+      "country_name": "Slovakia",
+      "sign_language_name": "Slovak Sign Language",
+      "sign_language_code": "SPJ",
+      "representative_organization": "Slovak Union of the Deaf and Hard of Hearing",
+      "provider": "human_video_mock",
+      "asset_folder": "mock",
+      "lsa_available": true
+    },
+    {
+      "country_code": "SI",
+      "country_name": "Slovenia",
+      "sign_language_name": "Slovenian Sign Language",
+      "sign_language_code": "SZJ",
+      "representative_organization": "Association of the Deaf and Hard of Hearing Clubs of Slovenia",
+      "provider": "human_video_mock",
+      "asset_folder": "mock",
+      "lsa_available": true
+    },
+    {
+      "country_code": "ES",
+      "country_name": "Spain",
+      "sign_language_name": "Spanish Sign Language / Catalan Sign Language",
+      "sign_language_code": "LSE/LSC",
+      "representative_organization": "CNSE / FESOCA",
+      "provider": "human_video_mock",
+      "asset_folder": "mock",
+      "lsa_available": true
+    },
+    {
+      "country_code": "SE",
+      "country_name": "Sweden",
+      "sign_language_name": "Swedish Sign Language",
+      "sign_language_code": "STS",
+      "representative_organization": "Sveriges Dövas Riksförbund",
+      "provider": "human_video_mock",
+      "asset_folder": "mock",
+      "lsa_available": true
+    }
+  ]
+}

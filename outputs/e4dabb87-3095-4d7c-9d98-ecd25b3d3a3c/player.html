@@ -1,0 +1,323 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>CYRKIL Geo-Adaptive Sign Player</title>
+
+<style>
+body {
+  background:#111;
+  color:white;
+  font-family:Arial, sans-serif;
+  text-align:center;
+  margin:0;
+  padding:20px;
+}
+
+.panel {
+  width:900px;
+  max-width:95vw;
+  margin:15px auto;
+  background:#1b1b1b;
+  padding:15px;
+  border-radius:12px;
+}
+
+.row {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin:10px 0;
+}
+
+select, button {
+  padding:11px 16px;
+  border:0;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:15px;
+}
+
+button {
+  background:#333;
+  color:white;
+}
+
+button.active {
+  background:#4caf50;
+}
+
+.lsa {
+  background:#d9362b;
+  font-weight:bold;
+}
+
+video {
+  width:900px;
+  max-width:95vw;
+  border-radius:14px;
+  background:#222;
+  margin-top:15px;
+}
+
+.status {
+  color:#ddd;
+  font-size:14px;
+  margin-top:8px;
+}
+
+.debug {
+  width:900px;
+  max-width:95vw;
+  margin:15px auto;
+  text-align:left;
+  background:#1b1b1b;
+  padding:12px;
+  border-radius:8px;
+  color:#ccc;
+  white-space:pre-wrap;
+  font-size:13px;
+}
+</style>
+</head>
+
+<body>
+
+<h2>CYRKIL Geo-Adaptive Sign Player</h2>
+<p>Détection automatique + sélection manuelle + bouton LSA toujours disponible</p>
+
+<div class="panel">
+  <div class="row">
+    <label>🌍 Pays utilisateur :</label>
+    <select id="countrySelect"></select>
+  </div>
+
+  <div class="row">
+    <button id="autoDetectBtn">📍 Détecter via navigateur</button>
+    <button id="lsaBtn" class="lsa">🌍 LSA toujours disponible</button>
+  </div>
+
+  <div class="row" id="languageButtons"></div>
+  <div class="status" id="status"></div>
+</div>
+
+<video id="mainVideo" controls playsinline></video>
+
+<div class="debug" id="debug"></div>
+
+<script>
+const manifestUrl = "manifest.json";
+const sessionName = "e4dabb87-3095-4d7c-9d98-ecd25b3d3a3c";
+
+let manifest = null;
+
+const video = document.getElementById("mainVideo");
+const countrySelect = document.getElementById("countrySelect");
+const languageButtons = document.getElementById("languageButtons");
+const debug = document.getElementById("debug");
+const statusBox = document.getElementById("status");
+const autoDetectBtn = document.getElementById("autoDetectBtn");
+const lsaBtn = document.getElementById("lsaBtn");
+
+const COUNTRIES = [
+  { code:"FR", label:"🇫🇷 France", sign:"LSF" },
+  { code:"DE", label:"🇩🇪 Germany", sign:"DGS" },
+  { code:"GB", label:"🇬🇧 United Kingdom", sign:"BSL" },
+  { code:"GR", label:"🇬🇷 Greece", sign:"GSL" },
+  { code:"IT", label:"🇮🇹 Italy", sign:"LIS" },
+  { code:"ES", label:"🇪🇸 Spain", sign:"LSE" },
+  { code:"NL", label:"🇳🇱 Netherlands", sign:"NGT" },
+  { code:"PL", label:"🇵🇱 Poland", sign:"PJM" }
+];
+
+function makeLocalPath(path) {
+  if (!path) return null;
+
+  if (path.startsWith("http")) {
+    return path;
+  }
+
+  // Convert /outputs/session_id/... to relative path for direct HTML opening
+  const marker = "/outputs/" + sessionName + "/";
+  if (path.includes(marker)) {
+    return path.split(marker)[1];
+  }
+
+  if (path.startsWith("/outputs/")) {
+    const parts = path.split("/");
+    const index = parts.indexOf(sessionName);
+    if (index !== -1) {
+      return parts.slice(index + 1).join("/");
+    }
+  }
+
+  if (path.startsWith("/")) {
+    return window.location.origin + path;
+  }
+
+  return path;
+}
+
+function getVideoKeys() {
+  return Object.keys(manifest.rendered_videos || {});
+}
+
+function findKeyBySign(sign) {
+  sign = sign.toUpperCase();
+  const keys = getVideoKeys();
+
+  let exact = keys.find(k => k.toUpperCase() === sign);
+  if (exact) return exact;
+
+  let suffix = keys.find(k => k.toUpperCase().endsWith("_" + sign));
+  if (suffix) return suffix;
+
+  return null;
+}
+
+function resolveVideoKey(sign) {
+  let key = findKeyBySign(sign);
+  if (key) return { key, fallback:false };
+
+  let lsa = findKeyBySign("LSA");
+  if (lsa) return { key:lsa, fallback:true };
+
+  let lsf = findKeyBySign("LSF");
+  if (lsf) return { key:lsf, fallback:true };
+
+  return { key:getVideoKeys()[0], fallback:true };
+}
+
+function loadVideoBySign(sign, source) {
+  const resolved = resolveVideoKey(sign);
+  const key = resolved.key;
+
+  if (!key) {
+    statusBox.innerText = "Aucune vidéo disponible.";
+    return;
+  }
+
+  const rawPath = manifest.rendered_videos[key];
+  const videoPath = makeLocalPath(rawPath);
+
+  video.src = videoPath;
+  video.load();
+
+  document.querySelectorAll("button").forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.sign === sign.toUpperCase());
+  });
+
+  lsaBtn.classList.toggle("active", sign.toUpperCase() === "LSA");
+
+  let message =
+    "Source: " + source +
+    " | Langue demandée: " + sign.toUpperCase() +
+    " | Vidéo chargée: " + key;
+
+  if (resolved.fallback) {
+    message += " | Fallback utilisé";
+  }
+
+  statusBox.innerText = message;
+
+  debug.innerText =
+    "Selected video: " + key + "\n" +
+    "Requested sign language: " + sign + "\n" +
+    "Source: " + source + "\n" +
+    "Video path: " + videoPath + "\n\n" +
+    "Original text:\n" + (manifest.original_text || "") + "\n\n" +
+    "Translations:\n" + JSON.stringify(manifest.translations || {}, null, 2) + "\n\n" +
+    "Glosses:\n" + JSON.stringify(manifest.avatar_debug || {}, null, 2);
+}
+
+function routeByCountry(countryCode) {
+  const country = COUNTRIES.find(c => c.code === countryCode);
+
+  if (!country) {
+    loadVideoBySign("LSA", "fallback_country_unknown");
+    return;
+  }
+
+  loadVideoBySign(country.sign, "manual_country_" + countryCode);
+}
+
+function detectFromBrowserLanguage() {
+  const lang = (navigator.language || "").toLowerCase();
+
+  if (lang.startsWith("fr")) {
+    countrySelect.value = "FR";
+    routeByCountry("FR");
+  } else if (lang.startsWith("de")) {
+    countrySelect.value = "DE";
+    routeByCountry("DE");
+  } else if (lang.startsWith("en")) {
+    countrySelect.value = "GB";
+    routeByCountry("GB");
+  } else if (lang.startsWith("el")) {
+    countrySelect.value = "GR";
+    routeByCountry("GR");
+  } else if (lang.startsWith("ar")) {
+    loadVideoBySign("LSA", "browser_language_arabic");
+  } else {
+    countrySelect.value = "FR";
+    routeByCountry("FR");
+  }
+}
+
+function buildCountrySelector() {
+  COUNTRIES.forEach(c => {
+    const option = document.createElement("option");
+    option.value = c.code;
+    option.textContent = c.label + " → " + c.sign;
+    countrySelect.appendChild(option);
+  });
+
+  countrySelect.onchange = () => routeByCountry(countrySelect.value);
+}
+
+function buildLanguageButtons() {
+  languageButtons.innerHTML = "";
+
+  const signs = ["LSF", "DGS", "BSL", "GSL"];
+
+  signs.forEach(sign => {
+    const key = findKeyBySign(sign);
+    if (!key) return;
+
+    const btn = document.createElement("button");
+    btn.innerText = key;
+    btn.dataset.sign = sign;
+    btn.onclick = () => loadVideoBySign(sign, "manual_sign_language");
+    languageButtons.appendChild(btn);
+  });
+
+  lsaBtn.dataset.sign = "LSA";
+  lsaBtn.onclick = () => loadVideoBySign("LSA", "manual_lsa_button");
+
+  autoDetectBtn.onclick = detectFromBrowserLanguage;
+}
+
+async function init() {
+  try {
+    const res = await fetch(manifestUrl);
+    manifest = await res.json();
+
+    buildCountrySelector();
+    buildLanguageButtons();
+    detectFromBrowserLanguage();
+
+  } catch (e) {
+    statusBox.innerText =
+      "Erreur: manifest.json introuvable. Vérifiez que player.html est dans le même dossier que manifest.json.";
+    debug.innerText = String(e);
+  }
+}
+
+init();
+</script>
+
+</body>
+</html>

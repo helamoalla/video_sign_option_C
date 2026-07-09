@@ -1,0 +1,45 @@
+# Web Framework
+fastapi
+uvicorn
+python-multipart
+
+# Speech Recognition
+openai-whisper
+torch
+torchaudio
+
+# Translation
+deep-translator
+
+# Video Processing
+moviepy
+ffmpeg-python
+imageio
+imageio-ffmpeg
+
+# Arabic Text Rendering
+arabic-reshaper
+python-bidi
+pillow
+
+# Playwright (CWASA recording)
+playwright
+
+# Environment Variables
+python-dotenv
+
+# LLM
+langchain
+langchain-groq
+
+# Data Validation
+pydantic
+
+# HTTP Requests
+requests
+
+# XML Processing (used by CWASA/SiGML)
+lxml
+
+# Numerical Computing
+numpy

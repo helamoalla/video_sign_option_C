@@ -1,0 +1,130 @@
+{
+  "session_id": "e4dabb87-3095-4d7c-9d98-ecd25b3d3a3c",
+  "video_url": "/outputs/e4dabb87-3095-4d7c-9d98-ecd25b3d3a3c/video/original.mp4",
+  "original_language": "ar",
+  "original_text": " أرحب بكم في قلب باريس حيث تلتقي نكهات تونس الأصيلة بروح المدينة نقدم لكم أشهل أطباق التونسية من الكسكسي إلى لبريك كلها معدة بحب وتقاليد عريقة كل وجبة عندنا هي رحلة إلى تونس بدون أن تغادر باريس تعالوا وزورون الطاولة محجوزة لكم والترحيب من القلب",
+  "translations": {
+    "french": "Je vous accueille avec joie au cœur de Paris où les saveurs originales de Tunis se rencontrent avec l'esprit de la ville. Nous vous proposons des plats tunisiens authentiques, du ksksou à la lablabi, tous préparés avec amour et traditions anciennes. Chaque repas chez nous est une visite en Tunisie sans quitter Paris. Venez et rejoignez notre table réservée pour vous, avec l'accueil du cœur.",
+    "arabic": "مرحبا بكم في قلب باريس حيث تلاقي نكهات تونس الأصيلة بروح المدينة نقدم لكم أشهى أطباق التونسية من الكسكسي إلى لبريك كلها معدة بحب وتقاليد عريقة كل وجبة عندنا هي رحلة إلى تونس بدون أن تغادر باريس تعالوا وزورون الطاولة المحجوزة لكم والترحيب من القلب.",
+    "german": "Willkommen in Paris, wo die ursprünglichen Aromen Tunesiens auf die Seele der Stadt treffen. Wir bieten Ihnen eine Auswahl an authentischen tunesischen Gerichten, von der Kaschchucha bis zum Lablabi, alle zubereitet mit Liebe und Tradition. Jede Mahlzeit bei uns ist eine Reise nach Tunesien, ohne dass Sie Paris verlassen müssen. Kommen Sie und setzen Sie sich an den Tisch, der für Sie reserviert ist, und lassen Sie sich von unserem herzlichen Willkommen begrüßen.",
+    "english": "Welcome to the heart of Paris where the authentic flavors of Tunisia meet the spirit of the city. We offer you the best of Tunisian cuisine, from couscous to lablabi, all prepared with love and rich traditions. Every meal with us is a journey to Tunisia without leaving Paris. Come and join us at the table reserved just for you, and receive a warm welcome from the heart.",
+    "greek": "Καλώς ορίσατε στο κέντρο της Παρισιού, όπου οι αυθεντικές γεύσεις της Τυνησίας συναντούν την ψυχή της πόλης. Προσφέρουμε σας τα καλύτερα πιάτα της Τυνησίας, από το κσίκσι μέχρι το λμπρίκ, όλα προετοιμασμένα με αγάπη και ιστορικές παραδόσεις. Κάθε γεύση με μας είναι μια ταξιδιωτική εμπειρία στην Τυνησία, χωρίς να χρειάζεται να φύγετε από το Παρίσι. Ελάτε και γευτείτε τα πιάτα που μας περιμένουν να σας υποδεχτούν με αγάπη."
+  },
+  "subtitles": {
+    "french": "/outputs/e4dabb87-3095-4d7c-9d98-ecd25b3d3a3c/subtitles/french.vtt",
+    "arabic": "/outputs/e4dabb87-3095-4d7c-9d98-ecd25b3d3a3c/subtitles/arabic.vtt",
+    "german": "/outputs/e4dabb87-3095-4d7c-9d98-ecd25b3d3a3c/subtitles/german.vtt",
+    "english": "/outputs/e4dabb87-3095-4d7c-9d98-ecd25b3d3a3c/subtitles/english.vtt",
+    "greek": "/outputs/e4dabb87-3095-4d7c-9d98-ecd25b3d3a3c/subtitles/greek.vtt"
+  },
+  "avatars": {
+    "lsf": "/outputs/e4dabb87-3095-4d7c-9d98-ecd25b3d3a3c/avatars/lsf.mp4",
+    "lsa": "/outputs/e4dabb87-3095-4d7c-9d98-ecd25b3d3a3c/avatars/lsa.mp4",
+    "dgs": "/outputs/e4dabb87-3095-4d7c-9d98-ecd25b3d3a3c/avatars/dgs.mp4",
+    "bsl": "/outputs/e4dabb87-3095-4d7c-9d98-ecd25b3d3a3c/avatars/bsl.mp4",
+    "gsl": "/outputs/e4dabb87-3095-4d7c-9d98-ecd25b3d3a3c/avatars/gsl.mp4"
+  },
+  "avatar_debug": {
+    "lsf": {
+      "input_text_for_avatar": "Je vous accueille avec joie au cœur de Paris où les saveurs originales de Tunis se rencontrent avec l'esprit de la ville. Nous vous proposons des plats tunisiens authentiques, du ksksou à la lablabi, tous préparés avec amour et traditions anciennes. Chaque repas chez nous est une visite en Tunisie sans quitter Paris. Venez et rejoignez notre table réservée pour vous, avec l'accueil du cœur.",
+      "glosses_found": [
+        "joie",
+        "venir",
+        "paris",
+        "cœur",
+        "ville",
+        "manger",
+        "bon",
+        "visite",
+        "vous",
+        "nous",
+        "esprit",
+        "nourriture",
+        "repas",
+        "tous",
+        "s_il_vous_plait"
+      ],
+      "avatar_url": "/outputs/e4dabb87-3095-4d7c-9d98-ecd25b3d3a3c/avatars/lsf.mp4",
+      "error": null,
+      "cwasa_url": "http://127.0.0.1:8000/outputs/e4dabb87-3095-4d7c-9d98-ecd25b3d3a3c/avatars/lsf/index.html"
+    },
+    "lsa": {
+      "input_text_for_avatar": "مرحبا بكم في قلب باريس حيث تلاقي نكهات تونس الأصيلة بروح المدينة نقدم لكم أشهى أطباق التونسية من الكسكسي إلى لبريك كلها معدة بحب وتقاليد عريقة كل وجبة عندنا هي رحلة إلى تونس بدون أن تغادر باريس تعالوا وزورون الطاولة المحجوزة لكم والترحيب من القلب.",
+      "glosses_found": [
+        "مرحبا",
+        "باريس",
+        "قلب",
+        "طعام",
+        "وجبة"
+      ],
+      "avatar_url": "/outputs/e4dabb87-3095-4d7c-9d98-ecd25b3d3a3c/avatars/lsa.mp4",
+      "error": null,
+      "cwasa_url": "http://127.0.0.1:8000/outputs/e4dabb87-3095-4d7c-9d98-ecd25b3d3a3c/avatars/lsa/index.html"
+    },
+    "dgs": {
+      "input_text_for_avatar": "Willkommen in Paris, wo die ursprünglichen Aromen Tunesiens auf die Seele der Stadt treffen. Wir bieten Ihnen eine Auswahl an authentischen tunesischen Gerichten, von der Kaschchucha bis zum Lablabi, alle zubereitet mit Liebe und Tradition. Jede Mahlzeit bei uns ist eine Reise nach Tunesien, ohne dass Sie Paris verlassen müssen. Kommen Sie und setzen Sie sich an den Tisch, der für Sie reserviert ist, und lassen Sie sich von unserem herzlichen Willkommen begrüßen.",
+      "glosses_found": [
+        "hauptstadt",
+        "grüßen",
+        "herz",
+        "gericht",
+        "reis",
+        "mahlzeit",
+        "essen",
+        "wahl",
+        "jeder",
+        "lieben",
+        "nach",
+        "wohnen",
+        "bleiben",
+        "kommen",
+        "sich",
+        "besuchen"
+      ],
+      "avatar_url": "/outputs/e4dabb87-3095-4d7c-9d98-ecd25b3d3a3c/avatars/dgs.mp4",
+      "error": null,
+      "cwasa_url": "http://127.0.0.1:8000/outputs/e4dabb87-3095-4d7c-9d98-ecd25b3d3a3c/avatars/dgs/index.html"
+    },
+    "bsl": {
+      "input_text_for_avatar": "Welcome to the heart of Paris where the authentic flavors of Tunisia meet the spirit of the city. We offer you the best of Tunisian cuisine, from couscous to lablabi, all prepared with love and rich traditions. Every meal with us is a journey to Tunisia without leaving Paris. Come and join us at the table reserved just for you, and receive a warm welcome from the heart.",
+      "glosses_found": [
+        "welcome",
+        "paris",
+        "food",
+        "offer",
+        "meal",
+        "love",
+        "every",
+        "come",
+        "you",
+        "heart"
+      ],
+      "avatar_url": "/outputs/e4dabb87-3095-4d7c-9d98-ecd25b3d3a3c/avatars/bsl.mp4",
+      "error": null,
+      "cwasa_url": "http://127.0.0.1:8000/outputs/e4dabb87-3095-4d7c-9d98-ecd25b3d3a3c/avatars/bsl/index.html"
+    },
+    "gsl": {
+      "input_text_for_avatar": "Καλώς ορίσατε στο κέντρο της Παρισιού, όπου οι αυθεντικές γεύσεις της Τυνησίας συναντούν την ψυχή της πόλης. Προσφέρουμε σας τα καλύτερα πιάτα της Τυνησίας, από το κσίκσι μέχρι το λμπρίκ, όλα προετοιμασμένα με αγάπη και ιστορικές παραδόσεις. Κάθε γεύση με μας είναι μια ταξιδιωτική εμπειρία στην Τυνησία, χωρίς να χρειάζεται να φύγετε από το Παρίσι. Ελάτε και γευτείτε τα πιάτα που μας περιμένουν να σας υποδεχτούν με αγάπη.",
+      "glosses_found": [
+        "καλω",
+        "γευση",
+        "πολη",
+        "ψυχη",
+        "χωρις"
+      ],
+      "avatar_url": "/outputs/e4dabb87-3095-4d7c-9d98-ecd25b3d3a3c/avatars/gsl.mp4",
+      "error": null,
+      "cwasa_url": "http://127.0.0.1:8000/outputs/e4dabb87-3095-4d7c-9d98-ecd25b3d3a3c/avatars/gsl/index.html"
+    }
+  },
+  "rendered_videos": {
+    "french_lsf": "/outputs/e4dabb87-3095-4d7c-9d98-ecd25b3d3a3c/rendered/french_lsf.mp4",
+    "arabic_lsa": "/outputs/e4dabb87-3095-4d7c-9d98-ecd25b3d3a3c/rendered/arabic_lsa.mp4",
+    "german_dgs": "/outputs/e4dabb87-3095-4d7c-9d98-ecd25b3d3a3c/rendered/german_dgs.mp4",
+    "english_bsl": "/outputs/e4dabb87-3095-4d7c-9d98-ecd25b3d3a3c/rendered/english_bsl.mp4",
+    "greek_gsl": "/outputs/e4dabb87-3095-4d7c-9d98-ecd25b3d3a3c/rendered/greek_gsl.mp4"
+  },
+  "default": {
+    "rendered_video": "french_lsf"
+  }
+}

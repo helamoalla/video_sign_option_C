@@ -1,0 +1,101 @@
+{
+  "session_id": "d93d772d-bc30-4578-a262-bdf2688c1df5",
+  "video_url": "/outputs/d93d772d-bc30-4578-a262-bdf2688c1df5/video/original.mp4",
+  "original_language": "fr",
+  "original_text": " Bienvenue au cœur de la ville où les saveurs de Tunisie vous attendent.",
+  "translations": {
+    "french": "Bienvenue au cœur de la ville où les saveurs de la Tunisie vous attendent.",
+    "arabic": "مرحباً بكم في قلب المدينة حيث تنتظركم أذواق تونس.",
+    "german": "Willkommen im Herzen der Stadt, wo die Aromen Tunesiens auf Sie warten.",
+    "english": "Welcome to the heart of the city where the flavors of Tunisia await you.",
+    "greek": "Ευχαριστώ για την επίσκεψη στοใจ της πόλης όπου οι γεύσεις της Τυνησίας σας περιμένουν."
+  },
+  "subtitles": {
+    "french": "/outputs/d93d772d-bc30-4578-a262-bdf2688c1df5/subtitles/french.vtt",
+    "arabic": "/outputs/d93d772d-bc30-4578-a262-bdf2688c1df5/subtitles/arabic.vtt",
+    "german": "/outputs/d93d772d-bc30-4578-a262-bdf2688c1df5/subtitles/german.vtt",
+    "english": "/outputs/d93d772d-bc30-4578-a262-bdf2688c1df5/subtitles/english.vtt",
+    "greek": "/outputs/d93d772d-bc30-4578-a262-bdf2688c1df5/subtitles/greek.vtt"
+  },
+  "avatars": {
+    "lsf": "/outputs/d93d772d-bc30-4578-a262-bdf2688c1df5/avatars/lsf.mp4",
+    "lsa": "/outputs/d93d772d-bc30-4578-a262-bdf2688c1df5/avatars/lsa.mp4",
+    "dgs": "/outputs/d93d772d-bc30-4578-a262-bdf2688c1df5/avatars/dgs.mp4",
+    "bsl": "/outputs/d93d772d-bc30-4578-a262-bdf2688c1df5/avatars/bsl.mp4",
+    "gsl": "/outputs/d93d772d-bc30-4578-a262-bdf2688c1df5/avatars/gsl.mp4"
+  },
+  "avatar_debug": {
+    "lsf": {
+      "input_text_for_avatar": "Bienvenue au cœur de la ville où les saveurs de la Tunisie vous attendent.",
+      "glosses_found": [
+        "venir",
+        "ville",
+        "cœur",
+        "bonjour",
+        "vous",
+        "bien"
+      ],
+      "avatar_url": "/outputs/d93d772d-bc30-4578-a262-bdf2688c1df5/avatars/lsf.mp4",
+      "error": null,
+      "cwasa_url": "http://127.0.0.1:8000/outputs/d93d772d-bc30-4578-a262-bdf2688c1df5/avatars/lsf/index.html"
+    },
+    "lsa": {
+      "input_text_for_avatar": "مرحباً بكم في قلب المدينة حيث تنتظركم أذواق تونس.",
+      "glosses_found": [
+        "مرحبا",
+        "قلب"
+      ],
+      "avatar_url": "/outputs/d93d772d-bc30-4578-a262-bdf2688c1df5/avatars/lsa.mp4",
+      "error": null,
+      "cwasa_url": "http://127.0.0.1:8000/outputs/d93d772d-bc30-4578-a262-bdf2688c1df5/avatars/lsa/index.html"
+    },
+    "dgs": {
+      "input_text_for_avatar": "Willkommen im Herzen der Stadt, wo die Aromen Tunesiens auf Sie warten.",
+      "glosses_found": [
+        "kommen",
+        "herz",
+        "stadt",
+        "auf",
+        "warten",
+        "sie"
+      ],
+      "avatar_url": "/outputs/d93d772d-bc30-4578-a262-bdf2688c1df5/avatars/dgs.mp4",
+      "error": null,
+      "cwasa_url": "http://127.0.0.1:8000/outputs/d93d772d-bc30-4578-a262-bdf2688c1df5/avatars/dgs/index.html"
+    },
+    "bsl": {
+      "input_text_for_avatar": "Welcome to the heart of the city where the flavors of Tunisia await you.",
+      "glosses_found": [
+        "greet",
+        "heart",
+        "wait",
+        "you"
+      ],
+      "avatar_url": "/outputs/d93d772d-bc30-4578-a262-bdf2688c1df5/avatars/bsl.mp4",
+      "error": null,
+      "cwasa_url": "http://127.0.0.1:8000/outputs/d93d772d-bc30-4578-a262-bdf2688c1df5/avatars/bsl/index.html"
+    },
+    "gsl": {
+      "input_text_for_avatar": "Ευχαριστώ για την επίσκεψη στοใจ της πόλης όπου οι γεύσεις της Τυνησίας σας περιμένουν.",
+      "glosses_found": [
+        "ευχαριστω",
+        "κοτοπουλο",
+        "νησι",
+        "πολη"
+      ],
+      "avatar_url": "/outputs/d93d772d-bc30-4578-a262-bdf2688c1df5/avatars/gsl.mp4",
+      "error": null,
+      "cwasa_url": "http://127.0.0.1:8000/outputs/d93d772d-bc30-4578-a262-bdf2688c1df5/avatars/gsl/index.html"
+    }
+  },
+  "rendered_videos": {
+    "french_lsf": "/outputs/d93d772d-bc30-4578-a262-bdf2688c1df5/rendered/french_lsf.mp4",
+    "arabic_lsa": "/outputs/d93d772d-bc30-4578-a262-bdf2688c1df5/rendered/arabic_lsa.mp4",
+    "german_dgs": "/outputs/d93d772d-bc30-4578-a262-bdf2688c1df5/rendered/german_dgs.mp4",
+    "english_bsl": "/outputs/d93d772d-bc30-4578-a262-bdf2688c1df5/rendered/english_bsl.mp4",
+    "greek_gsl": "/outputs/d93d772d-bc30-4578-a262-bdf2688c1df5/rendered/greek_gsl.mp4"
+  },
+  "default": {
+    "rendered_video": "french_lsf"
+  }
+}

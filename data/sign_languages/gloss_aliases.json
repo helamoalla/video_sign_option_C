@@ -1,0 +1,15 @@
+{
+  "lsa": {
+    "مرحبا": "سلام",
+    "اهلا": "سلام",
+    "شكراً": "شكرا"
+  },
+  "lsf": {
+    "bonjour": "BONJOUR",
+    "merci": "MERCI"
+  },
+  "dgs": {
+    "hallo": "HALLO",
+    "danke": "DANKE"
+  }
+}
