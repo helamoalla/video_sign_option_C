@@ -2,6 +2,7 @@
 fastapi
 uvicorn
 python-multipart
+aiofiles
 
 # Speech Recognition
 openai-whisper
@@ -16,11 +17,12 @@ moviepy
 ffmpeg-python
 imageio
 imageio-ffmpeg
+opencv-python
 
 # Arabic Text Rendering
 arabic-reshaper
 python-bidi
-pillow
+Pillow
 
 # Playwright (CWASA recording)
 playwright
@@ -35,11 +37,19 @@ langchain-groq
 # Data Validation
 pydantic
 
-# HTTP Requests
+# HTTP Requests & HTML
 requests
+beautifulsoup4
+jinja2
 
 # XML Processing (used by CWASA/SiGML)
 lxml
 
 # Numerical Computing
 numpy
+
+# Misc / TTS / Vision
+edge-tts
+mediapipe
+geocoder
+geopy
