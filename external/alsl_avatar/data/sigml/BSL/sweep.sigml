@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="sweep(v)#3">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmpar/>
+			<hamfist/>
+			<hamthumbacrossmod/>
+			<hamextfingerol/>
+			<hampalml/>
+			<hamthumbside/>
+			<hamclose/>
+			<hammovedo/>
+			<hamarcd/>
+			<hamrepeatcontinue/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

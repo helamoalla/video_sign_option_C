@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="SCHLECHT2">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfist/>
+			<hamthumboutmod/>
+			<hamextfingeruo/>
+			<hamextfingerol/>
+			<hampalmdr/>
+			<hamshoulders/>
+			<hamlrat/>
+			<hammovedl/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΚΙΝΗΜΑΤΟΓΡΑΦΟΣ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamparbegin/>
+			<hamfist/>
+			<hamthumbacrossmod/>
+			<hamextfingero/>
+			<hampalmd/>
+			<hamplus/>
+			<hamflathand/>
+			<hamthumboutmod/>
+			<hamextfingeru/>
+			<hampalmr/>
+			<hamparend/>
+			<hamclose/>
+			<hamhead/>
+			<hamcirclel/>
+			<hamsmallmod/>
+			<hamclocku/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

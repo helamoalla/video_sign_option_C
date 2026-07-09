@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΚΑΡΦΙ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger2/>
+			<hamfingerstraightmod/>
+			<hamextfingero/>
+			<hampalmul/>
+			<hamshoulders/>
+			<hamplus/>
+			<hamparbegin/>
+			<hamfinger2/>
+			<hamthumbacrossmod/>
+			<hamfingerhookmod/>
+			<hamextfingeru/>
+			<hampalmul/>
+			<hamplus/>
+			<hamfist/>
+			<hamthumbacrossmod/>
+			<hamextfingeruo/>
+			<hambetween/>
+			<hamextfingerur/>
+			<hampalmd/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamshouldertop/>
+			<hamclose/>
+			<hamplus/>
+			<hamlrat/>
+			<hamshouldertop/>
+			<hamparend/>
+			<hamswinging/>
+			<hamlargemod/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

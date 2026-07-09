@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΑΠΡΙΛΙΟΣ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hampinchall/>
+			<hamfingerstraightmod/>
+			<hambetween/>
+			<hampinchall/>
+			<hamextfingerol/>
+			<hamparbegin/>
+			<hampalmd/>
+			<hamplus/>
+			<hampalmu/>
+			<hamparend/>
+			<hamparbegin/>
+			<hammiddlefinger/>
+			<hamfingertip/>
+			<hamplus/>
+			<hammiddlefinger/>
+			<hamfingertip/>
+			<hamparend/>
+			<hamclose/>
+			<hamparbegin/>
+			<hammoved/>
+			<hamfast/>
+			<hamplus/>
+			<hammoveu/>
+			<hamfast/>
+			<hamparend/>
+			<hamtouch/>
+			<hamrepeatfromstartseveral/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

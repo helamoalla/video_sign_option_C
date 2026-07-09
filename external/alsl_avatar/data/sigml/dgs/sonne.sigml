@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="SONNE1A">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hampinchall/>
+			<hamfingerbendmod/>
+			<hamextfingeru/>
+			<hampalmul/>
+			<hamhead/>
+			<hamlrat/>
+			<hamparbegin/>
+			<hammoveil/>
+			<hamreplace/>
+			<hamfinger2345/>
+			<hamthumbopenmod/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

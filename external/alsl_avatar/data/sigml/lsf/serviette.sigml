@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="SERVIETTE">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamflathand/>
+			<hamthumboutmod/>
+			<hamfingerstraightmod/>
+			<hamextfingerl/>
+			<hampalml/>
+			<hamlrat/>
+			<hamshoulders/>
+			<hambetween/>
+			<hamlrat/>
+			<hamchest/>
+			<hamclose/>
+			<hammoveo/>
+			<hamlrat/>
+			<hamshoulders/>
+			<hambetween/>
+			<hamlrat/>
+			<hamchest/>
+			<hamseqbegin/>
+			<hamtouch/>
+			<hamfingertip/>
+			<hammiddlefinger/>
+			<hamseqend/>
+			<hammoveo/>
+			<hamshoulders/>
+			<hamlrat/>
+			<hambetween/>
+			<hamchest/>
+			<hamlrat/>
+			<hamclose/>
+			<hammovei/>
+			<hamshoulders/>
+			<hamlrat/>
+			<hambetween/>
+			<hamchest/>
+			<hamlrat/>
+			<hamseqbegin/>
+			<hamtouch/>
+			<hamfingertip/>
+			<hammiddlefinger/>
+			<hamseqend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

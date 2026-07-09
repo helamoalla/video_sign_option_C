@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="FRIEDEN1">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfinger23spread/>
+			<hamextfingeruo/>
+			<hamextfingerol/>
+			<hampalmdl/>
+			<hamindexfinger/>
+			<hamfingermidjoint/>
+			<hamtouch/>
+			<hammovedr/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

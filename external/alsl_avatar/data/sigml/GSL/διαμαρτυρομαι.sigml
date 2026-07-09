@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΔΙΑΜΑΡΤΥΡΟΜΑΙ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamalternatingmotion/>
+			<hamparbegin/>
+			<hamfinger2/>
+			<hamthumboutmod/>
+			<hambetween/>
+			<hamfinger2/>
+			<hamthumboutmod/>
+			<hamfingerbendmod/>
+			<hamextfingeruo/>
+			<hamextfingerol/>
+			<hampalml/>
+			<hamplus/>
+			<hamfinger2/>
+			<hamthumboutmod/>
+			<hambetween/>
+			<hamfinger2/>
+			<hamthumboutmod/>
+			<hamfingerbendmod/>
+			<hamextfingeruo/>
+			<hamextfingeror/>
+			<hampalmr/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamshoulders/>
+			<hamlrat/>
+			<hamplus/>
+			<hamlrat/>
+			<hamshoulders/>
+			<hamparend/>
+			<hamcircleol/>
+			<hamclockfull/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

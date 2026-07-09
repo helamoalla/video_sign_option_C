@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="$ALPHA'1:K-I-O-S-K VERKAUFEN12">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger23spread/>
+			<hamthumbacrossmod/>
+			<hammiddlefinger/>
+			<hamfingerstraightmod/>
+			<hammiddlefinger/>
+			<hamfingermidjoint/>
+			<hamthumb/>
+			<hamextfingeru/>
+			<hampalmd/>
+			<hamplus/>
+			<hamfinger2/>
+			<hampinky/>
+			<hamextfingeru/>
+			<hampalmd/>
+			<hamplus/>
+			<hampinchall/>
+			<hamextfingeru/>
+			<hampalmdl/>
+			<hamplus/>
+			<hamfist/>
+			<hamthumbacrossmod/>
+			<hamextfingeru/>
+			<hampalmd/>
+			<hamplus/>
+			<hamfinger23spread/>
+			<hamthumbacrossmod/>
+			<hammiddlefinger/>
+			<hamfingerstraightmod/>
+			<hammiddlefinger/>
+			<hamfingermidjoint/>
+			<hamthumb/>
+			<hamextfingeru/>
+			<hampalmd/>
+			<hamplus/>
+			<hamsymmlr/>
+			<hamfist/>
+			<hamindexfinger/>
+			<hamfingerhookmod/>
+			<hamextfingerol/>
+			<hampalml/>
+			<hamtouch/>
+			<hamparbegin/>
+			<hammoveor/>
+			<hamreplace/>
+			<hamextfingeror/>
+			<hamparend/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

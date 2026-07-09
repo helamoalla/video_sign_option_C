@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="OUVRIR vers soi + FROID">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfist/>
+			<hamthumbacrossmod/>
+			<hamextfingero/>
+			<hampalml/>
+			<hamchest/>
+			<hamparbegin/>
+			<hammovei/>
+			<hamarcl/>
+			<hamreplace/>
+			<hamextfingerol/>
+			<hamparend/>
+			<hamplus/>
+			<hampinchall/>
+			<hamfingerstraightmod/>
+			<hamextfingeru/>
+			<hampalmur/>
+			<hamchin/>
+			<hamlrat/>
+			<hamclose/>
+			<hamparbegin/>
+			<hammovel/>
+			<hamsmallmod/>
+			<hamreplace/>
+			<hampalmul/>
+			<hamparend/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

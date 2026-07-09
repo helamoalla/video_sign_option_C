@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="minister(n)#2">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmpar/>
+			<hamfinger2/>
+			<hamthumboutmod/>
+			<hamextfingeru/>
+			<hampalml/>
+			<hamforehead/>
+			<hamlrbeside/>
+			<hammovei/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

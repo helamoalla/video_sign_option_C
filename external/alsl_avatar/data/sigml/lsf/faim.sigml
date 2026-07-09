@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="FAIM">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamceeall/>
+			<hamextfingerl/>
+			<hampalml/>
+			<hamshoulders/>
+			<hamtouch/>
+			<hammoved/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

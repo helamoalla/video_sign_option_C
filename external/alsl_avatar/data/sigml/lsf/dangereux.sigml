@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="DANGER">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamparbegin/>
+			<hamfinger23spread/>
+			<hamthumbacrossmod/>
+			<hamextfingerol/>
+			<hambetween/>
+			<hamextfingeru/>
+			<hampalml/>
+			<hamplus/>
+			<hamfist/>
+			<hamthumbacrossmod/>
+			<hamextfingeror/>
+			<hambetween/>
+			<hamextfingero/>
+			<hampalmdr/>
+			<hamparend/>
+			<hamwristback/>
+			<hamseqbegin/>
+			<hamtouch/>
+			<hampinkyside/>
+			<hamseqend/>
+			<hamparbegin/>
+			<hammoveor/>
+			<hamreplace/>
+			<hampalmr/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΚΑΘΗΜΕΡΙΝΟΣ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger2/>
+			<hamthumbacrossmod/>
+			<hamextfingerl/>
+			<hampalml/>
+			<hamchest/>
+			<hamplus/>
+			<hamfinger2345/>
+			<hamthumboutmod/>
+			<hambetween/>
+			<hamfinger2345/>
+			<hamthumbopenmod/>
+			<hamextfingeru/>
+			<hampalml/>
+			<hamshouldertop/>
+			<hamlrat/>
+			<hamclose/>
+			<hamparbegin/>
+			<hammovedo/>
+			<hamseqbegin/>
+			<hamreplace/>
+			<hamfinger2345/>
+			<hamthumboutmod/>
+			<hampinky/>
+			<hamfingerbendmod/>
+			<hamreplace/>
+			<hamfinger2345/>
+			<hamthumboutmod/>
+			<hampinky/>
+			<hamfingerhookmod/>
+			<hamringfinger/>
+			<hamfingerbendmod/>
+			<hamreplace/>
+			<hamfinger2/>
+			<hamthumboutmod/>
+			<hamfingerbendmod/>
+			<hamextfingero/>
+			<hamreplace/>
+			<hamfist/>
+			<hamseqend/>
+			<hamparend/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

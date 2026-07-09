@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="CINEMA">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamflathand/>
+			<hamthumboutmod/>
+			<hamextfingerul/>
+			<hambetween/>
+			<hamextfingerl/>
+			<hampalml/>
+			<hamchest/>
+			<hamlrat/>
+			<hamseqbegin/>
+			<hamclose/>
+			<hamhandback/>
+			<hamseqend/>
+			<hammovel/>
+			<hamsmallmod/>
+			<hamfingerpad/>
+			<hammiddlefinger/>
+			<hamseqbegin/>
+			<hamtouch/>
+			<hamfingermidjoint/>
+			<hammiddlefinger/>
+			<hamseqend/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

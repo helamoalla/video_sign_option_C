@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΟΝΕΙΡΕΥΟΜΑΙ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger2/>
+			<hamthumbacrossmod/>
+			<hamextfingerl/>
+			<hampalmd/>
+			<hamforehead/>
+			<hamlrat/>
+			<hamseqbegin/>
+			<hamclose/>
+			<hamfingertip/>
+			<hamindexfinger/>
+			<hamseqend/>
+			<hamstircw/>
+			<hamparbegin/>
+			<hamstircw/>
+			<hammover/>
+			<hamtense/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

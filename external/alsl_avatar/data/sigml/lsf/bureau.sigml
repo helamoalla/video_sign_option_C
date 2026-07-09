@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="BUREAU">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamparbegin/>
+			<hamfinger23/>
+			<hamthumbacrossmod/>
+			<hamextfingerl/>
+			<hampalml/>
+			<hamplus/>
+			<hamfist/>
+			<hamthumbacrossmod/>
+			<hamextfingerr/>
+			<hampalmd/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamlrat/>
+			<hamchest/>
+			<hamseqbegin/>
+			<hamclose/>
+			<hamfingertip/>
+			<hamindexfinger/>
+			<hamseqend/>
+			<hamplus/>
+			<hamstomach/>
+			<hamlrat/>
+			<hamclose/>
+			<hamparend/>
+			<hamparbegin/>
+			<hammover/>
+			<hamsmallmod/>
+			<hamreplace/>
+			<hamfinger23/>
+			<hamthumbacrossmod/>
+			<hamfingerstraightmod/>
+			<hambetween/>
+			<hamfinger23/>
+			<hamthumbacrossmod/>
+			<hamparend/>
+			<hamrepeatcontinueseveral/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

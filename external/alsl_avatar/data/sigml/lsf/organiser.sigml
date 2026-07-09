@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="S OCCUPER DE">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfingerstraightmod/>
+			<hamlargemod/>
+			<hamfist/>
+			<hamthumbacrossmod/>
+			<hamparbegin/>
+			<hamextfingerl/>
+			<hampalmd/>
+			<hamplus/>
+			<hamextfingerr/>
+			<hampalmd/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamshoulders/>
+			<hamclose/>
+			<hamplus/>
+			<hamchest/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamcirclel/>
+			<hamclockl/>
+			<hamplus/>
+			<hamcirclel/>
+			<hamclockr/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

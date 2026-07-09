@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="GYMNASTIK1">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfist/>
+			<hamthumbacrossmod/>
+			<hamextfingerl/>
+			<hampalmd/>
+			<hamparbegin/>
+			<hamthumbside/>
+			<hamplus/>
+			<hampinkyside/>
+			<hamparend/>
+			<hamclose/>
+			<hammover/>
+			<hamsmallmod/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

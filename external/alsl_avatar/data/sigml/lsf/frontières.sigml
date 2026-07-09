@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="FRONTIERES">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamparbegin/>
+			<hamfinger2/>
+			<hamthumbacrossmod/>
+			<hamextfingeru/>
+			<hampalmu/>
+			<hamplus/>
+			<hamfinger23spread/>
+			<hamthumbacrossmod/>
+			<hamextfingeru/>
+			<hampalmr/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamhead/>
+			<hamlrat/>
+			<hamplus/>
+			<hamlrat/>
+			<hamshoulders/>
+			<hamparend/>
+			<hamreplace/>
+			<hamfinger2/>
+			<hamthumbacrossmod/>
+			<hamextfingerl/>
+			<hampalml/>
+			<hamparbegin/>
+			<hamfingermidjoint/>
+			<hamlrbeside/>
+			<hamplus/>
+			<hamfingermidjoint/>
+			<hamparend/>
+			<hamtouch/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

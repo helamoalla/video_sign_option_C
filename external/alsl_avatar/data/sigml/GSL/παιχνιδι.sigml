@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΠΑΙΧΝΙΔΙ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamflathand/>
+			<hamthumboutmod/>
+			<hamfingerbendmod/>
+			<hambetween/>
+			<hamflathand/>
+			<hamthumboutmod/>
+			<hamfingerstraightmod/>
+			<hamextfingerul/>
+			<hampalml/>
+			<hamchest/>
+			<hamlrat/>
+			<hamseqbegin/>
+			<hamtouch/>
+			<hamfingertip/>
+			<hamindexfinger/>
+			<hamseqend/>
+			<hamcircleol/>
+			<hambetween/>
+			<hamcircleo/>
+			<hamsmallmod/>
+			<hamrepeatfromstart/>
+			<hamplus/>
+			<hamsymmlr/>
+			<hamfinger2/>
+			<hamthumbacrossmod/>
+			<hamfingerhookmod/>
+			<hambetween/>
+			<hamfinger2/>
+			<hamthumbacrossmod/>
+			<hamextfingerul/>
+			<hampalmd/>
+			<hamshoulders/>
+			<hamclose/>
+			<hamparbegin/>
+			<hammover/>
+			<hamsmallmod/>
+			<hamreplace/>
+			<hamfinger2/>
+			<hamthumbacrossmod/>
+			<hamfingerhookmod/>
+			<hambetween/>
+			<hamfinger2/>
+			<hamthumbacrossmod/>
+			<hamfingerplay/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

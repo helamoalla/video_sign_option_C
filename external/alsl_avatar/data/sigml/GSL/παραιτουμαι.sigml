@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΠΑΡΑΙΤΟΥΜΑΙ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfinger2345/>
+			<hamthumboutmod/>
+			<hammiddlefinger/>
+			<hamfingerstraightmod/>
+			<hamextfingeru/>
+			<hampalmu/>
+			<hamchin/>
+			<hamclose/>
+			<hamparbegin/>
+			<hammoved/>
+			<hamfast/>
+			<hamhalt/>
+			<hamreplace/>
+			<hamextfingero/>
+			<hampalmdl/>
+			<hamchest/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

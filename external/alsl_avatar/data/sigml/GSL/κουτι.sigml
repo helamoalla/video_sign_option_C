@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΚΟΥΤΙ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamflathand/>
+			<hamextfingero/>
+			<hampalml/>
+			<hamshoulders/>
+			<hamlrat/>
+			<hamreplace/>
+			<hamextfingerl/>
+			<hampalml/>
+			<hamparbegin/>
+			<hamshoulders/>
+			<hamclose/>
+			<hamplus/>
+			<hamshoulders/>
+			<hamparend/>
+			<hamreplace/>
+			<hamextfingero/>
+			<hamshoulders/>
+			<hamlrat/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="medicine(n)#2">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hampinchall/>
+			<hamextfingeror/>
+			<hampalmdr/>
+			<hamplus/>
+			<hamfinger2/>
+			<hamthumbacrossmod/>
+			<hampinky/>
+			<hamextfingerdo/>
+			<hampalml/>
+			<haminterlock/>
+			<hamcirclel/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

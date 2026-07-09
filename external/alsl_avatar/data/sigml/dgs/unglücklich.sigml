@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="GLÜCK11A_NEG">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfist/>
+			<hamthumboutmod/>
+			<hamextfingeruo/>
+			<hampalmdl/>
+			<hamtouch/>
+			<hamparbegin/>
+			<hammover/>
+			<hamarcd/>
+			<hamreplace/>
+			<hamextfingerur/>
+			<hamparend/>
+			<hamseqbegin/>
+			<hamhead/>
+			<hamtwisting/>
+			<hamseqend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

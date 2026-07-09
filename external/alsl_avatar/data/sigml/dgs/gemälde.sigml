@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="VIERECK1-$SAM MALEN1">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfinger2/>
+			<hamextfingeruo/>
+			<hampalmdl/>
+			<hamtouch/>
+			<hamshoulders/>
+			<hammover/>
+			<hammoved/>
+			<hammovel/>
+			<hamtouch/>
+			<hamplus/>
+			<hamfinger23/>
+			<hamthumbacrossmod/>
+			<hamextfingerdo/>
+			<hamorirelative/>
+			<hampalmd/>
+			<hamshoulders/>
+			<hamlrat/>
+			<hammoved/>
+			<hamzigzag/>
+			<hamellipsev/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="FAIRE DE LA PUBLICITE">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfist/>
+			<hamthumbacrossmod/>
+			<hamfingerstraightmod/>
+			<hamparbegin/>
+			<hamextfingerol/>
+			<hamplus/>
+			<hamextfingeror/>
+			<hamparend/>
+			<hampalmu/>
+			<hamcircleo/>
+			<hamrepeatfromstartseveral/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΦΟΙΤΗΤΗΣ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger2/>
+			<hamthumbopenmod/>
+			<hamextfingeru/>
+			<hambetween/>
+			<hamextfingerul/>
+			<hampalmd/>
+			<hamcheek/>
+			<hamlrat/>
+			<hamseqbegin/>
+			<hamtouch/>
+			<hamfingertip/>
+			<hamthumb/>
+			<hamseqend/>
+			<hamseqbegin/>
+			<hamreplace/>
+			<hampinch12/>
+			<hamfingerstraightmod/>
+			<hamrepeatreverse/>
+			<hamseqend/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

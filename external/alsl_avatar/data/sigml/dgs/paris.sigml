@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="PARIS1">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfinger23spread/>
+			<hamextfingeruo/>
+			<hamextfingerol/>
+			<hampalmdl/>
+			<hamparbegin/>
+			<hammoveul/>
+			<hamlargemod/>
+			<hamarcd/>
+			<hamsmallmod/>
+			<hamreplace/>
+			<hamextfingerul/>
+			<hampalmd/>
+			<hamparend/>
+			<hamtouch/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

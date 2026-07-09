@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΙΟΥΛΙΟΣ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamflathand/>
+			<hamthumboutmod/>
+			<hamextfingeru/>
+			<hampalmd/>
+			<hamhead/>
+			<hamlrbeside/>
+			<hamclose/>
+			<hamseqbegin/>
+			<hamreplace/>
+			<hamflathand/>
+			<hamthumboutmod/>
+			<hamindexfinger/>
+			<hamdoublebent/>
+			<hammiddlefinger/>
+			<hamdoublebent/>
+			<hamringfinger/>
+			<hamdoublebent/>
+			<hampinky/>
+			<hamdoublebent/>
+			<hamseqend/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

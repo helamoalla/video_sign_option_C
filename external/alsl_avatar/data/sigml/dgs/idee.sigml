@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="IDEE2A">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger2/>
+			<hampinky/>
+			<hamextfingerul/>
+			<hampalmdl/>
+			<hamforehead/>
+			<hamlrbeside/>
+			<hamtouch/>
+			<hammoveor/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

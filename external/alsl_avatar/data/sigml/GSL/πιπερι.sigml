@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΠΙΠΕΡΙ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hampinch12open/>
+			<hamindexfinger/>
+			<hamextfingero/>
+			<hampalmd/>
+			<hamchest/>
+			<hamlrat/>
+			<hamparbegin/>
+			<hamcircled/>
+			<hamclockur/>
+			<hamtense/>
+			<hamfingerplay/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

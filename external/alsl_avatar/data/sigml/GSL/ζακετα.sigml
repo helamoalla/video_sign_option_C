@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΖΑΚΕΤΑ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hampinchall/>
+			<hamfingerstraightmod/>
+			<hamextfingerul/>
+			<hampalml/>
+			<hamshoulders/>
+			<hamlrat/>
+			<hamseqbegin/>
+			<hamtouch/>
+			<hammiddlefinger/>
+			<hamfingertip/>
+			<hamseqend/>
+			<hammovedl/>
+			<hamarcr/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

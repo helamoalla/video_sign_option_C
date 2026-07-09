@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="SE RAPPELER">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfist/>
+			<hamthumboutmod/>
+			<hamparbegin/>
+			<hamextfingerul/>
+			<hampalmdl/>
+			<hamplus/>
+			<hamextfingerur/>
+			<hambetween/>
+			<hamextfingerr/>
+			<hampalmur/>
+			<hambetween/>
+			<hampalmr/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamforehead/>
+			<hamlrat/>
+			<hamseqbegin/>
+			<hamtouch/>
+			<hamfingerpad/>
+			<hamthumb/>
+			<hamseqend/>
+			<hamplus/>
+			<hamshoulders/>
+			<hamclose/>
+			<hamparend/>
+			<hamparbegin/>
+			<hammovedo/>
+			<hamreplace/>
+			<hamextfingero/>
+			<hampalmdl/>
+			<hamfingerpad/>
+			<hamthumb/>
+			<hamtouch/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

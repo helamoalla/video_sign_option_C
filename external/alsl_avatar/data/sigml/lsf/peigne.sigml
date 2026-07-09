@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="PEIGNE">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger2/>
+			<hamfingerhookmod/>
+			<hamextfingeru/>
+			<hampalml/>
+			<hamear/>
+			<hamlrat/>
+			<hamparbegin/>
+			<hammovei/>
+			<hamsmallmod/>
+			<hamarcu/>
+			<hamparend/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

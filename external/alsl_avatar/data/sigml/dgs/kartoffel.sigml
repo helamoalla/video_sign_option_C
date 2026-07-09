@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="KARTOFFEL2A">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamparbegin/>
+			<hamfinger2/>
+			<hamfingerbendmod/>
+			<hamthumboutmod/>
+			<hamextfingerol/>
+			<hampalml/>
+			<hamplus/>
+			<hamfinger2/>
+			<hamfingerbendmod/>
+			<hamthumboutmod/>
+			<hamextfingeror/>
+			<hampalmur/>
+			<hamparend/>
+			<hamclose/>
+			<hamreplace/>
+			<hamextfingeruo/>
+			<hamextfingerol/>
+			<hampalmdl/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

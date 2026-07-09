@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="LIQUIDE">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmpar/>
+			<hamfinger2345/>
+			<hamthumboutmod/>
+			<hamparbegin/>
+			<hamextfingerl/>
+			<hampalmd/>
+			<hamplus/>
+			<hamextfingerr/>
+			<hampalmd/>
+			<hamparend/>
+			<hamshoulders/>
+			<hamseqbegin/>
+			<hamparbegin/>
+			<hammover/>
+			<hamfingerplay/>
+			<hamparend/>
+			<hamparbegin/>
+			<hammovel/>
+			<hamfingerplay/>
+			<hamparend/>
+			<hamseqend/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

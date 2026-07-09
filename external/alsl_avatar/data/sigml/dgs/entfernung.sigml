@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ENTFERNUNG1">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamparbegin/>
+			<hamflathand/>
+			<hamfingerstraightmod/>
+			<hamextfingero/>
+			<hampalml/>
+			<hamplus/>
+			<hamflathand/>
+			<hamfingerstraightmod/>
+			<hamextfingero/>
+			<hampalmr/>
+			<hamparend/>
+			<hamhandback/>
+			<hamtouch/>
+			<hammoveo/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

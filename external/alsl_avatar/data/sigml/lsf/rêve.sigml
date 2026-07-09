@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="REVE">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger23/>
+			<hamthumbacrossmod/>
+			<hamindexfinger/>
+			<hamfingernail/>
+			<hammiddlefinger/>
+			<hamextfingerul/>
+			<hampalmd/>
+			<hamforehead/>
+			<hamlrbeside/>
+			<hamtouch/>
+			<hamparbegin/>
+			<hammoveor/>
+			<hamcircleo/>
+			<hamsmallmod/>
+			<hamrepeatfromstart/>
+			<hamdecreasing/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

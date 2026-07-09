@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="town(n)#1">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hampinch12open/>
+			<hamextfingerol/>
+			<hambetween/>
+			<hamextfingero/>
+			<hampalml/>
+			<hamshoulders/>
+			<hamlrat/>
+			<hamcircleu/>
+			<hamsmallmod/>
+			<hamclocku/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ETRE DISPOSE A">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmpar/>
+			<hamflathand/>
+			<hamthumboutmod/>
+			<hamextfingero/>
+			<hampalml/>
+			<hamtouch/>
+			<hamparbegin/>
+			<hammoveo/>
+			<hamsmallmod/>
+			<hamplus/>
+			<hammovei/>
+			<hamsmallmod/>
+			<hamparend/>
+			<hamparbegin/>
+			<hammovei/>
+			<hamsmallmod/>
+			<hamplus/>
+			<hammoveo/>
+			<hamsmallmod/>
+			<hamparend/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

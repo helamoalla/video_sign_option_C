@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="cherry(n)#3">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger2345/>
+			<hamthumbacrossmod/>
+			<hamextfingerdl/>
+			<hampalml/>
+			<hamearlobe/>
+			<hamnodding/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

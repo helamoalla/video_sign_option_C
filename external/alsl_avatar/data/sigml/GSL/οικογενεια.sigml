@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΟΙΚΟΓΕΝΕΙΑ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfinger2/>
+			<hamthumboutmod/>
+			<hambetween/>
+			<hamfinger2/>
+			<hamthumboutmod/>
+			<hamfingerbendmod/>
+			<hamparbegin/>
+			<hamextfingeru/>
+			<hampalmd/>
+			<hamplus/>
+			<hamextfingeru/>
+			<hampalmd/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamthumb/>
+			<hamfingertip/>
+			<hamplus/>
+			<hamthumb/>
+			<hamfingertip/>
+			<hamparend/>
+			<hamtouch/>
+			<hamshouldertop/>
+			<hamclose/>
+			<hamparbegin/>
+			<hamcircleu/>
+			<hamsmallmod/>
+			<hamreplace/>
+			<hamextfingerol/>
+			<hampalml/>
+			<hamindexfinger/>
+			<hamfingertip/>
+			<hamtouch/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

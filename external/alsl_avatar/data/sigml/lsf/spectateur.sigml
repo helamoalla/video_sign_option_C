@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="SPECTATEUR">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamparbegin/>
+			<hamfinger23spread/>
+			<hamthumbacrossmod/>
+			<hamextfingeruo/>
+			<hampalmd/>
+			<hamplus/>
+			<hamfist/>
+			<hamthumbacrossmod/>
+			<hamextfingeror/>
+			<hampalmdr/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamshouldertop/>
+			<hamlrat/>
+			<hamplus/>
+			<hamchest/>
+			<hamlrat/>
+			<hambetween/>
+			<hamshoulders/>
+			<hamlrat/>
+			<hamparend/>
+			<hammoved/>
+			<hamfast/>
+			<hamparbegin/>
+			<hamthumbside/>
+			<hamplus/>
+			<hamwristback/>
+			<hampalm/>
+			<hamparend/>
+			<hamtouch/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="STUPIDE">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger23spread/>
+			<hamthumbacrossmod/>
+			<hambetween/>
+			<hamfinger23/>
+			<hamthumbacrossmod/>
+			<hamextfingeruo/>
+			<hampalml/>
+			<hamhead/>
+			<hamclose/>
+			<hamparbegin/>
+			<hammoveo/>
+			<hamfast/>
+			<hamreplace/>
+			<hamextfingeru/>
+			<hamforehead/>
+			<hamseqbegin/>
+			<hamtouch/>
+			<hamfingerbase/>
+			<hamthumb/>
+			<hamseqend/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

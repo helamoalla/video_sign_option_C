@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="KURVE1">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamflathand/>
+			<hamfingerstraightmod/>
+			<hamextfingeror/>
+			<hampalml/>
+			<hamparbegin/>
+			<hammoveo/>
+			<hamarcr/>
+			<hamreplace/>
+			<hamextfingerol/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

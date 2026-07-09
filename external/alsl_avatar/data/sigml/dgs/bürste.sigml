@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="BÜRSTEN2">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfist/>
+			<hamindexfinger/>
+			<hamfingerhookmod/>
+			<hamextfingeruo/>
+			<hamextfingerol/>
+			<hampalml/>
+			<hamheadtop/>
+			<hamlrat/>
+			<hamclose/>
+			<hamparbegin/>
+			<hammoveir/>
+			<hamsmallmod/>
+			<hamreplace/>
+			<hamextfingerui/>
+			<hamparend/>
+			<hamclose/>
+			<hamrepeatfromstartseveral/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

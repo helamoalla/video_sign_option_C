@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΣΚΟΝΗ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hampinchall/>
+			<hambetween/>
+			<hampinchall/>
+			<hamfingerstraightmod/>
+			<hamextfingero/>
+			<hampalmd/>
+			<hamstomach/>
+			<hamparbegin/>
+			<hamfingerplay/>
+			<hammoveu/>
+			<hamreplace/>
+			<hampinchall/>
+			<hamparend/>
+			<hamplus/>
+			<hamsymmlr/>
+			<hamflathand/>
+			<hamthumboutmod/>
+			<hambetween/>
+			<hamflathand/>
+			<hamthumboutmod/>
+			<hamfingerbendmod/>
+			<hamextfingero/>
+			<hampalmul/>
+			<hamshoulders/>
+			<hamlrat/>
+			<hammoveu/>
+			<hamtense/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

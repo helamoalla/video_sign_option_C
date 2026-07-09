@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="GROUPE">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamceeall/>
+			<hamextfingero/>
+			<hampalml/>
+			<hammover/>
+			<hamfingertip/>
+			<hammiddlefinger/>
+			<hamtouch/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="CAMION">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamceeall/>
+			<hamparbegin/>
+			<hamextfingeru/>
+			<hambetween/>
+			<hamextfingerul/>
+			<hampalml/>
+			<hambetween/>
+			<hampalmdr/>
+			<hamplus/>
+			<hamextfingeru/>
+			<hambetween/>
+			<hamextfingerur/>
+			<hampalmr/>
+			<hambetween/>
+			<hampalmdl/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamfingermidjoint/>
+			<hamindexfinger/>
+			<hamseqbegin/>
+			<hamtouch/>
+			<hamfingermidjoint/>
+			<hampinky/>
+			<hamseqend/>
+			<hamplus/>
+			<hamneck/>
+			<hamlrat/>
+			<hamparend/>
+			<hammovei/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

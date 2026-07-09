@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="POLIZEI2">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger2/>
+			<hamextfingeru/>
+			<hampalml/>
+			<hamforehead/>
+			<hamtouch/>
+			<hamparbegin/>
+			<hammovedl/>
+			<hamlrat/>
+			<hamshoulders/>
+			<hamtouch/>
+			<hamparend/>
+			<hamparbegin/>
+			<hammover/>
+			<hamshoulders/>
+			<hamlrat/>
+			<hamtouch/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

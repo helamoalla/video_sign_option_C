@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="DORF1B">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamparbegin/>
+			<hampinch12open/>
+			<hamextfingeruo/>
+			<hampalml/>
+			<hamplus/>
+			<hamflathand/>
+			<hamextfingeror/>
+			<hampalmu/>
+			<hamparend/>
+			<hampalm/>
+			<hamclose/>
+			<hammoved/>
+			<hamtouch/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΜΑΚΡΙΝΟΣ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger2/>
+			<hamthumbacrossmod/>
+			<hampinky/>
+			<hamextfingeruo/>
+			<hambetween/>
+			<hamextfingerul/>
+			<hampalmd/>
+			<hamlrat/>
+			<hamshouldertop/>
+			<hamclose/>
+			<hammovei/>
+			<hamhalt/>
+			<hamshouldertop/>
+			<hamlrat/>
+			<hamclose/>
+			<hammoveol/>
+			<hamtense/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

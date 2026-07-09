@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="TANZEN4">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamlargemod/>
+			<hamfingerstraightmod/>
+			<hamfinger2/>
+			<hamparbegin/>
+			<hamextfingerdl/>
+			<hampalmdl/>
+			<hamplus/>
+			<hamextfingerur/>
+			<hampalmur/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamshoulders/>
+			<hamplus/>
+			<hamchest/>
+			<hamparend/>
+			<hamcircled/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="MAIRE">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamceeall/>
+			<hamextfingerl/>
+			<hampalml/>
+			<hamlrat/>
+			<hamshouldertop/>
+			<hambetween/>
+			<hamneck/>
+			<hamseqbegin/>
+			<hamtouch/>
+			<hamfingertip/>
+			<hamthumb/>
+			<hamseqend/>
+			<hamparbegin/>
+			<hamreplace/>
+			<hamextfingerd/>
+			<hampalmd/>
+			<hambelowstomach/>
+			<hamlrat/>
+			<hamseqbegin/>
+			<hamtouch/>
+			<hamfingertip/>
+			<hamthumb/>
+			<hamseqend/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ETAGE">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamparbegin/>
+			<hamflathand/>
+			<hamfingerstraightmod/>
+			<hamextfingeru/>
+			<hampalml/>
+			<hamplus/>
+			<hamflathand/>
+			<hamthumboutmod/>
+			<hamfingerstraightmod/>
+			<hamextfingeru/>
+			<hampalmr/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamfingermidjoint/>
+			<hammiddlefinger/>
+			<hamplus/>
+			<hamfingertip/>
+			<hammiddlefinger/>
+			<hamparend/>
+			<hamtouch/>
+			<hamshoulders/>
+			<hammoveu/>
+			<hamsmallmod/>
+			<hamrepeatcontinueseveral/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

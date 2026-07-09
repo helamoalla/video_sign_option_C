@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ANPASSEN1">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamparbegin/>
+			<hamfinger23/>
+			<hamextfingerul/>
+			<hampalml/>
+			<hamplus/>
+			<hamfinger23/>
+			<hamextfingerur/>
+			<hampalmr/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamshoulders/>
+			<hamclose/>
+			<hamplus/>
+			<hamshoulders/>
+			<hamparend/>
+			<hammoveo/>
+			<hamseqbegin/>
+			<hamtouch/>
+			<hamfingerpad/>
+			<hamindexfinger/>
+			<hammiddlefinger/>
+			<hamseqend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

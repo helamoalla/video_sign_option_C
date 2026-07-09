@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="weigh(v)#3">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmpar/>
+			<hamflathand/>
+			<hamthumboutmod/>
+			<hamextfingero/>
+			<hampalmu/>
+			<hamparbegin/>
+			<hammoveu/>
+			<hammoved/>
+			<hammoved/>
+			<hammoveu/>
+			<hamplus/>
+			<hammoved/>
+			<hammoveu/>
+			<hammoveu/>
+			<hammoved/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="AVRIL">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hampinch12open/>
+			<hamfingerstraightmod/>
+			<hamextfingeru/>
+			<hampalml/>
+			<hamcheek/>
+			<hamtouch/>
+			<hamreplace/>
+			<hampinch12open/>
+			<hamindexfinger/>
+			<hamfingerstraightmod/>
+			<hamextfingeru/>
+			<hampalmu/>
+			<hamunderchin/>
+			<hamtouch/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

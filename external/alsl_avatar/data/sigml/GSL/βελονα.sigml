@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΒΕΛΟΝΑ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hampinch12open/>
+			<hamfingerstraightmod/>
+			<hambetween/>
+			<hampinch12open/>
+			<hamextfingeru/>
+			<hampalmd/>
+			<hamshoulders/>
+			<hamlrat/>
+			<hamswinging/>
+			<hamplus/>
+			<hampinch12open/>
+			<hamextfingeruo/>
+			<hampalmdl/>
+			<hamparbegin/>
+			<hamcircleol/>
+			<hamreplace/>
+			<hampalmul/>
+			<hamparend/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

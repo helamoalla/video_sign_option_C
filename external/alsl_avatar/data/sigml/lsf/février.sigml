@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="FEVRIER">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamflathand/>
+			<hamextfingeru/>
+			<hampalmu/>
+			<hamnose/>
+			<hambetween/>
+			<hamchin/>
+			<hamtouch/>
+			<hamparbegin/>
+			<hammoveo/>
+			<hamsmallmod/>
+			<hamreplace/>
+			<hamflathand/>
+			<hamfingerstraightmod/>
+			<hamparend/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

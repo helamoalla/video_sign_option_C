@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="COLLER">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfingerstraightmod/>
+			<hamlargemod/>
+			<hamfinger2345/>
+			<hamthumboutmod/>
+			<hamparbegin/>
+			<hamextfingeru/>
+			<hampalml/>
+			<hamplus/>
+			<hamextfingero/>
+			<hampalmr/>
+			<hamparend/>
+			<hammovel/>
+			<hamtense/>
+			<hampalm/>
+			<hamtouch/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

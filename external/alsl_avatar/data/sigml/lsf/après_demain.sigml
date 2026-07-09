@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="APRES DEMAIN">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamparbegin/>
+			<hamfist/>
+			<hamthumboutmod/>
+			<hamextfingeru/>
+			<hampalml/>
+			<hamplus/>
+			<hamlips/>
+			<hambetween/>
+			<hamcheek/>
+			<hamlrat/>
+			<hamtouch/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamreplace/>
+			<hamfist/>
+			<hamthumboutmod/>
+			<hamextfingerol/>
+			<hampalmdl/>
+			<hammoveo/>
+			<hamparend/>
+			<hamrepeatcontinue/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

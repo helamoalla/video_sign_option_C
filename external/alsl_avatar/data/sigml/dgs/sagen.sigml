@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="SAGEN1A">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger2/>
+			<hamextfingerul/>
+			<hampalml/>
+			<hamchin/>
+			<hamtouch/>
+			<hamparbegin/>
+			<hammovedo/>
+			<hamreplace/>
+			<hamextfingerol/>
+			<hampalmul/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="baffled(a)#1">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamparbegin/>
+			<hamfinger2345/>
+			<hamthumboutmod/>
+			<hamextfingerul/>
+			<hampalmr/>
+			<hamplus/>
+			<hamfinger2345/>
+			<hamextfingerur/>
+			<hampalml/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamhead/>
+			<hambetween/>
+			<hamshouldertop/>
+			<hamplus/>
+			<hamhead/>
+			<hambetween/>
+			<hamshouldertop/>
+			<hamparend/>
+			<hammovedl/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΣΤΡΑΤΙΩΤΗΣ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamparbegin/>
+			<hamflathand/>
+			<hamextfingerl/>
+			<hampalmd/>
+			<hamplus/>
+			<hamflathand/>
+			<hamextfingerr/>
+			<hampalmd/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamchest/>
+			<hambetween/>
+			<hamstomach/>
+			<hamclose/>
+			<hamplus/>
+			<hamshoulders/>
+			<hamclose/>
+			<hamparend/>
+			<hammovei/>
+			<hamtense/>
+			<hamfast/>
+			<hamrepeatfromstartseveral/>
+			<hammoveo/>
+			<hamsmallmod/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

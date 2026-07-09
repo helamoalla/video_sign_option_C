@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ARMOIRE">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfist/>
+			<hamthumbacrossmod/>
+			<hamextfingerl/>
+			<hampalml/>
+			<hamclose/>
+			<hamshouldertop/>
+			<hammoveir/>
+			<hamarcl/>
+			<hammoveol/>
+			<hamarcl/>
+			<hammoveir/>
+			<hamarcl/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

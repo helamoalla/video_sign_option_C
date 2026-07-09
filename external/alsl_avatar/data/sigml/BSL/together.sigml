@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="together(r)#5">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfinger2345/>
+			<hamthumboutmod/>
+			<hamextfingerul/>
+			<hampalmul/>
+			<hamshoulders/>
+			<hamparbegin/>
+			<hamcircled/>
+			<hamreplace/>
+			<hampinchall/>
+			<hamfingerstraightmod/>
+			<hamextfingero/>
+			<hampalmu/>
+			<hambetween/>
+			<hampalmul/>
+			<hamparend/>
+			<haminterlock/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

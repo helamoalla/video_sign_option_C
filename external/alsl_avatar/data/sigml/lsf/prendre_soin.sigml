@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="GUERIR">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfingerstraightmod/>
+			<hamlargemod/>
+			<hampinchall/>
+			<hamfingerstraightmod/>
+			<hamextfingeru/>
+			<hamparbegin/>
+			<hampalmd/>
+			<hambetween/>
+			<hampalml/>
+			<hamplus/>
+			<hampalmd/>
+			<hambetween/>
+			<hampalmr/>
+			<hamparend/>
+			<hamclose/>
+			<hamshoulders/>
+			<hamcirclei/>
+			<hamsmallmod/>
+			<hamtense/>
+			<hamrepeatfromstartseveral/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

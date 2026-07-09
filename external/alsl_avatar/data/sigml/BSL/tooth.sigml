@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="tooth(n)#1">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger2/>
+			<hamthumbacrossmod/>
+			<hamfingerbendmod/>
+			<hamextfingeru/>
+			<hampalmu/>
+			<hamlips/>
+			<hamclose/>
+			<hammovei/>
+			<hamteeth/>
+			<hamtouch/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

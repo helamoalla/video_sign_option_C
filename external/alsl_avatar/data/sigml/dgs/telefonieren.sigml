@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="TELEFONIEREN1">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger2/>
+			<hamthumboutmod/>
+			<hampinky/>
+			<hamextfingeru/>
+			<hampalml/>
+			<hamear/>
+			<hamlrat/>
+			<hamseqbegin/>
+			<hamclose/>
+			<hamthumb/>
+			<hamfingerpad/>
+			<hamseqend/>
+			<hammoveor/>
+			<hamarcu/>
+			<hamsmallmod/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

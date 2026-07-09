@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="$SPEZIAL-PLÖTZLICH1">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hampinch12open/>
+			<hamextfingero/>
+			<hampalml/>
+			<hamchest/>
+			<hamlrat/>
+			<hammoved/>
+			<hamsmallmod/>
+			<hamhalt/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

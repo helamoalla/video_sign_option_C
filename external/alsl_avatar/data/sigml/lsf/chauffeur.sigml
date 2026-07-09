@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="PERSONNE + CONDUIRE">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger2/>
+			<hamfingerbendmod/>
+			<hamthumboutmod/>
+			<hamextfingerur/>
+			<hampalml/>
+			<hamshouldertop/>
+			<hamlrat/>
+			<hamclose/>
+			<hammoved/>
+			<hamplus/>
+			<hamsymmlr/>
+			<hamlargemod/>
+			<hamfist/>
+			<hamthumbacrossmod/>
+			<hamextfingero/>
+			<hampalmul/>
+			<hamshoulders/>
+			<hamseqbegin/>
+			<hammoveu/>
+			<hamsmallmod/>
+			<hammoved/>
+			<hamsmallmod/>
+			<hamseqend/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

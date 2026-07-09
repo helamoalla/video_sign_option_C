@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΠΟΛΙΤΗΣ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger2345/>
+			<hamthumboutmod/>
+			<hamextfingeru/>
+			<hampalml/>
+			<hamchest/>
+			<hamseqbegin/>
+			<hamtouch/>
+			<hamthumb/>
+			<hamfingertip/>
+			<hamseqend/>
+			<hamreplace/>
+			<hamextfingeruo/>
+			<hamfast/>
+			<hamreplace/>
+			<hamextfingeru/>
+			<hamfast/>
+			<hamrepeatfromstart/>
+			<hamplus/>
+			<hamfinger2/>
+			<hamfingerhookmod/>
+			<hamthumb/>
+			<hamfingerstraightmod/>
+			<hamextfingeru/>
+			<hampalml/>
+			<hamshouldertop/>
+			<hamlrat/>
+			<hamswinging/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

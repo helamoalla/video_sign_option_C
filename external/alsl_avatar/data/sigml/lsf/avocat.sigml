@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="AVOCAT">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger2345/>
+			<hamthumbacrossmod/>
+			<hamextfingerol/>
+			<hampalmd/>
+			<hamshoulders/>
+			<hamclose/>
+			<hamparbegin/>
+			<hammovei/>
+			<hamreplace/>
+			<hamextfingerdo/>
+			<hampalmd/>
+			<hamchest/>
+			<hamseqbegin/>
+			<hamtouch/>
+			<hamfingerside/>
+			<hamindexfinger/>
+			<hamseqend/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

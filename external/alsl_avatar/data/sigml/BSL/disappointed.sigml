@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="defeated(a)#2">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger23/>
+			<hamthumbacrossmod/>
+			<hamextfingerul/>
+			<hampalml/>
+			<hammovel/>
+			<hamneck/>
+			<hamlrat/>
+			<hamtouch/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

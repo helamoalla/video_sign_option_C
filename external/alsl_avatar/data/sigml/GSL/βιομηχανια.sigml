@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΒΙΟΜΗΧΑΝΙΑ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamparbegin/>
+			<hamfinger2345/>
+			<hamthumboutmod/>
+			<hamextfingerl/>
+			<hampalml/>
+			<hamplus/>
+			<hamfinger2345/>
+			<hamthumboutmod/>
+			<hamextfingerr/>
+			<hampalmr/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamindexfinger/>
+			<hamfingernail/>
+			<hamlrat/>
+			<hamplus/>
+			<hamlrat/>
+			<hamindexfinger/>
+			<hamfingernail/>
+			<hamparend/>
+			<hamtouch/>
+			<hamshoulders/>
+			<hamparbegin/>
+			<hamcirclei/>
+			<hamclockfull/>
+			<hamplus/>
+			<hamcirclei/>
+			<hamclockfull/>
+			<hamparend/>
+			<hamplus/>
+			<hamsymmlr/>
+			<hamfinger2/>
+			<hamthumboutmod/>
+			<hambetween/>
+			<hamfinger2/>
+			<hamfingerbendmod/>
+			<hamthumboutmod/>
+			<hamextfingero/>
+			<hampalml/>
+			<hamshouldertop/>
+			<hamclose/>
+			<hammover/>
+			<hamtense/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

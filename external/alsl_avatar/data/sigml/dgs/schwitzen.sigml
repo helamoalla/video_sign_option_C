@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="SCHWITZEN2">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfinger2345/>
+			<hambetween/>
+			<hamfinger2345/>
+			<hamfingerstraightmod/>
+			<hamextfingeru/>
+			<hampalmd/>
+			<hamforehead/>
+			<hamlrat/>
+			<hamtouch/>
+			<hamparbegin/>
+			<hammoveuo/>
+			<hamreplace/>
+			<hamextfingeruo/>
+			<hamparend/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="SOUDAINEMENT">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamparbegin/>
+			<hamfist/>
+			<hamthumbacrossmod/>
+			<hamextfingeru/>
+			<hampalml/>
+			<hamplus/>
+			<hamflathand/>
+			<hamthumboutmod/>
+			<hamextfingerr/>
+			<hampalmur/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamshouldertop/>
+			<hamlrat/>
+			<hamclose/>
+			<hamplus/>
+			<hamchest/>
+			<hamparend/>
+			<hamparbegin/>
+			<hammovedo/>
+			<hamfast/>
+			<hamreplace/>
+			<hamflathand/>
+			<hamthumboutmod/>
+			<hamextfingero/>
+			<hambetween/>
+			<hamextfingeru/>
+			<hampalm/>
+			<hamseqbegin/>
+			<hamtouch/>
+			<hampinkyside/>
+			<hamseqend/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

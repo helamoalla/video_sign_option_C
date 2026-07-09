@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="passenger(n)#1">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamcee12/>
+			<hamextfingeror/>
+			<hampalml/>
+			<hamshoulders/>
+			<hambetween/>
+			<hamshouldertop/>
+			<hammoved/>
+			<hamstomach/>
+			<hambetween/>
+			<hamchest/>
+			<hamlrat/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

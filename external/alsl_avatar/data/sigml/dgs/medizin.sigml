@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="MEDIKAMENT1">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hampinch12/>
+			<hamextfingerul/>
+			<hampalml/>
+			<hamlips/>
+			<hamparbegin/>
+			<hammovei/>
+			<hamsmallmod/>
+			<hamreplace/>
+			<hamcee12/>
+			<hamfingerstraightmod/>
+			<hamthumbopenmod/>
+			<hamparend/>
+			<hamclose/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

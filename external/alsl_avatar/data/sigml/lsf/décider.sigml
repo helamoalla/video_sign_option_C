@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="DECIDER">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamflathand/>
+			<hamthumboutmod/>
+			<hamextfingerd/>
+			<hampalml/>
+			<hamchest/>
+			<hamclose/>
+			<hamparbegin/>
+			<hamreplace/>
+			<hamextfingero/>
+			<hammovedo/>
+			<hamsmallmod/>
+			<hamarcd/>
+			<hamhalt/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

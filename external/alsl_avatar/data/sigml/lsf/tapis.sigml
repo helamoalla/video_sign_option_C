@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="TAPIS">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamflathand/>
+			<hamthumbacrossmod/>
+			<hamfingerstraightmod/>
+			<hamextfingero/>
+			<hampalmd/>
+			<hamshoulders/>
+			<hamreplace/>
+			<hamextfingeru/>
+			<hammoved/>
+			<hamlargemod/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

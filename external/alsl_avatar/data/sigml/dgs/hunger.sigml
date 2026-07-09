@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="HUNGER1">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamflathand/>
+			<hamextfingerdo/>
+			<hamextfingerol/>
+			<hampalmul/>
+			<hamstomach/>
+			<hamlrat/>
+			<hamtouch/>
+			<hammovedl/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="PRETRE">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamceeall/>
+			<hamextfingerul/>
+			<hambetween/>
+			<hamextfingerl/>
+			<hampalml/>
+			<hamneck/>
+			<hambetween/>
+			<hamshoulders/>
+			<hamseqbegin/>
+			<hamtouch/>
+			<hamfingertip/>
+			<hamthumb/>
+			<hambetween/>
+			<hamfingertip/>
+			<hamindexfinger/>
+			<hamseqend/>
+			<hammoved/>
+			<hamsmallmod/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

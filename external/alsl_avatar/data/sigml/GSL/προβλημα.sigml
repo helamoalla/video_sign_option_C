@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΠΡΟΒΛΗΜΑ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmpar/>
+			<hamlargemod/>
+			<hampinch12/>
+			<hamfingerstraightmod/>
+			<hammiddlefinger/>
+			<hamfingerstraightmod/>
+			<hamextfingero/>
+			<hampalml/>
+			<hamparbegin/>
+			<hammoveu/>
+			<hamsmallmod/>
+			<hammoved/>
+			<hammoveu/>
+			<hammoved/>
+			<hammoveu/>
+			<hamplus/>
+			<hammoved/>
+			<hamsmallmod/>
+			<hammoveu/>
+			<hammoved/>
+			<hammoveu/>
+			<hammoved/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamchest/>
+			<hamplus/>
+			<hamchest/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

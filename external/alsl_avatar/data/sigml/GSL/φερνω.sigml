@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΦΕΡΝΩ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hampinchall/>
+			<hamfingerstraightmod/>
+			<hambetween/>
+			<hampinchall/>
+			<hamparbegin/>
+			<hamextfingeruo/>
+			<hamextfingeror/>
+			<hampalmul/>
+			<hamplus/>
+			<hamextfingeror/>
+			<hampalmur/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamshoulders/>
+			<hamlrbeside/>
+			<hamplus/>
+			<hamchest/>
+			<hamlrat/>
+			<hamclose/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamparbegin/>
+			<hamreplace/>
+			<hamextfingero/>
+			<hammoveir/>
+			<hamarcu/>
+			<hamhalt/>
+			<hamparend/>
+			<hamplus/>
+			<hamparbegin/>
+			<hamreplace/>
+			<hamextfingeror/>
+			<hambetween/>
+			<hamextfingero/>
+			<hampalmur/>
+			<hammoveir/>
+			<hamarcu/>
+			<hamparend/>
+			<hamparend/>
+			<hamchest/>
+			<hamclose/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

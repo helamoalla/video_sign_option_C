@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="MAIRIE">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamceeall/>
+			<hamextfingerl/>
+			<hampalml/>
+			<hamlrat/>
+			<hamshoulders/>
+			<hamtouch/>
+			<hamparbegin/>
+			<hammovedr/>
+			<hamlargemod/>
+			<hamarcr/>
+			<hamslow/>
+			<hamparend/>
+			<hamstomach/>
+			<hamlrat/>
+			<hamtouch/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

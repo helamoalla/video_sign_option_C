@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΣΤΟΜΑ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger2/>
+			<hamthumbacrossmod/>
+			<hamextfingerui/>
+			<hampalmd/>
+			<hamlips/>
+			<hamseqbegin/>
+			<hamclose/>
+			<hamfingernail/>
+			<hamindexfinger/>
+			<hamseqend/>
+			<hamcirclei/>
+			<hamsmallmod/>
+			<hamellipseh/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

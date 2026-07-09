@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="VACANCES">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfinger23spread/>
+			<hamthumbacrossmod/>
+			<hamextfingerul/>
+			<hampalml/>
+			<hamparbegin/>
+			<hamwristback/>
+			<hamseqbegin/>
+			<hamclose/>
+			<hamwristback/>
+			<hamseqend/>
+			<hamplus/>
+			<hamshoulders/>
+			<hamseqbegin/>
+			<hamclose/>
+			<hamwristback/>
+			<hamseqend/>
+			<hamparend/>
+			<hammovei/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

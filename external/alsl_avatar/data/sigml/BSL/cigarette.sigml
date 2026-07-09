@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="cigarette(n)#1">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger2345/>
+			<hamthumbacrossmod/>
+			<hamthumb/>
+			<hamfingerbendmod/>
+			<hamringfinger/>
+			<hamfingerbendmod/>
+			<hampinky/>
+			<hamfingerbendmod/>
+			<hamextfingerul/>
+			<hampalml/>
+			<hamteeth/>
+			<hambetween/>
+			<hamunderchin/>
+			<hamclose/>
+			<hamparbegin/>
+			<hamnodding/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

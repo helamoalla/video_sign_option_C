@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΑΤΥΧΟΣ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger2/>
+			<hamthumbacrossmod/>
+			<hamextfingeri/>
+			<hambetween/>
+			<hamextfingerul/>
+			<hampalmdr/>
+			<hamshoulders/>
+			<hamlrat/>
+			<hamclose/>
+			<hammovei/>
+			<hambetween/>
+			<hammoveil/>
+			<hamunderchin/>
+			<hamlrbeside/>
+			<hambetween/>
+			<hamneck/>
+			<hamlrat/>
+			<hamseqbegin/>
+			<hamtouch/>
+			<hamfingermidjoint/>
+			<hamindexfinger/>
+			<hampalm/>
+			<hamseqend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

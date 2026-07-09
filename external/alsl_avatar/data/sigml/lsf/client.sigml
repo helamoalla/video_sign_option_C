@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="CLIENT">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger2/>
+			<hamfingerhookmod/>
+			<hambetween/>
+			<hamfinger2/>
+			<hamextfingerui/>
+			<hampalmdl/>
+			<hamchin/>
+			<hamseqbegin/>
+			<hamclose/>
+			<hamfingertip/>
+			<hamindexfinger/>
+			<hamseqend/>
+			<hamparbegin/>
+			<hammoveui/>
+			<hamfast/>
+			<hamchin/>
+			<hamseqbegin/>
+			<hamtouch/>
+			<hamfingertip/>
+			<hamindexfinger/>
+			<hamseqend/>
+			<hamparend/>
+			<hamrepeatfromstartseveral/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

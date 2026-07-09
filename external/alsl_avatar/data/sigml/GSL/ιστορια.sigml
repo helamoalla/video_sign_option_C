@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΙΣΤΟΡΙΑ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamparbegin/>
+			<hampinch12open/>
+			<hamfingerstraightmod/>
+			<hamextfingeru/>
+			<hampalmdl/>
+			<hamplus/>
+			<hampinch12open/>
+			<hamfingerstraightmod/>
+			<hamextfingeror/>
+			<hampalmr/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamthumb/>
+			<hamindexfinger/>
+			<hamplus/>
+			<hamthumb/>
+			<hamindexfinger/>
+			<hamparend/>
+			<hamtouch/>
+			<hamparbegin/>
+			<hammover/>
+			<hamparbegin/>
+			<hamparbegin/>
+			<hamreplace/>
+			<hamextfingeruo/>
+			<hampalmdl/>
+			<hamparend/>
+			<hamrepeatfromstart/>
+			<hamplus/>
+			<hamparbegin/>
+			<hamparbegin/>
+			<hamreplace/>
+			<hamextfingeruo/>
+			<hamparend/>
+			<hamrepeatfromstart/>
+			<hamparend/>
+			<hamparend/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

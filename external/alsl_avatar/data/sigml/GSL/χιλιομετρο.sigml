@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΧΙΛΙΟΜΕΤΡΟ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger2/>
+			<hamthumbacrossmod/>
+			<hamextfingeru/>
+			<hampalmu/>
+			<hamshoulders/>
+			<hamlrat/>
+			<hamclose/>
+			<hammoveo/>
+			<hamsmallmod/>
+			<hamhalt/>
+			<hamplus/>
+			<hamsymmlr/>
+			<hampinch12open/>
+			<hamfingerstraightmod/>
+			<hambetween/>
+			<hampinch12open/>
+			<hamparbegin/>
+			<hamextfingero/>
+			<hampalml/>
+			<hamplus/>
+			<hamextfingeru/>
+			<hampalmdr/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamthumb/>
+			<hamfingertip/>
+			<hamplus/>
+			<hamthumb/>
+			<hamfingertip/>
+			<hamparend/>
+			<hamtouch/>
+			<hamchest/>
+			<hamparbegin/>
+			<hammoveo/>
+			<hamplus/>
+			<hamnomotion/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

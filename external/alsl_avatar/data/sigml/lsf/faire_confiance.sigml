@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="FAIRE CONFIANCE">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamflathand/>
+			<hamthumbacrossmod/>
+			<hambetween/>
+			<hamflathand/>
+			<hamthumbacrossmod/>
+			<hamfingerstraightmod/>
+			<hamextfingerul/>
+			<hampalmd/>
+			<hamparbegin/>
+			<hamforehead/>
+			<hamlrat/>
+			<hamtouch/>
+			<hamplus/>
+			<hamlrat/>
+			<hamunderchin/>
+			<hamtouch/>
+			<hamparend/>
+			<hamparbegin/>
+			<hammoveo/>
+			<hamlargemod/>
+			<hamreplace/>
+			<hamflathand/>
+			<hamthumbacrossmod/>
+			<hamfingerstraightmod/>
+			<hamparbegin/>
+			<hamextfingeru/>
+			<hampalml/>
+			<hamplus/>
+			<hamextfingeruo/>
+			<hampalmr/>
+			<hamparend/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

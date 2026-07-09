@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="TRICOTER">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfinger2/>
+			<hamthumbacrossmod/>
+			<hamextfingerul/>
+			<hamparbegin/>
+			<hampalmdr/>
+			<hamplus/>
+			<hampalmur/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamfingerpad/>
+			<hamindexfinger/>
+			<hamplus/>
+			<hamfingerpad/>
+			<hamindexfinger/>
+			<hamparend/>
+			<hamtouch/>
+			<hamshoulders/>
+			<hamreplace/>
+			<hampalmdl/>
+			<hamrepeatcontinueseveral/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

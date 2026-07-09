@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="PEINDRE">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger23/>
+			<hamthumbacrossmod/>
+			<hamextfingeru/>
+			<hampalmd/>
+			<hamshouldertop/>
+			<hamlrat/>
+			<hamparbegin/>
+			<hammoved/>
+			<hamlargemod/>
+			<hamtense/>
+			<hamreplace/>
+			<hamextfingerd/>
+			<hamparend/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

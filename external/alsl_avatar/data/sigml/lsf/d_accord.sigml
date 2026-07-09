@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="D ACCORD">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfist/>
+			<hamextfingeru/>
+			<hampalml/>
+			<hamshouldertop/>
+			<hamparbegin/>
+			<hammovedl/>
+			<hamreplace/>
+			<hamextfingerl/>
+			<hampalmd/>
+			<hamparend/>
+			<hamparbegin/>
+			<hammoveu/>
+			<hamreplace/>
+			<hamextfingeru/>
+			<hampalml/>
+			<hamshouldertop/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

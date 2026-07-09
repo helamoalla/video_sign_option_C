@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="SCHMUTZIG2">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger2/>
+			<hamextfingerui/>
+			<hamextfingeril/>
+			<hampalmdl/>
+			<hamneck/>
+			<hamlrat/>
+			<hamtouch/>
+			<hamreplace/>
+			<hampalmdr/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

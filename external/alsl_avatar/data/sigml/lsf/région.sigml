@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="REGION">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamparbegin/>
+			<hamfinger23/>
+			<hamthumbacrossmod/>
+			<hamindexfinger/>
+			<hamfingernail/>
+			<hammiddlefinger/>
+			<hamplus/>
+			<hamflathand/>
+			<hamthumboutmod/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamextfingeruo/>
+			<hampalmd/>
+			<hamplus/>
+			<hamextfingeruo/>
+			<hampalmu/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamchest/>
+			<hamclose/>
+			<hamplus/>
+			<hamstomach/>
+			<hamclose/>
+			<hamparend/>
+			<hamcircledo/>
+			<hamclockl/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

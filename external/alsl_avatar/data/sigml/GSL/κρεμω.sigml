@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΚΡΕΜΩ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger2/>
+			<hamfingerhookmod/>
+			<hamextfingerol/>
+			<hampalml/>
+			<hamshouldertop/>
+			<hamlrat/>
+			<hamclose/>
+			<hammoveu/>
+			<hamhalt/>
+			<hamlargemod/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

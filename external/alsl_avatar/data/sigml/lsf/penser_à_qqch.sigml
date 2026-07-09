@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="PENSER A QQCH">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger2/>
+			<hamthumbacrossmod/>
+			<hamextfingerui/>
+			<hampalmd/>
+			<hamforehead/>
+			<hamlrat/>
+			<hamtouch/>
+			<hammoveor/>
+			<hambetween/>
+			<hammoveu/>
+			<hamplus/>
+			<hamparbegin/>
+			<hamfinger2/>
+			<hamthumbacrossmod/>
+			<hamextfingerol/>
+			<hampalmd/>
+			<hamplus/>
+			<hamfinger2/>
+			<hamthumbacrossmod/>
+			<hamextfingeror/>
+			<hampalmd/>
+			<hamparend/>
+			<hamtouch/>
+			<hamshoulders/>
+			<hamcirclei/>
+			<hamsmallmod/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="WASCHEN-HÄNDE1A BECKEN1A">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamlargemod/>
+			<hamfingerstraightmod/>
+			<hamflathand/>
+			<hamextfingero/>
+			<hampalml/>
+			<hamtouch/>
+			<hamseqbegin/>
+			<hammoveo/>
+			<hamsmallmod/>
+			<hammovei/>
+			<hamsmallmod/>
+			<hamseqend/>
+			<hamrepeatfromstart/>
+			<hamplus/>
+			<hamsymmlr/>
+			<hamflathand/>
+			<hamfingerbendmod/>
+			<hamextfingero/>
+			<hampalmu/>
+			<hamtouch/>
+			<hamparbegin/>
+			<hammoveur/>
+			<hamarcd/>
+			<hamreplace/>
+			<hampalml/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

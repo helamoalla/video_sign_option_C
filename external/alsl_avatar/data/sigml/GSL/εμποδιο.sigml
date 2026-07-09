@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΕΜΠΟΔΙΟ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger23/>
+			<hamthumbacrossmod/>
+			<hambetween/>
+			<hamfinger23spread/>
+			<hamthumbacrossmod/>
+			<hamextfingerui/>
+			<hambetween/>
+			<hamextfingeri/>
+			<hampalmd/>
+			<hamneck/>
+			<hamtouch/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

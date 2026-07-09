@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΒΡΟΜΙΚΟΣ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hampinch12open/>
+			<hamfingerstraightmod/>
+			<hamextfingerl/>
+			<hampalmdl/>
+			<hamnose/>
+			<hamlrat/>
+			<hamclose/>
+			<hamparbegin/>
+			<hammovedo/>
+			<hamlargemod/>
+			<hamtense/>
+			<hamreplace/>
+			<hamfinger2345/>
+			<hamthumboutmod/>
+			<hambetween/>
+			<hamflathand/>
+			<hamextfingerol/>
+			<hampalmd/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

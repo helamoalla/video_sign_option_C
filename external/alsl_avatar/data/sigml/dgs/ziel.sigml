@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ZIEL1B">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamparbegin/>
+			<hamfinger2/>
+			<hamextfingeruo/>
+			<hampalmdl/>
+			<hamplus/>
+			<hamfinger2/>
+			<hamextfingeruo/>
+			<hampalmu/>
+			<hamparend/>
+			<hammoveo/>
+			<hamtouch/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

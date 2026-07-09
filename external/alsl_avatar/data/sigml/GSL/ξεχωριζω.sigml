@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΞΕΧΩΡΙΖΩ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfinger2345/>
+			<hamthumboutmod/>
+			<hambetween/>
+			<hamfinger2345/>
+			<hamthumbopenmod/>
+			<hamfingerhookmod/>
+			<hamextfingero/>
+			<hampalmd/>
+			<hamtouch/>
+			<hamparbegin/>
+			<hammoveir/>
+			<hamsmallmod/>
+			<hamplus/>
+			<hammoveol/>
+			<hamsmallmod/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

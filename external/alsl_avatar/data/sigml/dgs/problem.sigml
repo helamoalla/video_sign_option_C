@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="PROBLEM2">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hampinchall/>
+			<hamparbegin/>
+			<hamextfingeruo/>
+			<hampalml/>
+			<hamplus/>
+			<hamextfingero/>
+			<hampalmr/>
+			<hamparend/>
+			<hamfingertip/>
+			<hamclose/>
+			<hamseqbegin/>
+			<hammovel/>
+			<hamsmallmod/>
+			<hamtouch/>
+			<hamparbegin/>
+			<hammover/>
+			<hamsmallmod/>
+			<hamreplace/>
+			<hamparbegin/>
+			<hamextfingero/>
+			<hamplus/>
+			<hamextfingeruo/>
+			<hamparend/>
+			<hamparend/>
+			<hammovel/>
+			<hamsmallmod/>
+			<hamtouch/>
+			<hamseqend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

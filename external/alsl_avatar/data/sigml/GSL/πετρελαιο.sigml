@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΠΕΤΡΕΛΑΙΟ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfist/>
+			<hamthumboutmod/>
+			<hamextfingerul/>
+			<hambetween/>
+			<hamextfingerl/>
+			<hampalmr/>
+			<hamshoulders/>
+			<hamlrat/>
+			<hammovedl/>
+			<hamsmallmod/>
+			<hamfast/>
+			<hamrepeatfromstartseveral/>
+			<hamplus/>
+			<hamsymmlr/>
+			<hamfinger2345/>
+			<hamthumbopenmod/>
+			<hambetween/>
+			<hamfinger2345/>
+			<hamfingerbendmod/>
+			<hamthumboutmod/>
+			<hamextfingero/>
+			<hampalmu/>
+			<hamstomach/>
+			<hammoveu/>
+			<hamsmallmod/>
+			<hamhalt/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

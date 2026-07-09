@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="FIL + ELECTRICITE">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hampinch12open/>
+			<hamextfingero/>
+			<hampalml/>
+			<hamparbegin/>
+			<hamfingerpad/>
+			<hamthumb/>
+			<hamplus/>
+			<hamfingerpad/>
+			<hamthumb/>
+			<hamparend/>
+			<hamtouch/>
+			<hamchest/>
+			<hammover/>
+			<hamplus/>
+			<hamsymmlr/>
+			<hamfinger2/>
+			<hamfingerhookmod/>
+			<hamthumbacrossmod/>
+			<hamextfingeru/>
+			<hampalml/>
+			<hamchest/>
+			<hammovel/>
+			<hamthumbball/>
+			<hamclose/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="DRUCK1A">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmpar/>
+			<hamparbegin/>
+			<hamfist/>
+			<hamextfingerol/>
+			<hampalml/>
+			<hamplus/>
+			<hamflathand/>
+			<hamextfingeror/>
+			<hampalmur/>
+			<hamparend/>
+			<hampalm/>
+			<hamtouch/>
+			<hammovedo/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="zero(n)#2">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hampinchall/>
+			<hamextfingeru/>
+			<hampalml/>
+			<hamlips/>
+			<hammoveo/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

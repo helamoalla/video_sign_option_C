@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΖΩΓΡΑΦΙΑ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamcee12/>
+			<hamthumbacrossmod/>
+			<hamfingerstraightmod/>
+			<hamindexfinger/>
+			<hammiddlefinger/>
+			<hamlargemod/>
+			<hamextfingeruo/>
+			<hampalmu/>
+			<hamhead/>
+			<hamlrat/>
+			<hamclose/>
+			<hammoved/>
+			<hamwavy/>
+			<hamsmallmod/>
+			<hamellipseh/>
+			<hamchest/>
+			<hamlrat/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

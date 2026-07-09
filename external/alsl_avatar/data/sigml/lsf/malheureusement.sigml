@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="MALHEUREUSEMENT">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hampinchall/>
+			<hambetween/>
+			<hampinchall/>
+			<hamfingerstraightmod/>
+			<hamextfingerol/>
+			<hampalmul/>
+			<hamparbegin/>
+			<hamfingermidjoint/>
+			<hammiddlefinger/>
+			<hamplus/>
+			<hamfingermidjoint/>
+			<hammiddlefinger/>
+			<hamparend/>
+			<hamtouch/>
+			<hamshoulders/>
+			<hamcircleo/>
+			<hamsmallmod/>
+			<hamrepeatfromstartseveral/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

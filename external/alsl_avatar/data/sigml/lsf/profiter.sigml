@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="PROFITER">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamceeopen/>
+			<hamfingerstraightmod/>
+			<hamextfingeru/>
+			<hampalmdl/>
+			<hamshouldertop/>
+			<hamlrat/>
+			<hamclose/>
+			<hamreplace/>
+			<hampinch12open/>
+			<hamfingerstraightmod/>
+			<hampalmu/>
+			<hamchin/>
+			<hamseqbegin/>
+			<hamtouch/>
+			<hamfingertip/>
+			<hamindexfinger/>
+			<hamseqend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

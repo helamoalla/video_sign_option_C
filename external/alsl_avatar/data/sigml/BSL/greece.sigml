@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="greece(n)#1">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmpar/>
+			<hampinchall/>
+			<hamextfingero/>
+			<hampalmu/>
+			<hamchest/>
+			<hambetween/>
+			<hamshoulders/>
+			<hamseqbegin/>
+			<hammoved/>
+			<hamsmallmod/>
+			<hammoveu/>
+			<hamsmallmod/>
+			<hammoved/>
+			<hamsmallmod/>
+			<hamseqend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

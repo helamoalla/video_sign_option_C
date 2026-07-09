@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="CEINTURE">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfinger2/>
+			<hamthumboutmod/>
+			<hamfingerbendmod/>
+			<hamextfingerdl/>
+			<hampalml/>
+			<hambelowstomach/>
+			<hamlrbeside/>
+			<hamseqbegin/>
+			<hamtouch/>
+			<hamfingertip/>
+			<hamindexfinger/>
+			<hamseqend/>
+			<hamparbegin/>
+			<hammovel/>
+			<hamarcr/>
+			<hamlargemod/>
+			<hamthumbside/>
+			<hamtouch/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

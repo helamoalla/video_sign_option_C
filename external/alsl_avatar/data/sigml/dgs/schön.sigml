@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="SCHÖN1">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamceeall/>
+			<hamfingerstraightmod/>
+			<hamextfingerul/>
+			<hampalmul/>
+			<hamcheek/>
+			<hambetween/>
+			<hamchin/>
+			<hamtouch/>
+			<hamparbegin/>
+			<hammoved/>
+			<hamreplace/>
+			<hampinchall/>
+			<hamfingerstraightmod/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΦΟΥΡΝΟΣ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamflathand/>
+			<hamthumboutmod/>
+			<hambetween/>
+			<hamflathand/>
+			<hamparbegin/>
+			<hamextfingerol/>
+			<hamplus/>
+			<hamextfingeror/>
+			<hamparend/>
+			<hampalmu/>
+			<hamchest/>
+			<hamclose/>
+			<hamparbegin/>
+			<hammoveol/>
+			<hamhalt/>
+			<hamplus/>
+			<hamparbegin/>
+			<hammoveol/>
+			<hamreplace/>
+			<hamextfingero/>
+			<hamparend/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

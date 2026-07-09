@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="DESOLE">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfist/>
+			<hamthumbacrossmod/>
+			<hamextfingerul/>
+			<hampalmd/>
+			<hamlrat/>
+			<hamshoulders/>
+			<hambetween/>
+			<hamshoulders/>
+			<hamseqbegin/>
+			<hamtouch/>
+			<hamfingerside/>
+			<hamindexfinger/>
+			<hamseqend/>
+			<hamcirclei/>
+			<hamsmallmod/>
+			<hamclocku/>
+			<hamslow/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

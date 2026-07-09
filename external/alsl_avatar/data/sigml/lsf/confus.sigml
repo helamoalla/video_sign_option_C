@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="CONFUS">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmpar/>
+			<hamfingerstraightmod/>
+			<hamlargemod/>
+			<hamparbegin/>
+			<hamfinger2345/>
+			<hamthumboutmod/>
+			<hamextfingerul/>
+			<hampalml/>
+			<hamplus/>
+			<hamfinger2345/>
+			<hamthumboutmod/>
+			<hamextfingerur/>
+			<hampalmr/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamhead/>
+			<hamlrat/>
+			<hambetween/>
+			<hamforehead/>
+			<hamclose/>
+			<hamplus/>
+			<hamlrat/>
+			<hamhead/>
+			<hambetween/>
+			<hamunderchin/>
+			<hamclose/>
+			<hamparend/>
+			<hamcirclei/>
+			<hamsmallmod/>
+			<hamellipsev/>
+			<hamrepeatfromstartseveral/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

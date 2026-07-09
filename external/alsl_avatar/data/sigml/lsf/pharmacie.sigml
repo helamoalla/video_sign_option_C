@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="PHARMACIE">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger23/>
+			<hamthumbacrossmod/>
+			<hamparbegin/>
+			<hamextfingeru/>
+			<hampalmu/>
+			<hamplus/>
+			<hamextfingerr/>
+			<hampalmr/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamshoulders/>
+			<hamlrat/>
+			<hambetween/>
+			<hamshoulders/>
+			<hamseqbegin/>
+			<hamclose/>
+			<hamfingermidjoint/>
+			<hamindexfinger/>
+			<hamseqend/>
+			<hamplus/>
+			<hamshoulders/>
+			<hamparend/>
+			<hammoveo/>
+			<hamlrat/>
+			<hamfingerside/>
+			<hamindexfinger/>
+			<hamseqbegin/>
+			<hamtouch/>
+			<hamfingerside/>
+			<hamindexfinger/>
+			<hamlrat/>
+			<hamseqend/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

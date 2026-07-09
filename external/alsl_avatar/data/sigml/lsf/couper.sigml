@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="DECOUPER">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger23spread/>
+			<hamextfingero/>
+			<hampalml/>
+			<hamchest/>
+			<hamlrat/>
+			<hamclose/>
+			<hamparbegin/>
+			<hammoveo/>
+			<hamreplace/>
+			<hamfinger23/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

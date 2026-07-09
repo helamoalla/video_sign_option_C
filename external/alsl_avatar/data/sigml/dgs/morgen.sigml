@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="MORGEN2">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamflathand/>
+			<hamextfingerl/>
+			<hampalml/>
+			<hamhandback/>
+			<hamtouch/>
+			<hamparbegin/>
+			<hammoveur/>
+			<hamarcu/>
+			<hamreplace/>
+			<hamextfingeru/>
+			<hampalmu/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

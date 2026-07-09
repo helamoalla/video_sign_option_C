@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="PERSONNE + VISITE">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger2/>
+			<hamfingerbendmod/>
+			<hamthumboutmod/>
+			<hamextfingerur/>
+			<hampalml/>
+			<hamshouldertop/>
+			<hamlrat/>
+			<hamclose/>
+			<hammoved/>
+			<hamplus/>
+			<hamsymmpar/>
+			<hamparbegin/>
+			<hamfinger23spread/>
+			<hamthumbacrossmod/>
+			<hambetween/>
+			<hamfinger23spread/>
+			<hamthumbopenmod/>
+			<hamextfingeru/>
+			<hampalmd/>
+			<hamplus/>
+			<hamfinger2/>
+			<hamextfingerr/>
+			<hampalmr/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamfingerpad/>
+			<hamindexfinger/>
+			<hamplus/>
+			<hamwristback/>
+			<hamparend/>
+			<hamtouch/>
+			<hamparbegin/>
+			<hammover/>
+			<hamsmallmod/>
+			<hamrepeatcontinueseveral/>
+			<hamreplace/>
+			<hamparbegin/>
+			<hamextfingero/>
+			<hampalmd/>
+			<hamplus/>
+			<hamnomotion/>
+			<hamparend/>
+			<hamrepeatfromstartseveral/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="CHEQUE">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamcee12/>
+			<hamextfingerol/>
+			<hampalml/>
+			<hamtouch/>
+			<hamchest/>
+			<hamreplace/>
+			<hamextfingero/>
+			<hampalmd/>
+			<hamclose/>
+			<hamstomach/>
+			<hambetween/>
+			<hamchest/>
+			<hammover/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

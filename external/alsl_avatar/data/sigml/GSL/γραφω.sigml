@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΓΡΑΦΩ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamparbegin/>
+			<hampinch12/>
+			<hamfingerstraightmod/>
+			<hamextfingerul/>
+			<hampalmd/>
+			<hamplus/>
+			<hamflathand/>
+			<hamthumboutmod/>
+			<hamextfingeror/>
+			<hampalmur/>
+			<hamparend/>
+			<hamparbegin/>
+			<hammovel/>
+			<hampalm/>
+			<hamclose/>
+			<hamparbegin/>
+			<hammoveor/>
+			<hamsmallmod/>
+			<hamarcl/>
+			<hamsmallmod/>
+			<hamparend/>
+			<hamrepeatfromstartseveral/>
+			<hamplus/>
+			<hamnomotion/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

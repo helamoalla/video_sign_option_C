@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="DETRUIRE">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamparbegin/>
+			<hamfist/>
+			<hamthumboutmod/>
+			<hamextfingero/>
+			<hampalmd/>
+			<hamplus/>
+			<hamflathand/>
+			<hamthumboutmod/>
+			<hamextfingero/>
+			<hampalmu/>
+			<hamparend/>
+			<hamparbegin/>
+			<hampalm/>
+			<hamplus/>
+			<hamfingermidjoint/>
+			<hammiddlefinger/>
+			<hamhandback/>
+			<hamparend/>
+			<hamtouch/>
+			<hamshoulders/>
+			<hammoveo/>
+			<hamlargemod/>
+			<hamtense/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

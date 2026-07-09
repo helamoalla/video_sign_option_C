@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΒΑΡΚΑ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamflathand/>
+			<hamextfingero/>
+			<hampalmul/>
+			<hampinky/>
+			<hamtouch/>
+			<hamparbegin/>
+			<hammoveo/>
+			<hamsmallmod/>
+			<hamwavy/>
+			<hamsmallmod/>
+			<hamellipsev/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

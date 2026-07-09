@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΠΑΚΕΤΟ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamflathand/>
+			<hamthumbopenmod/>
+			<hambetween/>
+			<hamflathand/>
+			<hamthumbopenmod/>
+			<hamfingerhookmod/>
+			<hamextfingeru/>
+			<hampalmdl/>
+			<hamchest/>
+			<hamlrat/>
+			<hammovel/>
+			<hamlargemod/>
+			<hamarcu/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

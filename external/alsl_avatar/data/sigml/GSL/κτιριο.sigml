@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΚΤΙΡΙΟ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamflathand/>
+			<hamextfingerul/>
+			<hampalmd/>
+			<hamshouldertop/>
+			<hammoveul/>
+			<hammiddlefinger/>
+			<hamfingertip/>
+			<hamtouch/>
+			<hamrepeatfromstart/>
+			<hamplus/>
+			<hamsymmlr/>
+			<hamcee12/>
+			<hamthumbopenmod/>
+			<hamextfingero/>
+			<hampalml/>
+			<hamtouch/>
+			<hamshoulders/>
+			<hammover/>
+			<hamsmallmod/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

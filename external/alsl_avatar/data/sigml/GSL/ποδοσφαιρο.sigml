@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΠΟΔΟΣΦΑΙΡΟ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamparbegin/>
+			<hamfist/>
+			<hamthumbacrossmod/>
+			<hamextfingerd/>
+			<hampalmdr/>
+			<hamplus/>
+			<hamfist/>
+			<hamthumbacrossmod/>
+			<hamextfingeror/>
+			<hampalmd/>
+			<hamparend/>
+			<hamparbegin/>
+			<hambelowstomach/>
+			<hamlrat/>
+			<hamclose/>
+			<hamplus/>
+			<hamchest/>
+			<hamparend/>
+			<hamparbegin/>
+			<hammoveul/>
+			<hambetween/>
+			<hammoveuo/>
+			<hamarcd/>
+			<hamsmallmod/>
+			<hamreplace/>
+			<hamextfingerul/>
+			<hamparend/>
+			<hamparbegin/>
+			<hampalm/>
+			<hamplus/>
+			<hamwristback/>
+			<hamhandback/>
+			<hamparend/>
+			<hamclose/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

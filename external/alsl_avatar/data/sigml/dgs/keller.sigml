@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="KELLER1">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger2/>
+			<hamfingerstraightmod/>
+			<hamextfingerol/>
+			<hampalmd/>
+			<hammoved/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

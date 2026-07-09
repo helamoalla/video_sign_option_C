@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="JAHR2A $NUM-HUNDERTER'q:1">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger2/>
+			<hamthumboutmod/>
+			<hampinky/>
+			<hamextfingerul/>
+			<hampalml/>
+			<hamparbegin/>
+			<hammoveur/>
+			<hamarcu/>
+			<hamreplace/>
+			<hamextfingeru/>
+			<hampalmu/>
+			<hamparend/>
+			<hamplus/>
+			<hamfinger2/>
+			<hamthumbacrossmod/>
+			<hamextfingeruo/>
+			<hampalml/>
+			<hamparbegin/>
+			<hammoved/>
+			<hamlargemod/>
+			<hamreplace/>
+			<hamextfingero/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

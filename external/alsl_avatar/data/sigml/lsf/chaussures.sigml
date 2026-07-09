@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="CHAUSSURES">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfinger2/>
+			<hamthumboutmod/>
+			<hampinky/>
+			<hamextfingeruo/>
+			<hampalml/>
+			<hamchest/>
+			<hamclose/>
+			<hammovel/>
+			<hamsmallmod/>
+			<hamfast/>
+			<hamparbegin/>
+			<hamfingermidjoint/>
+			<hammiddlefinger/>
+			<hamhandback/>
+			<hamplus/>
+			<hamfingermidjoint/>
+			<hammiddlefinger/>
+			<hamhandback/>
+			<hamparend/>
+			<hamtouch/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

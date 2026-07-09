@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="AIGRE">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger2345/>
+			<hamthumboutmod/>
+			<hamfingerbendmod/>
+			<hambetween/>
+			<hamfinger2345/>
+			<hamthumboutmod/>
+			<hamextfingeru/>
+			<hampalmu/>
+			<hamtongue/>
+			<hamlrat/>
+			<hamseqbegin/>
+			<hamclose/>
+			<hamfingertip/>
+			<hammiddlefinger/>
+			<hamseqend/>
+			<hamseqbegin/>
+			<hamparbegin/>
+			<hammovel/>
+			<hamsmallmod/>
+			<hamfingerplay/>
+			<hamparend/>
+			<hamparbegin/>
+			<hammover/>
+			<hamsmallmod/>
+			<hamfingerplay/>
+			<hamparend/>
+			<hamseqend/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

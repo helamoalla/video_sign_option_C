@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="GARTEN6">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmpar/>
+			<hamfist/>
+			<hamindexfinger/>
+			<hamfingerhookmod/>
+			<hamparbegin/>
+			<hamextfingerol/>
+			<hampalmul/>
+			<hamplus/>
+			<hamextfingeror/>
+			<hampalmur/>
+			<hamparend/>
+			<hamthumbball/>
+			<hamclose/>
+			<hamcircleil/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="LEBEN1C">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfist/>
+			<hamthumboutmod/>
+			<hamextfingerol/>
+			<hampalmdl/>
+			<hamchest/>
+			<hamlrat/>
+			<hamtouch/>
+			<hamparbegin/>
+			<hammoveuo/>
+			<hambetween/>
+			<hammoveor/>
+			<hamsmallmod/>
+			<hamreplace/>
+			<hampalmul/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="BOUCHE">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hampinch12/>
+			<hamfingerstraightmod/>
+			<hamextfingeru/>
+			<hampalmdl/>
+			<hamlips/>
+			<hamlrat/>
+			<hamtouch/>
+			<hamparbegin/>
+			<hammover/>
+			<hamsmallmod/>
+			<hamreplace/>
+			<hamfinger2/>
+			<hamthumboutmod/>
+			<hambetween/>
+			<hamfinger2/>
+			<hamthumboutmod/>
+			<hamfingerstraightmod/>
+			<hamparend/>
+			<hamreplace/>
+			<hampinch12/>
+			<hamfingerstraightmod/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΑΣΤΕΡΙ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfinger23spread/>
+			<hamthumbacrossmod/>
+			<hambetween/>
+			<hamfinger23/>
+			<hamthumbacrossmod/>
+			<hamparbegin/>
+			<hamextfingerul/>
+			<hampalmr/>
+			<hamplus/>
+			<hamextfingerur/>
+			<hampalml/>
+			<hamparend/>
+			<hamparbegin/>
+			<hammiddlefinger/>
+			<hamfingermidjoint/>
+			<hamhandback/>
+			<hamplus/>
+			<hammiddlefinger/>
+			<hamfingermidjoint/>
+			<hampalm/>
+			<hamparend/>
+			<hamtouch/>
+			<hamear/>
+			<hamlrbeside/>
+			<hambetween/>
+			<hamhead/>
+			<hamlrat/>
+			<hamseqbegin/>
+			<hamparbegin/>
+			<hamparbegin/>
+			<hammovei/>
+			<hamsmallmod/>
+			<hamparend/>
+			<hamplus/>
+			<hamnomotion/>
+			<hamparend/>
+			<hamrepeatreverse/>
+			<hamseqend/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

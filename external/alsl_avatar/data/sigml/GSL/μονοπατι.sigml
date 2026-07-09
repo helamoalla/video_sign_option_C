@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΜΟΝΟΠΑΤΙ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmpar/>
+			<hamflathand/>
+			<hamthumboutmod/>
+			<hamextfingero/>
+			<hampalml/>
+			<hamclose/>
+			<hammoveo/>
+			<hamwavy/>
+			<hamellipseh/>
+			<hamtense/>
+			<hamplus/>
+			<hamparbegin/>
+			<hamfinger23/>
+			<hamthumbacrossmod/>
+			<hamfingerstraightmod/>
+			<hamextfingero/>
+			<hampalmd/>
+			<hamplus/>
+			<hamflathand/>
+			<hamthumboutmod/>
+			<hamextfingero/>
+			<hampalmr/>
+			<hamparend/>
+			<hamclose/>
+			<hamparbegin/>
+			<hammoveo/>
+			<hamlargemod/>
+			<hamfingerplay/>
+			<hamparend/>
+			<hamplus/>
+			<hamsymmpar/>
+			<hamflathand/>
+			<hamthumboutmod/>
+			<hamextfingero/>
+			<hampalml/>
+			<hamclose/>
+			<hammoveo/>
+			<hamsmallmod/>
+			<hamwavy/>
+			<hamellipseh/>
+			<hamtense/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

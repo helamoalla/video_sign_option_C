@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="AUTORISATION">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfinger23spread/>
+			<hamthumbacrossmod/>
+			<hamextfingerl/>
+			<hampalmul/>
+			<hamshoulders/>
+			<hamclose/>
+			<hamreplace/>
+			<hamextfingero/>
+			<hampalml/>
+			<hamclose/>
+			<hamchest/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

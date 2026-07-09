@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="BOUTEILLE">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamceeall/>
+			<hamparbegin/>
+			<hamextfingerl/>
+			<hampalml/>
+			<hamplus/>
+			<hamextfingerr/>
+			<hampalmr/>
+			<hamparend/>
+			<hamfingerside/>
+			<hamthumb/>
+			<hamseqbegin/>
+			<hamtouch/>
+			<hamfingerside/>
+			<hampinky/>
+			<hamseqend/>
+			<hamparbegin/>
+			<hamreplace/>
+			<hamfist/>
+			<hamthumbacrossmod/>
+			<hammoveu/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

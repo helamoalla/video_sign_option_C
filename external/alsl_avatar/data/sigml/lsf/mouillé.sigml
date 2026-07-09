@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="MOUILLE">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmpar/>
+			<hamfinger2345/>
+			<hamthumboutmod/>
+			<hamfingerbendmod/>
+			<hamparbegin/>
+			<hamextfingerul/>
+			<hampalmr/>
+			<hamplus/>
+			<hamextfingerdr/>
+			<hampalmr/>
+			<hamparend/>
+			<hamclose/>
+			<hamparbegin/>
+			<hammoved/>
+			<hamsmallmod/>
+			<hamreplace/>
+			<hamfist/>
+			<hamthumbacrossmod/>
+			<hamparbegin/>
+			<hamextfingerdl/>
+			<hampalml/>
+			<hamplus/>
+			<hamextfingerur/>
+			<hampalml/>
+			<hamparend/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

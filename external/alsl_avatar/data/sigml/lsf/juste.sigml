@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="PAREIL + PRECIS">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfinger2/>
+			<hamthumbacrossmod/>
+			<hamextfingero/>
+			<hampalmd/>
+			<hamparbegin/>
+			<hammovel/>
+			<hamsmallmod/>
+			<hamfast/>
+			<hamthumbside/>
+			<hamtouch/>
+			<hamrepeatfromstart/>
+			<hamparend/>
+			<hamplus/>
+			<hamsymmlr/>
+			<hampinch12open/>
+			<hamextfingeru/>
+			<hampalmdl/>
+			<hamshoulders/>
+			<hamlrat/>
+			<hamclose/>
+			<hammovedo/>
+			<hamfast/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

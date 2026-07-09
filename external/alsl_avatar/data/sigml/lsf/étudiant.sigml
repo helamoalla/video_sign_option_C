@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ETUDIANT">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamflathand/>
+			<hamthumbopenmod/>
+			<hamextfingerul/>
+			<hampalmr/>
+			<hamforehead/>
+			<hamlrat/>
+			<hamseqbegin/>
+			<hamtouch/>
+			<hamfingertip/>
+			<hamindexfinger/>
+			<hamseqend/>
+			<hamparbegin/>
+			<hammoveo/>
+			<hamsmallmod/>
+			<hamarcu/>
+			<hamreplace/>
+			<hamflathand/>
+			<hamthumbopenmod/>
+			<hamfingerstraightmod/>
+			<hamparend/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

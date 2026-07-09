@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="SEPTEMBER2">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamparbegin/>
+			<hamcee12/>
+			<hamthumbopenmod/>
+			<hamextfingerul/>
+			<hampalmd/>
+			<hamplus/>
+			<hamcee12/>
+			<hamthumbopenmod/>
+			<hamextfingerur/>
+			<hampalmd/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamthumb/>
+			<hamfingerpad/>
+			<hampalm/>
+			<hamplus/>
+			<hamindexfinger/>
+			<hamfingerpad/>
+			<hampalm/>
+			<hamparend/>
+			<hamclose/>
+			<hammovel/>
+			<hamtouch/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

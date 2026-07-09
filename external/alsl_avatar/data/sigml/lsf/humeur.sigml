@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="HUMEUR">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger23spread/>
+			<hamextfingerul/>
+			<hampalmd/>
+			<hamforehead/>
+			<hamlrat/>
+			<hamclose/>
+			<hamparbegin/>
+			<hammovedl/>
+			<hamforehead/>
+			<hamlrat/>
+			<hamtouch/>
+			<hamparend/>
+			<hamrepeatfromstartseveral/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

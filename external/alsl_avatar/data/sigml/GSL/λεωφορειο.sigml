@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΛΕΩΦΟΡΕΙΟ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfinger23spread/>
+			<hamthumbacrossmod/>
+			<hamfingerhookmod/>
+			<hamparbegin/>
+			<hamextfingerl/>
+			<hamplus/>
+			<hamextfingerur/>
+			<hambetween/>
+			<hamextfingerr/>
+			<hamparend/>
+			<hampalml/>
+			<hamparbegin/>
+			<hamindexfinger/>
+			<hamfingermidjoint/>
+			<hamlrat/>
+			<hamplus/>
+			<hamlrat/>
+			<hamindexfinger/>
+			<hamfingermidjoint/>
+			<hamparend/>
+			<hamtouch/>
+			<hamshoulders/>
+			<hamparbegin/>
+			<hamreplace/>
+			<hamextfingerol/>
+			<hampalml/>
+			<hammovel/>
+			<hamsmallmod/>
+			<hamparbegin/>
+			<hamindexfinger/>
+			<hamfingermidjoint/>
+			<hamlrat/>
+			<hamplus/>
+			<hamlrat/>
+			<hamindexfinger/>
+			<hamfingermidjoint/>
+			<hamparend/>
+			<hamtouch/>
+			<hamparend/>
+			<hamrepeatfromstartseveral/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

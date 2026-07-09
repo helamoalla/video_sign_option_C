@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="radiator(n)#2">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamceeall/>
+			<hamfingerstraightmod/>
+			<hamextfingero/>
+			<hampalmd/>
+			<hammover/>
+			<hamreplace/>
+			<hampalml/>
+			<hammoved/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΑΕΡΟΠΛΑΝΟ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger2345/>
+			<hamthumboutmod/>
+			<hamindexfinger/>
+			<hamdoublebent/>
+			<hammiddlefinger/>
+			<hamdoublebent/>
+			<hamringfinger/>
+			<hamdoublebent/>
+			<hamextfingerol/>
+			<hampalmd/>
+			<hamcheek/>
+			<hamlrbeside/>
+			<hamarmextended/>
+			<hammoveol/>
+			<hamslow/>
+			<hamchin/>
+			<hamarmextended/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="RADIO">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfinger23spread/>
+			<hamthumbopenmod/>
+			<hamfingerhookmod/>
+			<hamextfingerur/>
+			<hambetween/>
+			<hamextfingeror/>
+			<hampalml/>
+			<hamreplace/>
+			<hamextfingeror/>
+			<hambetween/>
+			<hamextfingerr/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="SUSPECT">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger2/>
+			<hamthumbacrossmod/>
+			<hamextfingerul/>
+			<hampalml/>
+			<hamnose/>
+			<hamtouch/>
+			<hamplus/>
+			<hamfinger2345/>
+			<hamthumboutmod/>
+			<hammiddlefinger/>
+			<hamfingerstraightmod/>
+			<hamextfingerul/>
+			<hampalml/>
+			<hamlrat/>
+			<hamchest/>
+			<hambetween/>
+			<hamshoulders/>
+			<hamseqbegin/>
+			<hamtouch/>
+			<hamfingertip/>
+			<hammiddlefinger/>
+			<hamseqend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

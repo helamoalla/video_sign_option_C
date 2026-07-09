@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="BRUIT">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmpar/>
+			<hamfinger23spread/>
+			<hamthumbopenmod/>
+			<hamfingerhookmod/>
+			<hamextfingeru/>
+			<hampalmu/>
+			<hamparbegin/>
+			<hameyes/>
+			<hamlrat/>
+			<hamclose/>
+			<hamplus/>
+			<hamneck/>
+			<hamclose/>
+			<hamparend/>
+			<hamparbegin/>
+			<hammoveo/>
+			<hamreplace/>
+			<hampalmdl/>
+			<hamparend/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

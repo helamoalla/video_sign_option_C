@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="BATIMENT">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamcee12/>
+			<hamextfingero/>
+			<hampalml/>
+			<hamchest/>
+			<hammoveu/>
+			<hamtense/>
+			<hamneck/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΕΥΓΕΝΕΙΑ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfinger2345/>
+			<hamthumboutmod/>
+			<hambetween/>
+			<hamfinger2345/>
+			<hamthumboutmod/>
+			<hamfingerstraightmod/>
+			<hamextfingerl/>
+			<hampalml/>
+			<hamparbegin/>
+			<hammovei/>
+			<hamsmallmod/>
+			<hamrest/>
+			<hamreplace/>
+			<hampinchall/>
+			<hamfingerstraightmod/>
+			<hamextfingerul/>
+			<hampalml/>
+			<hamparend/>
+			<hamchest/>
+			<hamseqbegin/>
+			<hamtouch/>
+			<hammiddlefinger/>
+			<hamfingertip/>
+			<hamseqend/>
+			<hamplus/>
+			<hamsymmlr/>
+			<hampinchall/>
+			<hamfingerstraightmod/>
+			<hambetween/>
+			<hamflathand/>
+			<hamthumbopenmod/>
+			<hamfingerbendmod/>
+			<hamextfingero/>
+			<hampalmul/>
+			<hamshoulders/>
+			<hamreplace/>
+			<hamfist/>
+			<hamthumboutmod/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

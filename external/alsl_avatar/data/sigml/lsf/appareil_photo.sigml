@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="APPAREIL PHOTO">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger2/>
+			<hamthumbopenmod/>
+			<hamparbegin/>
+			<hamextfingeru/>
+			<hampalmdl/>
+			<hamplus/>
+			<hamextfingeru/>
+			<hampalmdr/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamhead/>
+			<hamlrat/>
+			<hamclose/>
+			<hamplus/>
+			<hamlrat/>
+			<hamhead/>
+			<hamclose/>
+			<hamparend/>
+			<hamreplace/>
+			<hamfinger2/>
+			<hamthumbopenmod/>
+			<hamindexfinger/>
+			<hamfingerbendmod/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

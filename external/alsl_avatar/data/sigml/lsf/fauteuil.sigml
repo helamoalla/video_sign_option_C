@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="FAUTEUIL">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamflathand/>
+			<hamfingerbendmod/>
+			<hamextfingero/>
+			<hampalmd/>
+			<hamchest/>
+			<hamlrbeside/>
+			<hamclose/>
+			<hammoved/>
+			<hamseqbegin/>
+			<hamshoulders/>
+			<hammoved/>
+			<hamseqend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

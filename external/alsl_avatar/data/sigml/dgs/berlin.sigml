@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="BERLIN1A">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfist/>
+			<hamextfingerul/>
+			<hampalmdl/>
+			<hamforehead/>
+			<hamlrbeside/>
+			<hamtouch/>
+			<hamparbegin/>
+			<hamcircler/>
+			<hamsmallmod/>
+			<hamreplace/>
+			<hamextfingerui/>
+			<hampalmul/>
+			<hamparend/>
+			<hamtouch/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

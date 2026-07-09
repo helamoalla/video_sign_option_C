@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΓΟΝΕΑΣ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hampinch12/>
+			<hamfingerstraightmod/>
+			<hamextfingeru/>
+			<hampalml/>
+			<hamnostrils/>
+			<hamlrbeside/>
+			<hamseqbegin/>
+			<hamtouch/>
+			<hamfingertip/>
+			<hamindexfinger/>
+			<hamseqend/>
+			<hamfingerplay/>
+			<hamplus/>
+			<hamfist/>
+			<hambetween/>
+			<hamfinger2/>
+			<hamfingerhookmod/>
+			<hamextfingerdl/>
+			<hambetween/>
+			<hamextfingerl/>
+			<hampalmdl/>
+			<hamcheek/>
+			<hamlrbeside/>
+			<hamclose/>
+			<hamstircw/>
+			<hamrepeatfromstartseveral/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

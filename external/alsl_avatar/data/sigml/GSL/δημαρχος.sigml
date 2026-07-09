@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΔΗΜΑΡΧΟΣ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hampinchall/>
+			<hamfingerstraightmod/>
+			<hambetween/>
+			<hampinchall/>
+			<hamextfingerul/>
+			<hampalml/>
+			<hamshouldertop/>
+			<hamlrat/>
+			<hamseqbegin/>
+			<hamtouch/>
+			<hamfingertip/>
+			<hammiddlefinger/>
+			<hamseqend/>
+			<hamparbegin/>
+			<hammoved/>
+			<hamarcu/>
+			<hamreplace/>
+			<hampinchall/>
+			<hamfingerstraightmod/>
+			<hambetween/>
+			<hampinchall/>
+			<hamextfingerl/>
+			<hampalmul/>
+			<hamparend/>
+			<hambelowstomach/>
+			<hamlrat/>
+			<hamseqbegin/>
+			<hamtouch/>
+			<hammiddlefinger/>
+			<hamseqend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

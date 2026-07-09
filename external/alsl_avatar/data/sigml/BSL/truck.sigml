@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="truck(n)#1">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfist/>
+			<hamthumbacrossmod/>
+			<hamextfingerol/>
+			<hampalmul/>
+			<hamparbegin/>
+			<hammoveo/>
+			<hamarcr/>
+			<hammovei/>
+			<hamarcr/>
+			<hamplus/>
+			<hammovei/>
+			<hamarcl/>
+			<hammoveo/>
+			<hamarcl/>
+			<hamparend/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

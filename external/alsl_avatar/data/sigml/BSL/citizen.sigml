@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="citizen(n)#1">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamcee12/>
+			<hamextfingeruo/>
+			<hampalmd/>
+			<hamshoulders/>
+			<hammoveu/>
+			<hamlargemod/>
+			<hammoved/>
+			<hamlargemod/>
+			<hamshoulders/>
+			<hamlrat/>
+			<hammoveu/>
+			<hamlargemod/>
+			<hammoved/>
+			<hamlargemod/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

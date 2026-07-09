@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΚΟΥΜΠΙ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hampinch12open/>
+			<hamextfingerul/>
+			<hambetween/>
+			<hamextfingerl/>
+			<hampalmd/>
+			<hamchest/>
+			<hamtouch/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

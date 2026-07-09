@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΣΤΕΝΟΣ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamflathand/>
+			<hamthumboutmod/>
+			<hamextfingero/>
+			<hampalml/>
+			<hamstomach/>
+			<hamlrat/>
+			<hamclose/>
+			<hamparbegin/>
+			<hammovel/>
+			<hamsmallmod/>
+			<hamseqbegin/>
+			<hamrepeatfromstart/>
+			<hammovel/>
+			<hamsmallmod/>
+			<hamseqend/>
+			<hamplus/>
+			<hammover/>
+			<hamsmallmod/>
+			<hamseqbegin/>
+			<hamrepeatfromstart/>
+			<hammover/>
+			<hamsmallmod/>
+			<hamseqend/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

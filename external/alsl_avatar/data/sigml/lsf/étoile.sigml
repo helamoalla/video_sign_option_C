@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ETOILE">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmpar/>
+			<hamparbegin/>
+			<hamfinger23spread/>
+			<hamthumbacrossmod/>
+			<hamextfingerul/>
+			<hampalmr/>
+			<hamplus/>
+			<hamfinger23spread/>
+			<hamthumbacrossmod/>
+			<hamextfingerur/>
+			<hampalml/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamfingermidjoint/>
+			<hamhandback/>
+			<hamplus/>
+			<hamfingermidjoint/>
+			<hampalm/>
+			<hamparend/>
+			<hamclose/>
+			<hamlrat/>
+			<hamheadtop/>
+			<hamparbegin/>
+			<hammoveo/>
+			<hamsmallmod/>
+			<hamparbegin/>
+			<hamfingermidjoint/>
+			<hamhandback/>
+			<hamplus/>
+			<hamfingermidjoint/>
+			<hampalm/>
+			<hamparend/>
+			<hamtouch/>
+			<hamseqbegin/>
+			<hamrepeatfromstartseveral/>
+			<hammover/>
+			<hamlargemod/>
+			<hamseqend/>
+			<hamplus/>
+			<hammover/>
+			<hamlargemod/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

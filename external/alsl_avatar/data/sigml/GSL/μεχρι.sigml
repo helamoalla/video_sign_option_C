@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΜΕΧΡΙ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger2/>
+			<hampinky/>
+			<hamextfingerul/>
+			<hampalmd/>
+			<hamlrat/>
+			<hamshoulders/>
+			<hamparbegin/>
+			<hamreplace/>
+			<hamextfingero/>
+			<hampalmdl/>
+			<hammoved/>
+			<hamarcr/>
+			<hamtense/>
+			<hamparend/>
+			<hamchest/>
+			<hamlrat/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

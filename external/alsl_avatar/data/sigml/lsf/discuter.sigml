@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="DISCUTER">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfingerstraightmod/>
+			<hamlargemod/>
+			<hamfinger2/>
+			<hamfingerhookmod/>
+			<hamextfingeru/>
+			<hampalml/>
+			<hamchin/>
+			<hamlrbeside/>
+			<hamclose/>
+			<hammoveo/>
+			<hamsmallmod/>
+			<hamrepeatfromstart/>
+			<hamalternatingmotion/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

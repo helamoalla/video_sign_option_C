@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΦΑΝΤΑΖΟΜΑΙ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger2345/>
+			<hamthumbopenmod/>
+			<hambetween/>
+			<hamceeall/>
+			<hamfingerstraightmod/>
+			<hamextfingerul/>
+			<hampalmdl/>
+			<hamear/>
+			<hamlrat/>
+			<hambetween/>
+			<hamcheek/>
+			<hamlrat/>
+			<hamseqbegin/>
+			<hamclose/>
+			<hammiddlefinger/>
+			<hamfingertip/>
+			<hamseqend/>
+			<hamstircw/>
+			<hamfast/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

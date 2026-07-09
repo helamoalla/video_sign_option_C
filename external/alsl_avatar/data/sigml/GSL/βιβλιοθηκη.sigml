@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΒΙΒΛΙΟΘΗΚΗ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamflathand/>
+			<hamthumboutmod/>
+			<hambetween/>
+			<hamflathand/>
+			<hamparbegin/>
+			<hamextfingeruo/>
+			<hampalml/>
+			<hamplus/>
+			<hamextfingeruo/>
+			<hampalmr/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamfingernail/>
+			<hampalm/>
+			<hamplus/>
+			<hamfingernail/>
+			<hampalm/>
+			<hamparend/>
+			<hamtouch/>
+			<hamshoulders/>
+			<hamreplace/>
+			<hampalmul/>
+			<hampinky/>
+			<hamtouch/>
+			<hamrepeatfromstart/>
+			<hamplus/>
+			<hamflathand/>
+			<hamextfingeru/>
+			<hampalmul/>
+			<hamlrat/>
+			<hamneck/>
+			<hammoveo/>
+			<hamsmallmod/>
+			<hamhalt/>
+			<hamseqbegin/>
+			<hamrepeatfromstartseveral/>
+			<hammover/>
+			<hamseqend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

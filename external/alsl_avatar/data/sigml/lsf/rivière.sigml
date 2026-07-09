@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="RIVIERE">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmpar/>
+			<hamfinger23/>
+			<hamthumbacrossmod/>
+			<hamindexfinger/>
+			<hamfingernail/>
+			<hammiddlefinger/>
+			<hamextfingerdo/>
+			<hampalmd/>
+			<hamparbegin/>
+			<hammoveo/>
+			<hamlargemod/>
+			<hamwavy/>
+			<hamslow/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

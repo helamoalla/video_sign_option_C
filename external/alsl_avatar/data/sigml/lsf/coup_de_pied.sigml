@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="COUP DE PIED">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmpar/>
+			<hamparbegin/>
+			<hamfinger2/>
+			<hamthumboutmod/>
+			<hamextfingeri/>
+			<hambetween/>
+			<hamextfingerdi/>
+			<hampalmu/>
+			<hamplus/>
+			<hamfinger2/>
+			<hamthumboutmod/>
+			<hamextfingerdo/>
+			<hampalmd/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamshoulders/>
+			<hamlrat/>
+			<hamplus/>
+			<hamlrat/>
+			<hamshoulders/>
+			<hamparend/>
+			<hamreplace/>
+			<hamparbegin/>
+			<hamextfingeruo/>
+			<hampalmd/>
+			<hamplus/>
+			<hamextfingerd/>
+			<hampalmd/>
+			<hamparend/>
+			<hamfast/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

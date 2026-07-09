@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΚΟΥΖΙΝΑ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfinger2345/>
+			<hamthumbopenmod/>
+			<hamfingerbendmod/>
+			<hambetween/>
+			<hamfinger2345/>
+			<hamextfingeruo/>
+			<hampalmu/>
+			<hamchest/>
+			<hamparbegin/>
+			<hamcircleo/>
+			<hamsmallmod/>
+			<hamtense/>
+			<hamfast/>
+			<hamplus/>
+			<hamcirclei/>
+			<hamsmallmod/>
+			<hamtense/>
+			<hamfast/>
+			<hamparend/>
+			<hamrepeatfromstart/>
+			<hamplus/>
+			<hamfist/>
+			<hambetween/>
+			<hamfinger2/>
+			<hamfingerhookmod/>
+			<hamextfingerol/>
+			<hampalmd/>
+			<hamparbegin/>
+			<hamstircw/>
+			<hamcircled/>
+			<hamsmallmod/>
+			<hamparend/>
+			<hamrepeatfromstartseveral/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

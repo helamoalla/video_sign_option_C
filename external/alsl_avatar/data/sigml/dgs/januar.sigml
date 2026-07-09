@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="JANUAR3">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmpar/>
+			<hamfingerstraightmod/>
+			<hamlargemod/>
+			<hamflathand/>
+			<hamthumboutmod/>
+			<hamextfingeruo/>
+			<hamextfingerol/>
+			<hamparbegin/>
+			<hampalmd/>
+			<hamplus/>
+			<hampalmu/>
+			<hamparend/>
+			<hamseqbegin/>
+			<hammoveor/>
+			<hamalternatingmotion/>
+			<hamseqend/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

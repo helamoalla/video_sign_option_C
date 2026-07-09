@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="MONTAG1">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamparbegin/>
+			<hamfist/>
+			<hamthumboutmod/>
+			<hamextfingeruo/>
+			<hamextfingerol/>
+			<hampalmdl/>
+			<hamplus/>
+			<hamflathand/>
+			<hamextfingero/>
+			<hampalmur/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamcheek/>
+			<hamlrat/>
+			<hamtouch/>
+			<hamplus/>
+			<hamchest/>
+			<hamparend/>
+			<hamparbegin/>
+			<hammovedo/>
+			<hambetween/>
+			<hammoveol/>
+			<hamreplace/>
+			<hamextfingero/>
+			<hamparend/>
+			<hampalm/>
+			<hamtouch/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

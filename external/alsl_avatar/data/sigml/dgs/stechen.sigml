@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="STECHEN22A">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamparbegin/>
+			<hamfinger2/>
+			<hamfingerstraightmod/>
+			<hamextfingeruo/>
+			<hamextfingerol/>
+			<hampalmdl/>
+			<hamplus/>
+			<hamflathand/>
+			<hametc/>
+			<hamextfingeror/>
+			<hampalmd/>
+			<hamparend/>
+			<hamhandback/>
+			<hammovedo/>
+			<hambetween/>
+			<hammoveol/>
+			<hamtouch/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="NAME1A-$SAM ETIKETT14-$SAM">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger23/>
+			<hamextfingerul/>
+			<hampalmd/>
+			<hamcheek/>
+			<hamlrat/>
+			<hamclose/>
+			<hamreplace/>
+			<hamfinger23/>
+			<hamfingerstraightmod/>
+			<hamtouch/>
+			<hamrepeatfromstart/>
+			<hamplus/>
+			<hamfinger23/>
+			<hambetween/>
+			<hamfinger23/>
+			<hamfingerstraightmod/>
+			<hamextfingerol/>
+			<hampalml/>
+			<hamshoulders/>
+			<hammoveo/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

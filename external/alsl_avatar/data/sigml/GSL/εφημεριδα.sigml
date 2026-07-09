@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΕΦΗΜΕΡΙΔΑ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamparbegin/>
+			<hamflathand/>
+			<hamthumboutmod/>
+			<hamextfingerul/>
+			<hambetween/>
+			<hamextfingerl/>
+			<hampalmul/>
+			<hamplus/>
+			<hamflathand/>
+			<hamthumboutmod/>
+			<hamextfingeror/>
+			<hampalmur/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamlrbeside/>
+			<hamindexfinger/>
+			<hamfingernail/>
+			<hamplus/>
+			<hamlrbeside/>
+			<hamwristback/>
+			<hamhandback/>
+			<hamparend/>
+			<hamtouch/>
+			<hamchest/>
+			<hamparbegin/>
+			<hammoveur/>
+			<hamplus/>
+			<hammovedi/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

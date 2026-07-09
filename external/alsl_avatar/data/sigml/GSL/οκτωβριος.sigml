@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΟΚΤΩΒΡΙΟΣ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hampinch12open/>
+			<hamextfingeru/>
+			<hampalml/>
+			<hamlips/>
+			<hamlrat/>
+			<hamseqbegin/>
+			<hamclose/>
+			<hamthumbside/>
+			<hambetween/>
+			<hampinkyside/>
+			<hamseqend/>
+			<hamcirclei/>
+			<hamsmallmod/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

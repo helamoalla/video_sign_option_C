@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="RETTUNG1">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfinger2345/>
+			<hamfingerbendmod/>
+			<hamextfingerol/>
+			<hampalmul/>
+			<hamparbegin/>
+			<hammoveul/>
+			<hamarcd/>
+			<hamreplace/>
+			<hamfist/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

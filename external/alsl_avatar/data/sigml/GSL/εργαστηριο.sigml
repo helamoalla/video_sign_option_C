@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΕΡΓΑΣΤΗΡΙΟ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamparbegin/>
+			<hamfinger2345/>
+			<hamthumboutmod/>
+			<hamextfingerl/>
+			<hampalml/>
+			<hamplus/>
+			<hamfinger2345/>
+			<hamthumboutmod/>
+			<hamextfingerr/>
+			<hampalmr/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamindexfinger/>
+			<hamfingernail/>
+			<hamlrat/>
+			<hamplus/>
+			<hamlrat/>
+			<hamindexfinger/>
+			<hamfingernail/>
+			<hamparend/>
+			<hamtouch/>
+			<hamshoulders/>
+			<hamparbegin/>
+			<hamcirclei/>
+			<hamclockfull/>
+			<hamplus/>
+			<hamcirclei/>
+			<hamclockfull/>
+			<hamparend/>
+			<hamplus/>
+			<hamsymmlr/>
+			<hamflathand/>
+			<hamthumboutmod/>
+			<hambetween/>
+			<hamflathand/>
+			<hamthumboutmod/>
+			<hamfingerbendmod/>
+			<hamextfingeruo/>
+			<hampalml/>
+			<hamshoulders/>
+			<hamlrbeside/>
+			<hamclose/>
+			<hammovel/>
+			<hamsmallmod/>
+			<hamfast/>
+			<hamhalt/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

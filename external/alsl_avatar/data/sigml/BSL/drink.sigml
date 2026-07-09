@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="drink(v)#1">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamcee12/>
+			<hamextfingero/>
+			<hampalml/>
+			<hamtongue/>
+			<hamclose/>
+			<hamreplace/>
+			<hamextfingeru/>
+			<hampalml/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

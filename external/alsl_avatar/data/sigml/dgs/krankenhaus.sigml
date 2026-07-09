@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="KRANKENHAUS1A">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmpar/>
+			<hamparbegin/>
+			<hamflathand/>
+			<hamextfingerol/>
+			<hampalmul/>
+			<hamplus/>
+			<hamflathand/>
+			<hamextfingeror/>
+			<hampalmu/>
+			<hamparend/>
+			<hamfingertip/>
+			<hammoveor/>
+			<hambetween/>
+			<hammoveuo/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

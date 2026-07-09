@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="VERGANGENHEIT1'phs:mehrfach">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamflathand/>
+			<hambetween/>
+			<hamflathand/>
+			<hamfingerstraightmod/>
+			<hamextfingeru/>
+			<hampalmu/>
+			<hamshouldertop/>
+			<hamlrat/>
+			<hamparbegin/>
+			<hammovei/>
+			<hamsmallmod/>
+			<hamreplace/>
+			<hamextfingerui/>
+			<hampalmd/>
+			<hamparend/>
+			<hamclose/>
+			<hamrepeatfromstartseveral/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

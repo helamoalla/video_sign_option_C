@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΠΟΔΙ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamflathand/>
+			<hamthumboutmod/>
+			<hamextfingerdr/>
+			<hampalmd/>
+			<hambelowstomach/>
+			<hamlrbeside/>
+			<hamtouch/>
+			<hamreplace/>
+			<hamextfingerd/>
+			<hampalml/>
+			<hamrepeatfromstartseveral/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

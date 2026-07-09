@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΜΑΡΤΙΟΣ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamalternatingmotion/>
+			<hamflathand/>
+			<hamextfingeruo/>
+			<hampalml/>
+			<hamchest/>
+			<hamlrbeside/>
+			<hamclose/>
+			<hamparbegin/>
+			<hamparbegin/>
+			<hamreplace/>
+			<hamextfingerdo/>
+			<hammovei/>
+			<hammoved/>
+			<hamarcu/>
+			<hamparend/>
+			<hamrepeatreverse/>
+			<hamplus/>
+			<hamparbegin/>
+			<hammoveo/>
+			<hamsmallmod/>
+			<hammoveu/>
+			<hamarcu/>
+			<hamparend/>
+			<hamrepeatreverse/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamparbegin/>
+			<hammoveo/>
+			<hamsmallmod/>
+			<hammoveu/>
+			<hamarcu/>
+			<hamparend/>
+			<hamrepeatreverse/>
+			<hamplus/>
+			<hamparbegin/>
+			<hamreplace/>
+			<hamextfingerdo/>
+			<hammovei/>
+			<hammoved/>
+			<hamarcu/>
+			<hamparend/>
+			<hamrepeatreverse/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΕΙΣΙΤΗΡΙΟ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamparbegin/>
+			<hamfinger2/>
+			<hamfingerbendmod/>
+			<hambetween/>
+			<hamfinger2/>
+			<hamfingerhookmod/>
+			<hamextfingerl/>
+			<hampalml/>
+			<hamplus/>
+			<hamfinger2/>
+			<hamfingerbendmod/>
+			<hambetween/>
+			<hamfinger2/>
+			<hamfingerhookmod/>
+			<hamextfingerr/>
+			<hampalmr/>
+			<hamparend/>
+			<hamtouch/>
+			<hamchest/>
+			<hamclose/>
+			<hamreplace/>
+			<hamextfingero/>
+			<hamclose/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

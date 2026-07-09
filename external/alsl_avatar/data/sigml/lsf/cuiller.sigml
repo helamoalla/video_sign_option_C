@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="CUILLER">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger2/>
+			<hamfingerhookmod/>
+			<hamextfingerol/>
+			<hampalmd/>
+			<hamneck/>
+			<hamlrat/>
+			<hamparbegin/>
+			<hammovei/>
+			<hamarcd/>
+			<hamreplace/>
+			<hamextfingeril/>
+			<hampalmur/>
+			<hamparend/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

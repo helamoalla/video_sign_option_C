@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΦΑΝΑΡΙΑ ΚΥΚΛΟΦΟΡΙΑΣ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hampinchall/>
+			<hamfingerstraightmod/>
+			<hambetween/>
+			<hampinchall/>
+			<hamextfingeru/>
+			<hampalmu/>
+			<hamheadtop/>
+			<hamparbegin/>
+			<hammoved/>
+			<hamsmallmod/>
+			<hamreplace/>
+			<hamfinger2345/>
+			<hamthumboutmod/>
+			<hamparend/>
+			<hamseqbegin/>
+			<hamrepeatfromstartseveral/>
+			<hammoved/>
+			<hamseqend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

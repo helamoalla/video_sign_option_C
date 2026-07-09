@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΔΥΤΙΚΑ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamnondominant/>
+			<hamflathand/>
+			<hamfingerbendmod/>
+			<hambetween/>
+			<hamflathand/>
+			<hamthumboutmod/>
+			<hamextfingeror/>
+			<hampalmr/>
+			<hamchest/>
+			<hamparbegin/>
+			<hamreplace/>
+			<hamextfingero/>
+			<hammovel/>
+			<hamarcr/>
+			<hamparend/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

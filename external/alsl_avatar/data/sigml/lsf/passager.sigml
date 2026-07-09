@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="PERSONNE + VOYAGE">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger2/>
+			<hamfingerbendmod/>
+			<hamthumboutmod/>
+			<hamextfingerur/>
+			<hampalml/>
+			<hamshouldertop/>
+			<hamlrat/>
+			<hamclose/>
+			<hammoved/>
+			<hamplus/>
+			<hampinch12/>
+			<hamindexfinger/>
+			<hammiddlefinger/>
+			<hamextfingeru/>
+			<hampalmd/>
+			<hamshoulders/>
+			<hamreplace/>
+			<hamfinger23spread/>
+			<hamthumboutmod/>
+			<hammover/>
+			<hamreplace/>
+			<hampinch12/>
+			<hamindexfinger/>
+			<hammiddlefinger/>
+			<hamreplace/>
+			<hamfinger23spread/>
+			<hamthumboutmod/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

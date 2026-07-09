@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΣΠΑΝΙΑ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfinger2345/>
+			<hamthumbacrossmod/>
+			<hambetween/>
+			<hamfinger2345/>
+			<hamthumbopenmod/>
+			<hammiddlefinger/>
+			<hamdoublehooked/>
+			<hamextfingeruo/>
+			<hampalmdl/>
+			<hamclose/>
+			<hamchest/>
+			<hamparbegin/>
+			<hamcircleo/>
+			<hamreplace/>
+			<hamextfingeru/>
+			<hampalmul/>
+			<hamshoulders/>
+			<hamparend/>
+			<hamreplace/>
+			<hamfinger2345/>
+			<hamthumbopenmod/>
+			<hamextfingeru/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

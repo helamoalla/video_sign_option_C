@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="OREILLE">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamceeopen/>
+			<hamindexfinger/>
+			<hamextfingeru/>
+			<hampalml/>
+			<hamearlobe/>
+			<hamseqbegin/>
+			<hamtouch/>
+			<hamfingerpad/>
+			<hamthumb/>
+			<hamseqend/>
+			<hammoveo/>
+			<hamsmallmod/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

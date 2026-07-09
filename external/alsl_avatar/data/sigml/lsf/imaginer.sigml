@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="IMAGINER">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamalternatingmotion/>
+			<hamfinger2/>
+			<hampinky/>
+			<hamextfingerul/>
+			<hampalml/>
+			<hamforehead/>
+			<hamlrat/>
+			<hamclose/>
+			<hamparbegin/>
+			<hamcirclel/>
+			<hamslow/>
+			<hamparend/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

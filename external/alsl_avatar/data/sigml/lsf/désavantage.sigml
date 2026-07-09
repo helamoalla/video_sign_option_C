@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="DESAVANTAGE">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hampinch12open/>
+			<hamfingerstraightmod/>
+			<hamextfingerl/>
+			<hampalmd/>
+			<hamlrat/>
+			<hamshoulders/>
+			<hambetween/>
+			<hamshoulders/>
+			<hamclose/>
+			<hammoved/>
+			<hamsmallmod/>
+			<hamrepeatfromstartseveral/>
+			<hamplus/>
+			<hamsymmlr/>
+			<hampinch12open/>
+			<hamextfingerul/>
+			<hambetween/>
+			<hamextfingeru/>
+			<hampalmd/>
+			<hambetween/>
+			<hampalmdr/>
+			<hamshoulders/>
+			<hamcirclei/>
+			<hamsmallmod/>
+			<hamrepeatfromstartseveral/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

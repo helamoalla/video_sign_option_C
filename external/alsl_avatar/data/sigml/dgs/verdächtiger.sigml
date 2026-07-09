@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="WISSEN2-$SAM UNGEFÄHR1-$SAM $PERSONEN-ILLUSTRATION1">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger2/>
+			<hamextfingerui/>
+			<hamextfingeril/>
+			<hampalmdr/>
+			<hamforehead/>
+			<hamlrbeside/>
+			<hamtouch/>
+			<hammoveuo/>
+			<hambetween/>
+			<hammoveor/>
+			<hamplus/>
+			<hamfinger2345/>
+			<hamextfingerol/>
+			<hampalmdl/>
+			<hamreplace/>
+			<hampalml/>
+			<hamrepeatfromstart/>
+			<hamplus/>
+			<hamfinger2/>
+			<hamfingerbendmod/>
+			<hamthumboutmod/>
+			<hamextfingerur/>
+			<hampalml/>
+			<hammoved/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

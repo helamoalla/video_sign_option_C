@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ASSIDU">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmpar/>
+			<hampinch12open/>
+			<hamparbegin/>
+			<hamextfingerul/>
+			<hambetween/>
+			<hamextfingerdo/>
+			<hampalml/>
+			<hamplus/>
+			<hamextfingerdo/>
+			<hambetween/>
+			<hamextfingerur/>
+			<hampalmr/>
+			<hamparend/>
+			<hamshoulders/>
+			<hamlrat/>
+			<hamclose/>
+			<hammover/>
+			<hamlargemod/>
+			<hamslow/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

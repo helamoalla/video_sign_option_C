@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="RESSENTIR">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hampinchall/>
+			<hamextfingerul/>
+			<hampalml/>
+			<hamparbegin/>
+			<hamshoulders/>
+			<hamplus/>
+			<hamneck/>
+			<hamclose/>
+			<hamparend/>
+			<hamparbegin/>
+			<hammoveo/>
+			<hamslow/>
+			<hamreplace/>
+			<hamfist/>
+			<hamthumboutmod/>
+			<hamextfingerol/>
+			<hampalmu/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="$NUM-EINER1A'q:2">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger23spread/>
+			<hamthumbacrossmod/>
+			<hamextfingeru/>
+			<hampalmu/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

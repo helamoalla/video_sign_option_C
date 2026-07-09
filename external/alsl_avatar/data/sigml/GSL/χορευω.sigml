@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΧΟΡΕΥΩ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hampinch12/>
+			<hamfingerstraightmod/>
+			<hammiddlefinger/>
+			<hamextfingeruo/>
+			<hampalmul/>
+			<hamshouldertop/>
+			<hamlrbeside/>
+			<hamfingerplay/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

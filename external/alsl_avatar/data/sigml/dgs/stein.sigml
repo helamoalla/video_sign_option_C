@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="STEIN1A">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamparbegin/>
+			<hamfist/>
+			<hamextfingeruo/>
+			<hampalmul/>
+			<hamplus/>
+			<hamfist/>
+			<hamextfingeror/>
+			<hampalmdr/>
+			<hamparend/>
+			<hammovel/>
+			<hamarcd/>
+			<hamseqbegin/>
+			<hambrushing/>
+			<hamthumbside/>
+			<hamtouch/>
+			<hamseqend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

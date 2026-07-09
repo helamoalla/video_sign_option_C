@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΚΛΑΔΙ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamparbegin/>
+			<hamfinger2/>
+			<hamthumbacrossmod/>
+			<hamextfingeruo/>
+			<hamextfingerol/>
+			<hampalmd/>
+			<hamplus/>
+			<hamfinger2345/>
+			<hamthumboutmod/>
+			<hamextfingeru/>
+			<hampalmur/>
+			<hamparend/>
+			<hamparbegin/>
+			<hampinky/>
+			<hamfingerpad/>
+			<hamplus/>
+			<hamindexfinger/>
+			<hamfingerpad/>
+			<hamparend/>
+			<hamtouch/>
+			<hamlrat/>
+			<hamshouldertop/>
+			<hammoveuo/>
+			<hamarcu/>
+			<hamsmallmod/>
+			<hammoveor/>
+			<hamsmallmod/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

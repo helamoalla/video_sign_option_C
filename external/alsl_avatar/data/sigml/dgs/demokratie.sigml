@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="DEMOKRATIE2">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamflathand/>
+			<hamextfingerd/>
+			<hampalmd/>
+			<hamparbegin/>
+			<hammoveu/>
+			<hamreplace/>
+			<hamextfingeru/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

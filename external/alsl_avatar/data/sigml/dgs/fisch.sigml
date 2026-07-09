@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="FISCH1">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamflathand/>
+			<hamextfingerol/>
+			<hampalml/>
+			<hammoveol/>
+			<hamwavy/>
+			<hamellipseh/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

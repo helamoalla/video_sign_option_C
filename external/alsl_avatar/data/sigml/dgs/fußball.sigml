@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="FUSSBALL1">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamparbegin/>
+			<hamfist/>
+			<hamextfingerd/>
+			<hampalmdr/>
+			<hamplus/>
+			<hamflathand/>
+			<hamfingerbendmod/>
+			<hamextfingeror/>
+			<hampalmdr/>
+			<hamparend/>
+			<hampalm/>
+			<hamparbegin/>
+			<hammoveuo/>
+			<hambetween/>
+			<hammoveol/>
+			<hamreplace/>
+			<hamextfingerol/>
+			<hampalmd/>
+			<hamparend/>
+			<hamparbegin/>
+			<hampalm/>
+			<hamplus/>
+			<hamwristback/>
+			<hamhandback/>
+			<hamparend/>
+			<hamtouch/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

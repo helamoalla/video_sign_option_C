@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="DEMAIN">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfist/>
+			<hamthumboutmod/>
+			<hamextfingerui/>
+			<hampalml/>
+			<hamcheek/>
+			<hamlrbeside/>
+			<hamreplace/>
+			<hamextfingero/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

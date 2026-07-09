@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="CHAT">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfinger23/>
+			<hamthumbacrossmod/>
+			<hamdoublebent/>
+			<hamextfingerul/>
+			<hampalmd/>
+			<hamcheek/>
+			<hamparbegin/>
+			<hamreplace/>
+			<hamfinger23spread/>
+			<hamthumboutmod/>
+			<hampalmdl/>
+			<hammover/>
+			<hammovedr/>
+			<hamsmallmod/>
+			<hamfast/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

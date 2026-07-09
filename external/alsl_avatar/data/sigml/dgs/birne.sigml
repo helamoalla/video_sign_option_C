@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="BIRNE2">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamflathand/>
+			<hamthumboutmod/>
+			<hamextfingerur/>
+			<hampalml/>
+			<hamchin/>
+			<hamseqbegin/>
+			<hamtouch/>
+			<hamfingertip/>
+			<hamthumb/>
+			<hamseqend/>
+			<hamreplace/>
+			<hampinchall/>
+			<hamextfingerui/>
+			<hampalmd/>
+			<hamchin/>
+			<hamtouch/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

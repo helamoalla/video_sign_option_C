@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΔΗΜΟΚΡΑΤΙΑ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfinger2/>
+			<hamthumboutmod/>
+			<hamextfingerui/>
+			<hampalmul/>
+			<hamneck/>
+			<hamlrat/>
+			<hamclose/>
+			<hamparbegin/>
+			<hamreplace/>
+			<hamextfingeruo/>
+			<hambetween/>
+			<hamextfingeru/>
+			<hampalml/>
+			<hamparend/>
+			<hamhead/>
+			<hamlrat/>
+			<hamclose/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

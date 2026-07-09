@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="$SPEZIAL-KNIE-SCHLOTTERN1">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamcee12/>
+			<hamextfingeruo/>
+			<hamextfingeror/>
+			<hampalmdl/>
+			<hamshoulders/>
+			<hamlrat/>
+			<hammoved/>
+			<hamwavy/>
+			<hamellipseh/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

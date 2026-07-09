@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ROHR1B">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamceeall/>
+			<hamextfingero/>
+			<hampalmd/>
+			<hamtouch/>
+			<hammover/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

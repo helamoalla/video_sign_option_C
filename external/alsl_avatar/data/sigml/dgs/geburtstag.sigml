@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="GEBURTSTAG1">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamflathand/>
+			<hamfingerbendmod/>
+			<hamextfingerui/>
+			<hampalmd/>
+			<hamshoulders/>
+			<hamlrat/>
+			<hamclose/>
+			<hammovei/>
+			<hamsmallmod/>
+			<hamshoulders/>
+			<hamlrat/>
+			<hamtouch/>
+			<hamrepeatfromstartseveral/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

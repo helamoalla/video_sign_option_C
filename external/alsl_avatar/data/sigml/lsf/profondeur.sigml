@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="PROFONDEUR">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamparbegin/>
+			<hamfinger2/>
+			<hamthumbacrossmod/>
+			<hamextfingerdl/>
+			<hampalmd/>
+			<hamplus/>
+			<hamflathand/>
+			<hamextfingero/>
+			<hampalmdr/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamshouldertop/>
+			<hamlrat/>
+			<hamclose/>
+			<hamplus/>
+			<hamlrat/>
+			<hamchest/>
+			<hamparend/>
+			<hamparbegin/>
+			<hammovedl/>
+			<hamlargemod/>
+			<hampalm/>
+			<hamclose/>
+			<hamparend/>
+			<hammovedl/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΧΑΛΙ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamceeall/>
+			<hamfingerstraightmod/>
+			<hamextfingeruo/>
+			<hampalmd/>
+			<hamchest/>
+			<hamclose/>
+			<hamplus/>
+			<hamsymmlr/>
+			<hamflathand/>
+			<hamextfingero/>
+			<hampalmd/>
+			<hamstomach/>
+			<hamclose/>
+			<hammover/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

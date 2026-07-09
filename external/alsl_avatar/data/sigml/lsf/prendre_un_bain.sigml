@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="PRENDRE UN BAIN">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamlargemod/>
+			<hamfist/>
+			<hamthumboutmod/>
+			<hamextfingerl/>
+			<hampalml/>
+			<hamchest/>
+			<hamlrat/>
+			<hamtouch/>
+			<hammoved/>
+			<hamsmallmod/>
+			<hamfast/>
+			<hamrepeatfromstart/>
+			<hamplus/>
+			<hamfinger2/>
+			<hamthumboutmod/>
+			<hamfingerbendmod/>
+			<hamextfingerol/>
+			<hamparbegin/>
+			<hampalml/>
+			<hamplus/>
+			<hampalmr/>
+			<hamparend/>
+			<hamfingertip/>
+			<hamindexfinger/>
+			<hamclose/>
+			<hammoveor/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

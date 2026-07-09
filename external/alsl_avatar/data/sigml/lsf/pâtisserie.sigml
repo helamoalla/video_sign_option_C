@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="PATISSERIE">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfist/>
+			<hamthumbacrossmod/>
+			<hamextfingeru/>
+			<hampalmul/>
+			<hamcheek/>
+			<hambetween/>
+			<hamtongue/>
+			<hamlrat/>
+			<hamclose/>
+			<hammovei/>
+			<hamcheek/>
+			<hambetween/>
+			<hamtongue/>
+			<hamlrat/>
+			<hamseqbegin/>
+			<hamtouch/>
+			<hamfingernail/>
+			<hamthumb/>
+			<hamseqend/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

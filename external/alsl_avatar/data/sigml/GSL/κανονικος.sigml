@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΚΑΝΟΝΙΚΟΣ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamparbegin/>
+			<hampinch12open/>
+			<hamextfingeru/>
+			<hampalmdl/>
+			<hamplus/>
+			<hampinch12open/>
+			<hamextfingeru/>
+			<hampalmdr/>
+			<hamparend/>
+			<hamchest/>
+			<hamclose/>
+			<hammoveo/>
+			<hamsmallmod/>
+			<hamseqbegin/>
+			<hamrepeatfromstartseveral/>
+			<hammovei/>
+			<hamsmallmod/>
+			<hamseqend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

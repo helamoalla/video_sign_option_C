@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="WISSEN23_NEG">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger2/>
+			<hamextfingerui/>
+			<hamextfingeril/>
+			<hampalmdr/>
+			<hamforehead/>
+			<hamlrbeside/>
+			<hamtouch/>
+			<hamparbegin/>
+			<hammovedo/>
+			<hambetween/>
+			<hammoveor/>
+			<hamreplace/>
+			<hamextfingeruo/>
+			<hamextfingerol/>
+			<hampalmdl/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

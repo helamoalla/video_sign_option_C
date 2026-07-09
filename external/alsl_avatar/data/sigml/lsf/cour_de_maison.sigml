@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="COUR DE MAISON">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamflathand/>
+			<hamthumbacrossmod/>
+			<hamextfingeru/>
+			<hampalmd/>
+			<hamparbegin/>
+			<hamfingerbase/>
+			<hamindexfinger/>
+			<hamplus/>
+			<hamfingerbase/>
+			<hamindexfinger/>
+			<hamparend/>
+			<hamtouch/>
+			<hamchest/>
+			<hamclose/>
+			<hammover/>
+			<hamsmallmod/>
+			<hamreplace/>
+			<hampalml/>
+			<hammoveo/>
+			<hamsmallmod/>
+			<hamreplace/>
+			<hampalmu/>
+			<hammovel/>
+			<hamsmallmod/>
+			<hamparbegin/>
+			<hamfingerbase/>
+			<hampinky/>
+			<hamplus/>
+			<hamfingerbase/>
+			<hampinky/>
+			<hamparend/>
+			<hamtouch/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

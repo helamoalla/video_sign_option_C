@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="music(n)#1">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfinger2/>
+			<hamthumbacrossmod/>
+			<hamextfingerur/>
+			<hampalml/>
+			<hambetween/>
+			<hampalmul/>
+			<hamshoulders/>
+			<hamarmextended/>
+			<hamparbegin/>
+			<hammovel/>
+			<hamarcd/>
+			<hamreplace/>
+			<hamextfingerul/>
+			<hampalmdl/>
+			<hamparend/>
+			<hamrepeatreverse/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

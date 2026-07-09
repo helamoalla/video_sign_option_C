@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="SCHULDEN1">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamparbegin/>
+			<hamfinger2/>
+			<hamextfingeruo/>
+			<hamextfingerol/>
+			<hampalmdl/>
+			<hamplus/>
+			<hamfinger2/>
+			<hamextfingeruo/>
+			<hamextfingeror/>
+			<hampalmdr/>
+			<hamparend/>
+			<hamfingermidjoint/>
+			<hamindexfinger/>
+			<hamtouch/>
+			<hamtwisting/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="VISAGE">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger2/>
+			<hamthumbacrossmod/>
+			<hamextfingerui/>
+			<hampalmd/>
+			<hamforehead/>
+			<hamlrbeside/>
+			<hambetween/>
+			<hamhead/>
+			<hamlrat/>
+			<hamcirclei/>
+			<hamclocku/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

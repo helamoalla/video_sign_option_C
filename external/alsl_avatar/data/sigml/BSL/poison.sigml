@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="poison(n)#1">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamparbegin/>
+			<hamfinger2345/>
+			<hamthumbacrossmod/>
+			<hamindexfinger/>
+			<hamfingerhookmod/>
+			<hammiddlefinger/>
+			<hamfingerhookmod/>
+			<hamringfinger/>
+			<hamfingerhookmod/>
+			<hamplus/>
+			<hamfist/>
+			<hamthumbacrossmod/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamextfingerol/>
+			<hampalml/>
+			<hamplus/>
+			<hamextfingeror/>
+			<hampalmr/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamfingernail/>
+			<hamindexfinger/>
+			<hamplus/>
+			<hampinky/>
+			<hamfingertip/>
+			<hamparend/>
+			<hamtouch/>
+			<hammoveur/>
+			<hamsmallmod/>
+			<hamarcl/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

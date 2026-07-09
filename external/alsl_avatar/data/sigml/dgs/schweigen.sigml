@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="SCHWEIGEN2">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger2/>
+			<hamextfingeru/>
+			<hampalml/>
+			<hamlips/>
+			<hamtouch/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

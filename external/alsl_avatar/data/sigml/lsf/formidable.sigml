@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="FORMIDABLE">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfinger2345/>
+			<hamfingerbendmod/>
+			<hamextfingerul/>
+			<hampalmdl/>
+			<hamparbegin/>
+			<hamchest/>
+			<hamlrat/>
+			<hamclose/>
+			<hamplus/>
+			<hamlrat/>
+			<hamchest/>
+			<hamparend/>
+			<hamreplace/>
+			<hamfinger2345/>
+			<hamthumboutmod/>
+			<hambetween/>
+			<hamfinger2345/>
+			<hamthumboutmod/>
+			<hamfingerstraightmod/>
+			<hamparbegin/>
+			<hamlrat/>
+			<hamshoulders/>
+			<hamclose/>
+			<hamplus/>
+			<hamshoulders/>
+			<hamlrat/>
+			<hamparend/>
+			<hamparbegin/>
+			<hammoveor/>
+			<hamlargemod/>
+			<hamreplace/>
+			<hamfist/>
+			<hamthumbacrossmod/>
+			<hamextfingero/>
+			<hampalml/>
+			<hamchest/>
+			<hamlrbeside/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

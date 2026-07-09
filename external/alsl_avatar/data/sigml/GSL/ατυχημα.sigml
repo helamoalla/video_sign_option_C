@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΑΤΥΧΗΜΑ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfist/>
+			<hamthumbacrossmod/>
+			<hamextfingerul/>
+			<hampalml/>
+			<hamparbegin/>
+			<hamshoulders/>
+			<hamlrat/>
+			<hamplus/>
+			<hamlrat/>
+			<hamshoulders/>
+			<hamparend/>
+			<hamparbegin/>
+			<hammovei/>
+			<hamarcu/>
+			<hamrest/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamringfinger/>
+			<hamfingerbase/>
+			<hamplus/>
+			<hampinky/>
+			<hamfingerbase/>
+			<hamparend/>
+			<hamtouch/>
+			<hamshoulders/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

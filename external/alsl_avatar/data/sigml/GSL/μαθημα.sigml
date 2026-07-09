@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΜΑΘΗΜΑ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamflathand/>
+			<hamthumboutmod/>
+			<hamextfingeru/>
+			<hampalmu/>
+			<hamchin/>
+			<hambetween/>
+			<hamneck/>
+			<hamclose/>
+			<hamswinging/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

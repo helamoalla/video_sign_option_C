@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΛΕΞΙΚΟ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamcee12/>
+			<hamthumbopenmod/>
+			<hambetween/>
+			<hamfinger2/>
+			<hamthumbopenmod/>
+			<hamextfingeror/>
+			<hambetween/>
+			<hamextfingeruo/>
+			<hampalml/>
+			<hambetween/>
+			<hampalmul/>
+			<hamshouldertop/>
+			<hamclose/>
+			<hamparbegin/>
+			<hammoved/>
+			<hamsmallmod/>
+			<hamarcd/>
+			<hamlargemod/>
+			<hamparend/>
+			<hamseqbegin/>
+			<hamrepeatfromstartseveral/>
+			<hammoved/>
+			<hamsmallmod/>
+			<hamseqend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

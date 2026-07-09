@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="PFAD1">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamcee12/>
+			<hamextfingeror/>
+			<hampalmd/>
+			<hamchest/>
+			<hamlrat/>
+			<hamclose/>
+			<hammoveo/>
+			<hamwavy/>
+			<hamellipseh/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

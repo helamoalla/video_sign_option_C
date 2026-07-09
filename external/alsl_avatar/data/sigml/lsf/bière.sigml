@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="BIERE">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfinger2/>
+			<hamthumbopenmod/>
+			<hamfingerhookmod/>
+			<hamextfingerul/>
+			<hampalml/>
+			<hamchest/>
+			<hamclose/>
+			<hamreplace/>
+			<hamfist/>
+			<hamthumboutmod/>
+			<hamextfingero/>
+			<hamfingermidjoint/>
+			<hamindexfinger/>
+			<hamseqbegin/>
+			<hamclose/>
+			<hamfingermidjoint/>
+			<hamindexfinger/>
+			<hamseqend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

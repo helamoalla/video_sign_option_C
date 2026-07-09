@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="TANTE1">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamparbegin/>
+			<hampinch12open/>
+			<hamextfingeruo/>
+			<hamextfingerol/>
+			<hampalmdl/>
+			<hamplus/>
+			<hampinch12open/>
+			<hamextfingeror/>
+			<hampalmdr/>
+			<hamparend/>
+			<hamfingertip/>
+			<hamclose/>
+			<hamparbegin/>
+			<hammoveor/>
+			<hamseqbegin/>
+			<hambrushing/>
+			<hamfingertip/>
+			<hamtouch/>
+			<hamseqend/>
+			<hamreplace/>
+			<hamextfingerol/>
+			<hampalmd/>
+			<hamparend/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

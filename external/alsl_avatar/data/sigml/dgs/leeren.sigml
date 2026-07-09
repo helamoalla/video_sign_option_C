@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="LEEREN1B">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmpar/>
+			<hamceeall/>
+			<hamthumbopenmod/>
+			<hamextfingero/>
+			<hampalml/>
+			<hamparbegin/>
+			<hamparbegin/>
+			<hammoveul/>
+			<hamarcr/>
+			<hamreplace/>
+			<hamextfingero/>
+			<hampalmdr/>
+			<hamparend/>
+			<hamplus/>
+			<hamreplace/>
+			<hampalmu/>
+			<hamparend/>
+			<hammovedl/>
+			<hamsmallmod/>
+			<hamrepeatfromstartseveral/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

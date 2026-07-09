@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="PANTALON">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfinger23spread/>
+			<hamthumbacrossmod/>
+			<hamextfingerdl/>
+			<hambetween/>
+			<hamextfingero/>
+			<hampalmdl/>
+			<hambetween/>
+			<hampalmd/>
+			<hamstomach/>
+			<hamclose/>
+			<hamparbegin/>
+			<hammoveui/>
+			<hamreplace/>
+			<hamextfingerdi/>
+			<hampalmu/>
+			<hamstomach/>
+			<hamseqbegin/>
+			<hamtouch/>
+			<hamfingertip/>
+			<hamindexfinger/>
+			<hammiddlefinger/>
+			<hamseqend/>
+			<hamparend/>
+			<hamrepeatfromstartseveral/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

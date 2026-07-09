@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ADMIRER">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfinger23spread/>
+			<hamfingerbendmod/>
+			<hamthumboutmod/>
+			<hamextfingeru/>
+			<hampalmu/>
+			<hameyes/>
+			<hamlrbeside/>
+			<hamtouch/>
+			<hammoveo/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

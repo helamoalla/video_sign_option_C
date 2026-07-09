@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="RESPONSABLE">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamflathand/>
+			<hamextfingerl/>
+			<hampalmu/>
+			<hamlrat/>
+			<hamshoulders/>
+			<hamseqbegin/>
+			<hamtouch/>
+			<hampinkyside/>
+			<hamseqend/>
+			<hamparbegin/>
+			<hammoveo/>
+			<hamcircler/>
+			<hamsmallmod/>
+			<hamreplace/>
+			<hampalmd/>
+			<hamlrat/>
+			<hamshoulders/>
+			<hamseqbegin/>
+			<hamtouch/>
+			<hamthumbside/>
+			<hamseqend/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

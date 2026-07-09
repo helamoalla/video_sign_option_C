@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="europe(n)#1">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hampinchall/>
+			<hamfingerbendmod/>
+			<hamextfingeru/>
+			<hampalmd/>
+			<hambetween/>
+			<hampalmdl/>
+			<hamshoulders/>
+			<hamlrat/>
+			<hambetween/>
+			<hamshoulders/>
+			<hamcirclei/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

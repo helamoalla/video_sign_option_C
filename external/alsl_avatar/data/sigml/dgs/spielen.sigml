@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="SPIELEN2">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamlargemod/>
+			<hamfingerstraightmod/>
+			<hampinch12open/>
+			<hamextfingerol/>
+			<hampalml/>
+			<hamseqbegin/>
+			<hammoved/>
+			<hammoveu/>
+			<hamseqend/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

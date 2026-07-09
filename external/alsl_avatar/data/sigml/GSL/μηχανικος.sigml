@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΜΗΧΑΝΙΚΟΣ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamparbegin/>
+			<hamfist/>
+			<hamextfingero/>
+			<hambetween/>
+			<hamextfingerul/>
+			<hampalmd/>
+			<hamplus/>
+			<hamfist/>
+			<hamextfingeror/>
+			<hampalmdr/>
+			<hamparend/>
+			<hamchest/>
+			<hamclose/>
+			<hamparbegin/>
+			<hamreplace/>
+			<hampalml/>
+			<hamtwisting/>
+			<hamlargemod/>
+			<hamplus/>
+			<hamnomotion/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

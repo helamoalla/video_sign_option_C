@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ZURÜCKKEHREN1">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmpar/>
+			<hamfinger23/>
+			<hamfingerstraightmod/>
+			<hamextfingeruo/>
+			<hamextfingeror/>
+			<hampalmd/>
+			<hamparbegin/>
+			<hammoveor/>
+			<hamreplace/>
+			<hamfinger23/>
+			<hamparend/>
+			<hamparbegin/>
+			<hammoveil/>
+			<hamreplace/>
+			<hamfinger23/>
+			<hamfingerstraightmod/>
+			<hamextfingerdo/>
+			<hamextfingeror/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

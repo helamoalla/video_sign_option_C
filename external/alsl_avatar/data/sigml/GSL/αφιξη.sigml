@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΑΦΙΞΗ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamflathand/>
+			<hamthumboutmod/>
+			<hambetween/>
+			<hamflathand/>
+			<hamfingerstraightmod/>
+			<hamextfingeruo/>
+			<hamextfingeror/>
+			<hampalmul/>
+			<hamshouldertop/>
+			<hamlrbeside/>
+			<hamparbegin/>
+			<hamreplace/>
+			<hamextfingero/>
+			<hammoveir/>
+			<hamhalt/>
+			<hamtense/>
+			<hamparend/>
+			<hamchest/>
+			<hamlrat/>
+			<hamclose/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

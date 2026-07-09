@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="MUSEUM1">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger23spread/>
+			<hamthumbacrossmod/>
+			<hamextfingerol/>
+			<hampalmd/>
+			<hamlrat/>
+			<hamchest/>
+			<hammoveor/>
+			<hamzigzag/>
+			<hamsmallmod/>
+			<hamellipsev/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

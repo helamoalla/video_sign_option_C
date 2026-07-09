@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="COUCHER DU SOLEIL">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamparbegin/>
+			<hamceeall/>
+			<hamextfingeru/>
+			<hampalml/>
+			<hamplus/>
+			<hamflathand/>
+			<hamextfingerr/>
+			<hampalmd/>
+			<hamparend/>
+			<hamshouldertop/>
+			<hamlrat/>
+			<hamparbegin/>
+			<hammoved/>
+			<hammovel/>
+			<hamtense/>
+			<hamreplace/>
+			<hamextfingerl/>
+			<hampalmd/>
+			<hamparend/>
+			<hamlowerarm/>
+			<hamseqbegin/>
+			<hamclose/>
+			<hamfingerpad/>
+			<hampinky/>
+			<hamseqend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

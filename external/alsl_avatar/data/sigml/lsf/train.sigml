@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="TRAIN">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger23spread/>
+			<hamthumbacrossmod/>
+			<hamextfingero/>
+			<hampalml/>
+			<hamstomach/>
+			<hamlrat/>
+			<hamclose/>
+			<hamcirclel/>
+			<hamclockfull/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

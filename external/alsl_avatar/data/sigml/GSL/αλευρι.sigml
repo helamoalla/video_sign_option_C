@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΑΛΕΥΡΙ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hampinchall/>
+			<hamfingerstraightmod/>
+			<hamextfingerol/>
+			<hamextfingeruo/>
+			<hampalmd/>
+			<hamparbegin/>
+			<hammover/>
+			<hamfingerplay/>
+			<hamreplace/>
+			<hampinchall/>
+			<hambetween/>
+			<hampinchall/>
+			<hammiddlefinger/>
+			<hamlargemod/>
+			<hamringfinger/>
+			<hamlargemod/>
+			<hamextfingeror/>
+			<hamextfingeruo/>
+			<hampalml/>
+			<hamparend/>
+			<hamparbegin/>
+			<hammovel/>
+			<hamsmallmod/>
+			<hamhalt/>
+			<hamreplace/>
+			<hamfinger2345/>
+			<hamthumbopenmod/>
+			<hamfingerstraightmod/>
+			<hambetween/>
+			<hamceeall/>
+			<hamextfingeruo/>
+			<hamparend/>
+			<hamrepeatfromstartseveral/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

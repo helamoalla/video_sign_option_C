@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="MARCHE + SOLDAT">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmpar/>
+			<hamfinger2345/>
+			<hamthumboutmod/>
+			<hamextfingerol/>
+			<hampalmd/>
+			<hamparbegin/>
+			<hamchest/>
+			<hamclose/>
+			<hamplus/>
+			<hamlrat/>
+			<hamchest/>
+			<hamparend/>
+			<hammoveol/>
+			<hamzigzag/>
+			<hamellipsev/>
+			<hamplus/>
+			<hamsymmpar/>
+			<hamparbegin/>
+			<hamfist/>
+			<hamthumbopenmod/>
+			<hamextfingerl/>
+			<hampalml/>
+			<hamplus/>
+			<hamfist/>
+			<hamthumbopenmod/>
+			<hamextfingerr/>
+			<hampalmr/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamshoulders/>
+			<hamlrat/>
+			<hamplus/>
+			<hamchest/>
+			<hamlrat/>
+			<hamparend/>
+			<hammovei/>
+			<hamsmallmod/>
+			<hamrepeatfromstartseveral/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

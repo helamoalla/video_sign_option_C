@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="BETREUEN1A">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfinger23spread/>
+			<hamextfingeruo/>
+			<hampalmd/>
+			<hamshoulders/>
+			<hammoved/>
+			<hamwavy/>
+			<hamsmallmod/>
+			<hamellipseh/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

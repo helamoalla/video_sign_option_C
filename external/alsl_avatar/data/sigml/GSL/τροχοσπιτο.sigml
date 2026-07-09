@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΤΡΟΧΟΣΠΙΤΟ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamflathand/>
+			<hamextfingerul/>
+			<hampalmd/>
+			<hamshouldertop/>
+			<hammoveul/>
+			<hammiddlefinger/>
+			<hamfingertip/>
+			<hamtouch/>
+			<hamrepeatfromstart/>
+			<hamplus/>
+			<hamsymmlr/>
+			<hamfinger2/>
+			<hamthumbacrossmod/>
+			<hamfingerhookmod/>
+			<hambetween/>
+			<hamfinger2/>
+			<hamthumbacrossmod/>
+			<hamparbegin/>
+			<hamextfingeruo/>
+			<hamextfingerol/>
+			<hampalmd/>
+			<hamplus/>
+			<hamextfingerr/>
+			<hampalmr/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamindexfinger/>
+			<hamfingerpad/>
+			<hampalm/>
+			<hamplus/>
+			<hamindexfinger/>
+			<hamfingerpad/>
+			<hampalm/>
+			<hamparend/>
+			<hamtouch/>
+			<hamparbegin/>
+			<hammovel/>
+			<hamplus/>
+			<hammovel/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

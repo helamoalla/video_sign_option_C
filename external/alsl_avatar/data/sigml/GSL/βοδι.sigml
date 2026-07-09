@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΒΟΔΙ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfinger2345/>
+			<hamthumboutmod/>
+			<hamindexfinger/>
+			<hamdoublebent/>
+			<hammiddlefinger/>
+			<hamdoublebent/>
+			<hamringfinger/>
+			<hamdoublebent/>
+			<hamextfingeru/>
+			<hampalml/>
+			<hamforehead/>
+			<hamlrbeside/>
+			<hamclose/>
+			<hammoveo/>
+			<hamarcd/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

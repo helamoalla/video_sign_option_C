@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="AVOIR SOIF">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamceeopen/>
+			<hamextfingerl/>
+			<hambetween/>
+			<hamextfingerui/>
+			<hampalmr/>
+			<hamneck/>
+			<hamtouch/>
+			<hamparbegin/>
+			<hammovedo/>
+			<hamsmallmod/>
+			<hamslow/>
+			<hamreplace/>
+			<hampinch12open/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

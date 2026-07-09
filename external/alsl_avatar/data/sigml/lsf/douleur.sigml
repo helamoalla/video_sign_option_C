@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="DOULEUR">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfist/>
+			<hamthumboutmod/>
+			<hamextfingerl/>
+			<hampalml/>
+			<hamlips/>
+			<hamseqbegin/>
+			<hamtouch/>
+			<hamthumb/>
+			<hamfingerside/>
+			<hamseqend/>
+			<hammoved/>
+			<hamsmallmod/>
+			<hamslow/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

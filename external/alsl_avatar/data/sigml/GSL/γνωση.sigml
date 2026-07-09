@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΓΝΩΣΗ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfist/>
+			<hamthumbacrossmod/>
+			<hamextfingeru/>
+			<hampalmul/>
+			<hamear/>
+			<hambetween/>
+			<hamcheek/>
+			<hamclose/>
+			<hamreplace/>
+			<hamfinger2/>
+			<hamthumbacrossmod/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

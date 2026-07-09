@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΜΗΤΕΡΑ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger2/>
+			<hamfingerhookmod/>
+			<hamextfingerul/>
+			<hambetween/>
+			<hamextfingerul/>
+			<hampalmdl/>
+			<hamcheek/>
+			<hamlrat/>
+			<hamclose/>
+			<hamstircw/>
+			<hamrepeatfromstartseveral/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="JACKE1">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfist/>
+			<hamextfingeruo/>
+			<hamextfingerol/>
+			<hampalml/>
+			<hamshoulders/>
+			<hamlrat/>
+			<hamclose/>
+			<hamparbegin/>
+			<hammovel/>
+			<hamarcr/>
+			<hamsmallmod/>
+			<hamreplace/>
+			<hamextfingerl/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

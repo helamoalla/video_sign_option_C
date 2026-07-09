@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="FAHRER1 $PERSONEN-ILLUSTRATION1">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmlr/>
+			<hamfingerstraightmod/>
+			<hamlargemod/>
+			<hamfist/>
+			<hamextfingeruo/>
+			<hamextfingerol/>
+			<hampalmul/>
+			<hamseqbegin/>
+			<hammovedl/>
+			<hamsmallmod/>
+			<hammoveur/>
+			<hamsmallmod/>
+			<hamseqend/>
+			<hamrepeatfromstart/>
+			<hamplus/>
+			<hamfinger2/>
+			<hamfingerbendmod/>
+			<hamthumboutmod/>
+			<hamextfingerur/>
+			<hampalml/>
+			<hammoved/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

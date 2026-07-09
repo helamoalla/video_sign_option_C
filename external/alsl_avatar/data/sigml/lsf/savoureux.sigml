@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="SAVOUREUX">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hampinchall/>
+			<hambetween/>
+			<hampinchall/>
+			<hamfingerstraightmod/>
+			<hamextfingeruo/>
+			<hampalmu/>
+			<hamchin/>
+			<hamseqbegin/>
+			<hamclose/>
+			<hamfingertip/>
+			<hammiddlefinger/>
+			<hamseqend/>
+			<hamcircleu/>
+			<hamsmallmod/>
+			<hamclockr/>
+			<hamrepeatfromstartseveral/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="common(a)#4">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmpar/>
+			<hamflathand/>
+			<hamextfingero/>
+			<hampalmd/>
+			<hamtouch/>
+			<hamchest/>
+			<hammoveir/>
+			<hamcircleur/>
+			<hamtouch/>
+			<hamshouldertop/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

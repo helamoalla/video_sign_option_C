@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="HÜGEL1">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamflathand/>
+			<hamextfingerol/>
+			<hampalmd/>
+			<hamorirelative/>
+			<hammover/>
+			<hamsmallmod/>
+			<hammoveur/>
+			<hamarcu/>
+			<hamlargemod/>
+			<hammover/>
+			<hamsmallmod/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

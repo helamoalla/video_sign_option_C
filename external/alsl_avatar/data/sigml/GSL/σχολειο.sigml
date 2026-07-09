@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΣΧΟΛΕΙΟ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamflathand/>
+			<hamthumboutmod/>
+			<hamextfingerul/>
+			<hampalml/>
+			<hamtongue/>
+			<hamseqbegin/>
+			<hamclose/>
+			<hamfingermidjoint/>
+			<hammiddlefinger/>
+			<hamseqend/>
+			<hamswinging/>
+			<hamplus/>
+			<hamsymmlr/>
+			<hamfinger2/>
+			<hamthumboutmod/>
+			<hamfingerbendmod/>
+			<hamextfingerol/>
+			<hampalmdl/>
+			<hamshouldertop/>
+			<hambetween/>
+			<hamshoulders/>
+			<hamreplace/>
+			<hamextfingero/>
+			<hampalmul/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

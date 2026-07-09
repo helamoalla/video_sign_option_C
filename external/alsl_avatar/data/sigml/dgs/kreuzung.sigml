@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="KREUZ1A">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamparbegin/>
+			<hamfinger2/>
+			<hamextfingerul/>
+			<hampalmdr/>
+			<hamplus/>
+			<hamfinger2/>
+			<hamextfingerur/>
+			<hampalmdl/>
+			<hamparend/>
+			<hamfingerside/>
+			<hamindexfinger/>
+			<hamclose/>
+			<hammoveo/>
+			<hamtouch/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

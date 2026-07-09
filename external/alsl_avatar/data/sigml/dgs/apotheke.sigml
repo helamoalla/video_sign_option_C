@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="APOTHEKE1A">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamparbegin/>
+			<hamfist/>
+			<hamextfingerol/>
+			<hampalml/>
+			<hamplus/>
+			<hamflathand/>
+			<hamextfingeror/>
+			<hampalmu/>
+			<hamparend/>
+			<hampalm/>
+			<hamclose/>
+			<hamparbegin/>
+			<hammoveil/>
+			<hamsmallmod/>
+			<hamarcd/>
+			<hamsmallmod/>
+			<hamseqbegin/>
+			<hambrushing/>
+			<hampalm/>
+			<hamtouch/>
+			<hamseqend/>
+			<hamreplace/>
+			<hampalmul/>
+			<hamparend/>
+			<hamrepeatreverse/>
+			<hamrepeatcontinue/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

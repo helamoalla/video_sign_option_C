@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="wild(a)#2">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger2345/>
+			<hamthumbacrossmod/>
+			<hampinky/>
+			<hamdoublehooked/>
+			<hamextfingeru/>
+			<hampalmd/>
+			<hamneck/>
+			<hamlrat/>
+			<hamparbegin/>
+			<hamcircleu/>
+			<hamellipseur/>
+			<hamreplace/>
+			<hampalmu/>
+			<hamparend/>
+			<hamhead/>
+			<hamlrat/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

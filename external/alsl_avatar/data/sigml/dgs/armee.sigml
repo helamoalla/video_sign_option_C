@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ARMEE1">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfist/>
+			<hamextfingerl/>
+			<hampalml/>
+			<hamlrat/>
+			<hamchest/>
+			<hamtouch/>
+			<hammover/>
+			<hamarcr/>
+			<hamchest/>
+			<hamlrat/>
+			<hamtouch/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

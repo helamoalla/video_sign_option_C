@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ΝΕΡΟ">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfist/>
+			<hamthumboutmod/>
+			<hamextfingero/>
+			<hampalml/>
+			<hamchest/>
+			<hamclose/>
+			<hamparbegin/>
+			<hammoveui/>
+			<hamarcu/>
+			<hamreplace/>
+			<hamextfingerui/>
+			<hamnose/>
+			<hamlrat/>
+			<hamclose/>
+			<hamparend/>
+			<hamswinging/>
+			<hamsmallmod/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

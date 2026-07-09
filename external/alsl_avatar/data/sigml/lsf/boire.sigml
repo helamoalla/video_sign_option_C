@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="BOIRE">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfist/>
+			<hamthumboutmod/>
+			<hamextfingeru/>
+			<hampalml/>
+			<hamtongue/>
+			<hamseqbegin/>
+			<hamclose/>
+			<hamthumb/>
+			<hamfingerpad/>
+			<hamseqend/>
+			<hamparbegin/>
+			<hammoveu/>
+			<hamsmallmod/>
+			<hamreplace/>
+			<hamextfingerui/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

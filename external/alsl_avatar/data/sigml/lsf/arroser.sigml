@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="ARROSER">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfist/>
+			<hamthumbopenmod/>
+			<hamextfingerol/>
+			<hampalmd/>
+			<hamlrat/>
+			<hamshoulders/>
+			<hamparbegin/>
+			<hammover/>
+			<hamlargemod/>
+			<hamslow/>
+			<hamreplace/>
+			<hamextfingeror/>
+			<hamshoulders/>
+			<hamlrbeside/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

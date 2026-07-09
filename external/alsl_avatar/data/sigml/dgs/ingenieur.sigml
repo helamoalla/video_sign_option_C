@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="INGENIEUR1">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamcee12/>
+			<hamextfingeru/>
+			<hampalml/>
+			<hamlrat/>
+			<hamforehead/>
+			<hamclose/>
+			<hammover/>
+			<hamarcr/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

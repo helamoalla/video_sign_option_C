@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="CARREFOUR">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamparbegin/>
+			<hamfist/>
+			<hamthumbacrossmod/>
+			<hamextfingerul/>
+			<hampalmr/>
+			<hamplus/>
+			<hamfist/>
+			<hamthumbacrossmod/>
+			<hamextfingerur/>
+			<hampalml/>
+			<hamparend/>
+			<hamparbegin/>
+			<hamlrat/>
+			<hamshouldertop/>
+			<hamclose/>
+			<hamplus/>
+			<hamshouldertop/>
+			<hamparend/>
+			<hammovei/>
+			<hamsmallmod/>
+			<hamrepeatfromstartseveral/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

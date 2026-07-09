@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="VENT">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamsymmpar/>
+			<hamfinger23spread/>
+			<hamthumbacrossmod/>
+			<hamparbegin/>
+			<hamextfingerur/>
+			<hampalml/>
+			<hamplus/>
+			<hamextfingerur/>
+			<hampalml/>
+			<hamparend/>
+			<hamshouldertop/>
+			<hamclose/>
+			<hamparbegin/>
+			<hammoveol/>
+			<hamreplace/>
+			<hamextfingerol/>
+			<hampalmd/>
+			<hamparend/>
+			<hamrepeatfromstart/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>
