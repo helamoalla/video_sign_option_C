@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sigml>
+	<hns_sign gloss="NOUS">
+		<hamnosys_nonmanual/>
+		<hamnosys_manual>
+			<hamfinger2/>
+			<hamthumbacrossmod/>
+			<hamextfingeril/>
+			<hampalmdr/>
+			<hamchest/>
+			<hamlrat/>
+			<hamclose/>
+			<hamparbegin/>
+			<hammoveo/>
+			<hamlargemod/>
+			<hamarcr/>
+			<hamreplace/>
+			<hamextfingerol/>
+			<hampalmd/>
+			<hamparend/>
+			<hamparbegin/>
+			<hammovei/>
+			<hamlargemod/>
+			<hamarcl/>
+			<hamreplace/>
+			<hamextfingeril/>
+			<hampalmdr/>
+			<hamparend/>
+		</hamnosys_manual>
+	</hns_sign>
+</sigml>

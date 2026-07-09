@@ -2,7 +2,7 @@ import base64
 import json
 from pathlib import Path
 
-SESSION_ID = "d93d772d-bc30-4578-a262-bdf2688c1df5" #put your session id here before executing the script
+SESSION_ID = "9354ae04-1198-48b3-9579-566c2a839666" #put your session id here before executing the script
 SESSION_DIR = Path("outputs") / SESSION_ID
 MANIFEST_PATH = SESSION_DIR / "manifest.json"
 OUTPUT_HTML = SESSION_DIR / "offline_player.html"
