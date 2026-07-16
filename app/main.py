@@ -27,12 +27,45 @@ from app.session_manifest import save_manifest
 from app.statistics import compute_language_statistics
 
 
-Path("outputs").mkdir(exist_ok=True)
-Path("uploads").mkdir(exist_ok=True)
-Path("temp").mkdir(exist_ok=True)
+from contextlib import asynccontextmanager
 
-app = FastAPI(title="CYRKIL Option C - Geo Adaptive Sign Video")
-app.mount("/outputs", StaticFiles(directory="outputs"), name="outputs")
+
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+
+OUTPUT_DIR = PROJECT_ROOT / "outputs"
+UPLOAD_DIR = PROJECT_ROOT / "uploads"
+TEMP_DIR = PROJECT_ROOT / "temp"
+
+def create_runtime_directories() -> None:
+    """Create directories required by the application at runtime."""
+    for directory in (OUTPUT_DIR, UPLOAD_DIR, TEMP_DIR):
+        directory.mkdir(parents=True, exist_ok=True)
+
+
+# Required before StaticFiles is mounted.
+create_runtime_directories()
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Startup verification.
+    create_runtime_directories()
+
+    yield
+
+    # Optional shutdown cleanup can be added here later.
+
+
+app = FastAPI(
+    title="CYRKIL Option C - Geo Adaptive Sign Video",
+    lifespan=lifespan,
+)
+
+app.mount(
+    "/outputs",
+    StaticFiles(directory=str(OUTPUT_DIR)),
+    name="outputs",
+)
 
 
 class AvatarRequest(BaseModel):
@@ -40,6 +73,11 @@ class AvatarRequest(BaseModel):
     language: str = "lsa"
     provider_name: str = "cwasa_multilang"
 
+@app.get("/health")
+def health():
+    return {
+        "status": "healthy"
+    }
 
 @app.post("/process-video")
 def process_video(

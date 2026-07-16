@@ -2,8 +2,10 @@ from pathlib import Path
 import re
 import unicodedata
 
-SIGML_ROOT = Path("external/alsl_avatar/data/sigml")
+from pathlib import Path
 
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+SIGML_ROOT = PROJECT_ROOT / "external" / "alsl_avatar" / "data" / "sigml"
 LANGUAGE_FOLDER_MAP = {
     "lsf": "LSF", "fr": "LSF", "french": "LSF",
     "dgs": "DGS", "de": "DGS", "german": "DGS",
