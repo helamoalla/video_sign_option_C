@@ -28,6 +28,7 @@ from app.statistics import compute_language_statistics
 
 
 from contextlib import asynccontextmanager
+from app.config import INTERNAL_BASE_URL, PUBLIC_BASE_URL
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -198,7 +199,9 @@ def process_video(
     if avatar_provider_name in {"cwasa_arabic", "cwasa_multilang", "cwasa_multilingual"}:
         html_path = Path(avatar_output)
         output_folder = html_path.parent.name
-        cwasa_url = f"http://127.0.0.1:8000/outputs/{output_folder}/index.html"
+        cwasa_url = (
+    f"{INTERNAL_BASE_URL}/outputs/{output_folder}/index.html"
+)
 
         recorded_avatar_path = create_file_path("outputs", "mp4")
 
@@ -346,7 +349,9 @@ def test_cwasa_record(req: AvatarRequest):
         html_path = Path(avatar_html)
         output_folder = html_path.parent.name
 
-        cwasa_url = f"http://127.0.0.1:8000/outputs/{output_folder}/index.html"
+        cwasa_url = (
+    f"{INTERNAL_BASE_URL}/outputs/{output_folder}/index.html"
+)
         recorded_path = create_file_path("outputs", "webm")
 
         record_cwasa_page(
@@ -540,9 +545,9 @@ def process_video_assets(
 
             if html_path.suffix.lower() == ".html":
                 cwasa_url = (
-                    f"http://127.0.0.1:8000/outputs/"
-                    f"{session_id}/avatars/{html_path.parent.name}/index.html"
-                )
+                f"{INTERNAL_BASE_URL}/outputs/"
+                f"{session_id}/avatars/{html_path.parent.name}/index.html"
+            )
 
                 record_cwasa_page(
                     page_url=cwasa_url,
@@ -659,7 +664,10 @@ def process_video_assets(
         "rendered_videos": rendered_videos,
         "statistics": statistics,
         "geo_ready": True,
-        "iframe": f'<iframe src="http://127.0.0.1:8000/outputs/{session_id}/player.html" width="100%" height="650"></iframe>',
+        "iframe": (
+        f'<iframe src="{PUBLIC_BASE_URL}/outputs/{session_id}/player.html" '
+            'width="100%" height="650"></iframe>'
+        ),
     }
 
 

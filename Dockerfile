@@ -17,18 +17,17 @@ RUN apt-get update \
         curl \
     && rm -rf /var/lib/apt/lists/*
 
-COPY requirements.txt /requirements.txt
+COPY requirements.txt /app/requirements.txt
 
 RUN python -m pip install --upgrade pip \
-    && python -m pip install --no-cache-dir -r /requirements.txt \
+    && python -m pip install -r /app/requirements.txt \
     && python -m pip check
+
+RUN python -m playwright install --with-deps chromium
 
 COPY . /app
 
-RUN mkdir -p \
-    /outputs \
-    /uploads \
-    /temp
+RUN mkdir -p /app/outputs /app/uploads /app/temp
 
 RUN useradd --create-home --shell /bin/bash appuser \
     && chown -R appuser:appuser /app

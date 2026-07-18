@@ -43,7 +43,7 @@ async def record_cwasa_page_async(
     raw_output_path = output_path.with_name(output_path.stem + "_raw.webm")
 
     async with async_playwright() as p:
-        browser = await p.chromium.launch(headless=False)
+        browser = await p.chromium.launch(headless=True)
 
         context = await browser.new_context(
             viewport={"width": 720, "height": 720},
