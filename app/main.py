@@ -45,6 +45,7 @@ from app.tasks import process_video_assets_task
 from app.media_validation import (
     MediaValidationError,
     validate_media,
+    sanitize_media,
 )
 
 
@@ -567,6 +568,22 @@ async def process_video_assets(
     # ---------------------------------------------------------
 
     try:
+        # Validate the original upload first.
+        await run_in_threadpool(
+            validate_media,
+            input_path,
+            extension,
+            declared_content_type,
+            not has_valid_manual_text,
+        )
+
+        # Remove metadata, chapters and unrelated streams.
+        await run_in_threadpool(
+            sanitize_media,
+            input_path,
+        )
+
+        # Verify that the sanitized result is still valid.
         media_metadata = await run_in_threadpool(
             validate_media,
             input_path,
@@ -576,9 +593,7 @@ async def process_video_assets(
         )
 
     except MediaValidationError as exc:
-        input_path.unlink(
-            missing_ok=True
-        )
+        input_path.unlink(missing_ok=True)
 
         try:
             input_path.parent.rmdir()
@@ -586,9 +601,7 @@ async def process_video_assets(
             pass
 
         raise HTTPException(
-            status_code=(
-                status.HTTP_422_UNPROCESSABLE_ENTITY
-            ),
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
             detail={
                 "code": exc.code,
                 "message": exc.message,
@@ -596,9 +609,7 @@ async def process_video_assets(
         ) from exc
 
     except Exception:
-        input_path.unlink(
-            missing_ok=True
-        )
+        input_path.unlink(missing_ok=True)
 
         try:
             input_path.parent.rmdir()
@@ -615,9 +626,7 @@ async def process_video_assets(
         )
 
         raise HTTPException(
-            status_code=(
-                status.HTTP_500_INTERNAL_SERVER_ERROR
-            ),
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail={
                 "code": "MEDIA_VALIDATION_FAILED",
                 "message": (

@@ -198,6 +198,92 @@ def probe_media(path: Path) -> dict:
 
     return result
 
+def sanitize_media(
+    path: Path,
+    timeout_seconds: int = 120,
+) -> None:
+    """
+    Remux validated media into a clean container.
+
+    - Removes global metadata.
+    - Removes chapters.
+    - Keeps only audio and video streams.
+    - Drops subtitle, data and attachment streams.
+    - Uses stream copy, so it does not re-encode the media.
+    """
+
+    sanitized_path = path.with_name(
+        f"{path.stem}.sanitized{path.suffix}"
+    )
+
+    command = [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-y",
+        "-i",
+        str(path),
+        "-map",
+        "0:v?",
+        "-map",
+        "0:a?",
+        "-map_metadata",
+        "-1",
+        "-map_chapters",
+        "-1",
+        "-sn",
+        "-dn",
+        "-c",
+        "copy",
+        str(sanitized_path),
+    ]
+
+    try:
+        completed = subprocess.run(
+            command,
+            capture_output=True,
+            text=True,
+            timeout=timeout_seconds,
+            check=False,
+        )
+
+    except subprocess.TimeoutExpired as exc:
+        sanitized_path.unlink(missing_ok=True)
+
+        raise MediaValidationError(
+            code="MEDIA_SANITIZATION_TIMEOUT",
+            message=(
+                "Media sanitization exceeded the "
+                "allowed time."
+            ),
+        ) from exc
+
+    except OSError as exc:
+        sanitized_path.unlink(missing_ok=True)
+
+        raise RuntimeError(
+            "ffmpeg could not be executed."
+        ) from exc
+
+    if (
+        completed.returncode != 0
+        or not sanitized_path.is_file()
+        or sanitized_path.stat().st_size == 0
+    ):
+        sanitized_path.unlink(missing_ok=True)
+
+        raise MediaValidationError(
+            code="MEDIA_SANITIZATION_FAILED",
+            message=(
+                "The uploaded media could not be "
+                "sanitized safely."
+            ),
+        )
+
+    os.replace(
+        sanitized_path,
+        path,
+    )
 
 def get_media_duration(
     probe: dict,
