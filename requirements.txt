@@ -40,5 +40,6 @@ magic_hour==0.66.0
 celery[redis]==5.6.3
 SQLAlchemy==2.0.51
 psycopg2-binary==2.9.12
+pytest==8.3.5
 
 
