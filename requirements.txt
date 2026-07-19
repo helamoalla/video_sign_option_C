@@ -37,3 +37,8 @@ pydantic==2.9.2
 
 magic_hour==0.66.0
 
+celery[redis]
+SQLAlchemy
+psycopg2-binary
+
+

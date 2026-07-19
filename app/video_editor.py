@@ -13,8 +13,35 @@ import arabic_reshaper
 from bidi.algorithm import get_display
 
 
-ARABIC_FONT = "C:/Windows/Fonts/tahoma.ttf"
+DEFAULT_FONT = (
+    "/usr/share/fonts/truetype/noto/"
+    "NotoSans-Regular.ttf"
+)
 
+ARABIC_FONT = (
+    "/usr/share/fonts/truetype/noto/"
+    "NotoSansArabic-Regular.ttf"
+)
+
+
+def get_font(language: str) -> str:
+    normalized_language = language.lower()
+
+    if normalized_language in {
+        "arabic",
+        "ar",
+        "lsa",
+    }:
+        font_path = ARABIC_FONT
+    else:
+        font_path = DEFAULT_FONT
+
+    if not Path(font_path).is_file():
+        raise RuntimeError(
+            f"Required subtitle font was not found: {font_path}"
+        )
+
+    return font_path
 
 def prepare_text(text: str, language: str = "english") -> str:
     if not text:
@@ -42,7 +69,7 @@ def create_subtitle_clips(segments, video_width, language="english"):
         clip = (
             TextClip(
                 text=text,
-                font=ARABIC_FONT,
+                font=get_font(language),
                 font_size=46,
                 color="white",
                 method="caption",
@@ -138,7 +165,7 @@ def compose_final_video(
         subtitle = (
             TextClip(
                 text=subtitle_text,
-                font=ARABIC_FONT,
+                font=get_font(subtitle_language),
                 font_size=46,
                 color="white",
                 method="caption",
