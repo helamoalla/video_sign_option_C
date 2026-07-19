@@ -4,7 +4,13 @@ from app.avatar.base import AvatarProvider
 
 
 class PlaceholderAvatarProvider(AvatarProvider):
-    def generate(self, text: str, language: str, output_path: str) -> str:
+    def generate(
+    self,
+    text: str,
+    language: str,
+    output_path: str,
+    glosses: list[str] | None = None,
+) -> str:
         placeholder = Path("static/avatar_placeholder.mp4")
 
         if not placeholder.exists():

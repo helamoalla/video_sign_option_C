@@ -14,18 +14,20 @@ from bidi.algorithm import get_display
 
 
 DEFAULT_FONT = (
-    "/usr/share/fonts/truetype/noto/"
-    "NotoSans-Regular.ttf"
+    "/usr/share/fonts/truetype/dejavu/"
+    "DejaVuSans.ttf"
 )
 
 ARABIC_FONT = (
-    "/usr/share/fonts/truetype/noto/"
-    "NotoSansArabic-Regular.ttf"
+    "/usr/share/fonts/truetype/dejavu/"
+    "DejaVuSans.ttf"
 )
 
-
 def get_font(language: str) -> str:
-    normalized_language = language.lower()
+    normalized_language = (
+        language
+        or "english"
+    ).lower().strip()
 
     if normalized_language in {
         "arabic",
@@ -38,7 +40,8 @@ def get_font(language: str) -> str:
 
     if not Path(font_path).is_file():
         raise RuntimeError(
-            f"Required subtitle font was not found: {font_path}"
+            f"Required subtitle font was not found: "
+            f"{font_path}"
         )
 
     return font_path

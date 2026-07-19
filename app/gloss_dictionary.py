@@ -49,13 +49,12 @@ LANGUAGE_ALIASES = {
 
 # Canonical language code to its exact asset directory.
 LANGUAGE_FOLDER_MAP = {
-    "lsf": "LSF",
-    "dgs": "DGS",
+    "lsf": "lsf",
+    "dgs": "dgs",
     "bsl": "BSL",
     "gsl": "GSL",
     "lsa": "lsa",
 }
-
 
 def normalize_language(language: str) -> str:
     """
@@ -97,49 +96,71 @@ def get_supported_sign_languages() -> list[str]:
     return sorted(LANGUAGE_FOLDER_MAP.keys())
 
 
-def get_sigml_dir(language: str) -> Path:
+def get_sigml_dir(
+    language: str,
+) -> Path:
     """
-    Return the exact SiGML directory for a language.
+    Return the isolated asset directory for one language.
 
-    It never falls back to the global SiGML directory because
-    that could mix assets belonging to different languages.
+    Directory matching is case-insensitive, but the function
+    never falls back to the global SiGML root.
     """
 
     canonical_language = normalize_language(
         language
     )
 
-    folder_name = LANGUAGE_FOLDER_MAP[
+    expected_folder_name = LANGUAGE_FOLDER_MAP[
         canonical_language
     ]
 
-    language_directory = (
-        SIGML_ROOT / folder_name
-    )
-
     if not SIGML_ROOT.is_dir():
         raise FileNotFoundError(
-            f"SiGML root directory does not exist: "
+            "SiGML root directory does not exist: "
             f"{SIGML_ROOT}"
         )
 
-    if not language_directory.is_dir():
-        raise FileNotFoundError(
-            "No SiGML asset directory exists for "
-            f"{canonical_language}: {language_directory}"
+    matching_directories = [
+        path
+        for path in SIGML_ROOT.iterdir()
+        if (
+            path.is_dir()
+            and path.name.casefold()
+            == expected_folder_name.casefold()
+        )
+    ]
+
+    if not matching_directories:
+        available_directories = sorted(
+            path.name
+            for path in SIGML_ROOT.iterdir()
+            if path.is_dir()
         )
 
-    return language_directory
+        raise FileNotFoundError(
+            "No isolated SiGML asset directory "
+            f"exists for {canonical_language}. "
+            f"Expected: {expected_folder_name}. "
+            f"Available directories: "
+            f"{available_directories}"
+        )
+
+    if len(matching_directories) > 1:
+        raise RuntimeError(
+            "Multiple asset directories match "
+            f"{canonical_language}: "
+            f"{matching_directories}"
+        )
+
+    return matching_directories[0]
 
 
 def get_sigml_files(
     language: str,
 ) -> list[Path]:
     """
-    Return all SiGML files for one language.
-
-    Raise an explicit error when the language directory exists
-    but contains no usable assets.
+    Return SiGML files only from the requested language's
+    isolated folder. File-extension matching is case-insensitive.
     """
 
     language_directory = get_sigml_dir(
@@ -147,7 +168,12 @@ def get_sigml_files(
     )
 
     sigml_files = sorted(
-        language_directory.rglob("*.sigml")
+        path
+        for path in language_directory.rglob("*")
+        if (
+            path.is_file()
+            and path.suffix.lower() == ".sigml"
+        )
     )
 
     if not sigml_files:
@@ -156,9 +182,9 @@ def get_sigml_files(
         )
 
         raise FileNotFoundError(
-            "The SiGML directory for "
-            f"{canonical_language} contains no .sigml files: "
-            f"{language_directory}"
+            "The isolated SiGML directory for "
+            f"{canonical_language} contains no "
+            f"SiGML files: {language_directory}"
         )
 
     return sigml_files

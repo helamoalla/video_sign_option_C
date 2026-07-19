@@ -13,6 +13,7 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
     && apt-get install -y --no-install-recommends \
         curl \
         ffmpeg \
+        fonts-dejavu-core \
         fonts-noto-core \
         git \
         libgl1 \

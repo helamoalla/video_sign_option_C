@@ -7,7 +7,10 @@ from app.pipelines.video_assets import (
     run_video_assets_pipeline,
 )
 
+import logging
+import uuid
 
+logger = logging.getLogger(__name__)
 
 @celery_app.task(name="app.tasks.test_task")
 def test_task(value: str) -> dict:
@@ -106,14 +109,24 @@ def process_video_assets_task(self, job_id: str):
 
         return result
 
-    except Exception:
-        error = traceback.format_exc()
+    except Exception as exc:
+        error_id = str(uuid.uuid4())
+
+        logger.exception(
+            "Video processing failed. "
+            "job_id=%s error_id=%s",
+            job_id,
+            error_id,
+        )
 
         update_job(
             job_id,
             status=JobStatus.FAILED,
             stage="failed",
-            error=error,
+            error=(
+                "Video processing failed. "
+                f"Reference: {error_id}"
+            ),
         )
 
         raise

@@ -1,47 +1,59 @@
-from typing import Optional
-from pathlib import Path
+import logging
+import os
 import uuid
-import traceback
+from contextlib import asynccontextmanager
+from pathlib import Path
+from typing import Optional
 
-from pydantic import BaseModel
-
-
-
-from fastapi import FastAPI, UploadFile, File, Form, HTTPException
-from fastapi.responses import FileResponse
+from fastapi import (
+    Depends,
+    FastAPI,
+    File,
+    Form,
+    HTTPException,
+    UploadFile,
+    status,
+)
+from fastapi.concurrency import run_in_threadpool
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
-
-from app.transcribe import transcribe_video
-from app.translate import translate_text
-from app.subtitles import generate_subtitles
-from app.gloss_generator import generate_gloss
-from app.avatar.provider_factory import get_avatar_provider
-from app.video_editor import compose_final_video
-from app.utils import create_file_path
-from app.avatar.cwasa_recorder import record_cwasa_page
-from app.sign_language_config import list_countries, get_always_available_lsa
-from app.geo_router import resolve_sign_route
-from app.player_builder import build_player
-from app.session_manifest import save_manifest
-from app.statistics import compute_language_statistics
-
-
-from contextlib import asynccontextmanager
-from app.config import INTERNAL_BASE_URL, PUBLIC_BASE_URL
-from app.database import Base, engine
-from app import models
-from shutil import copyfileobj
-
-from fastapi import Depends, status
-from fastapi.concurrency import run_in_threadpool
 from sqlalchemy.orm import Session
-from app.tasks import process_video_assets_task
 
-from app.database import get_db
+from app import models
+from app.avatar.capabilities import (
+    get_language_capability,
+)
+from app.database import (
+    Base,
+    engine,
+    get_db,
+)
+from app.director.hf_video_director import (
+    generate_director_video,
+)
+from app.geo_router import resolve_sign_route
 from app.models import JobStatus, VideoJob
-from app.schemas import JobCreatedResponse, JobStatusResponse
-from app.tasks import process_video_task
+from app.schemas import (
+    JobCreatedResponse,
+    JobStatusResponse,
+)
+from app.sign_language_config import (
+    get_always_available_lsa,
+    list_countries,
+)
+from app.tasks import process_video_assets_task
+from app.media_validation import (
+    MediaValidationError,
+    validate_media,
+)
+
+
+logger = logging.getLogger(__name__)
+
+
+# ------------------------------------------------------------
+# Runtime paths
+# ------------------------------------------------------------
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
@@ -49,45 +61,19 @@ OUTPUT_DIR = PROJECT_ROOT / "outputs"
 UPLOAD_DIR = PROJECT_ROOT / "uploads"
 TEMP_DIR = PROJECT_ROOT / "temp"
 
-def create_runtime_directories() -> None:
-    """Create directories required by the application at runtime."""
-    for directory in (OUTPUT_DIR, UPLOAD_DIR, TEMP_DIR):
-        directory.mkdir(parents=True, exist_ok=True)
 
+# ------------------------------------------------------------
+# Upload configuration
+# ------------------------------------------------------------
 
-# Required before StaticFiles is mounted.
-create_runtime_directories()
-
-
-@asynccontextmanager
-async def lifespan(app: FastAPI):
-    create_runtime_directories()
-    Base.metadata.create_all(bind=engine)
-    yield
-
-
-app = FastAPI(
-    title="CYRKIL Option C - Geo Adaptive Sign Video",
-    lifespan=lifespan,
+MAX_UPLOAD_BYTES = int(
+    os.getenv(
+        "MAX_UPLOAD_BYTES",
+        str(100 * 1024 * 1024),
+    )
 )
 
-app.mount(
-    "/outputs",
-    StaticFiles(directory=str(OUTPUT_DIR)),
-    name="outputs",
-)
-
-
-class AvatarRequest(BaseModel):
-    text: str
-    language: str = "lsa"
-    provider_name: str = "cwasa_multilang"
-
-@app.get("/health")
-def health():
-    return {
-        "status": "healthy"
-    }
+UPLOAD_CHUNK_SIZE = 1024 * 1024
 
 ALLOWED_EXTENSIONS = {
     ".mp4",
@@ -103,81 +89,151 @@ ALLOWED_EXTENSIONS = {
 }
 
 
-def save_uploaded_file(source, destination: Path) -> None:
-    destination.parent.mkdir(parents=True, exist_ok=True)
+class UploadTooLargeError(Exception):
+    """Raised when an upload exceeds MAX_UPLOAD_BYTES."""
 
-    with destination.open("wb") as output:
-        copyfileobj(source, output)
 
-@app.post(
-    "/jobs",
-    response_model=JobCreatedResponse,
-    status_code=status.HTTP_202_ACCEPTED,
-)
-async def create_video_job(
-    video: UploadFile = File(...),
-    target_language: str = Form("same"),
-    sign_language: str = Form("lsa"),
-    subtitle_mode: str = Form("original"),
-    country_code: Optional[str] = Form(None),
-    avatar_provider_name: str = Form("cwasa_multilang"),
-    manual_text: Optional[str] = Form(None),
-    db: Session = Depends(get_db),
-):
-    extension = Path(video.filename or "").suffix.lower()
+# ------------------------------------------------------------
+# Request models
+# ------------------------------------------------------------
 
-    if extension not in ALLOWED_EXTENSIONS:
-        raise HTTPException(
-            status_code=415,
-            detail=f"Unsupported file extension: {extension}",
+class DirectorRequest(BaseModel):
+    prompt: str
+    language: str = "french"
+
+
+# ------------------------------------------------------------
+# Runtime initialization
+# ------------------------------------------------------------
+
+def create_runtime_directories() -> None:
+    for directory in (
+        OUTPUT_DIR,
+        UPLOAD_DIR,
+        TEMP_DIR,
+    ):
+        directory.mkdir(
+            parents=True,
+            exist_ok=True,
         )
 
-    job_id = str(uuid.uuid4())
-    input_path = UPLOAD_DIR / job_id / f"original{extension}"
 
-    await run_in_threadpool(
-        save_uploaded_file,
-        video.file,
-        input_path,
+# StaticFiles requires the directory to exist when mounted.
+create_runtime_directories()
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    create_runtime_directories()
+
+    # Temporary table creation until Alembic migrations
+    # are introduced.
+    Base.metadata.create_all(
+        bind=engine
     )
 
-    job = VideoJob(
-        id=job_id,
-        status=JobStatus.QUEUED,
-        stage="queued",
-        progress=0,
-        input_path=str(input_path),
-        parameters={
-            "target_language": target_language,
-            "sign_language": sign_language,
-            "subtitle_mode": subtitle_mode,
-            "country_code": country_code,
-            "avatar_provider_name": avatar_provider_name,
-            "manual_text": manual_text,
-        },
+    yield
+
+
+app = FastAPI(
+    title=(
+        "CYRKIL Option C - "
+        "Geo Adaptive Sign Video"
+    ),
+    lifespan=lifespan,
+)
+
+
+# This remains public for the prototype.
+# It must later be replaced by authorized/signed artifact access.
+app.mount(
+    "/outputs",
+    StaticFiles(
+        directory=str(OUTPUT_DIR)
+    ),
+    name="outputs",
+)
+
+
+# ------------------------------------------------------------
+# Upload helpers
+# ------------------------------------------------------------
+
+def save_uploaded_file(
+    source,
+    destination: Path,
+    max_bytes: int,
+) -> int:
+    """
+    Save an uploaded file in chunks while enforcing a maximum
+    byte size.
+
+    The partial file is removed if validation or writing fails.
+    """
+
+    destination.parent.mkdir(
+        parents=True,
+        exist_ok=True,
     )
 
-    db.add(job)
-    db.commit()
+    total_bytes = 0
 
     try:
-        process_video_task.delay(job_id)
-    except Exception as exc:
-        job.status = JobStatus.FAILED
-        job.stage = "queue_submission"
-        job.error = f"Could not submit job: {exc}"
-        db.commit()
+        with destination.open("wb") as output:
+            while True:
+                chunk = source.read(
+                    UPLOAD_CHUNK_SIZE
+                )
 
-        raise HTTPException(
-            status_code=503,
-            detail="The processing queue is unavailable.",
-        ) from exc
+                if not chunk:
+                    break
 
+                total_bytes += len(chunk)
+
+                if total_bytes > max_bytes:
+                    raise UploadTooLargeError(
+                        "The uploaded file exceeds "
+                        f"{max_bytes} bytes."
+                    )
+
+                output.write(chunk)
+
+    except Exception:
+        destination.unlink(
+            missing_ok=True
+        )
+        raise
+
+    if total_bytes == 0:
+        destination.unlink(
+            missing_ok=True
+        )
+
+        raise ValueError(
+            "The uploaded file is empty."
+        )
+
+    return total_bytes
+
+
+def create_error_reference() -> str:
+    return str(uuid.uuid4())
+
+
+# ------------------------------------------------------------
+# Health
+# ------------------------------------------------------------
+
+@app.get("/health")
+def health():
     return {
-        "job_id": job_id,
-        "status": JobStatus.QUEUED,
-        "status_url": f"/jobs/{job_id}",
+        "status": "healthy",
     }
+
+
+# ------------------------------------------------------------
+# Job status
+# ------------------------------------------------------------
 
 @app.get(
     "/jobs/{job_id}",
@@ -187,318 +243,84 @@ def get_video_job(
     job_id: str,
     db: Session = Depends(get_db),
 ):
-    job = db.get(VideoJob, job_id)
+    job = db.get(
+        VideoJob,
+        job_id,
+    )
 
     if job is None:
         raise HTTPException(
-            status_code=404,
-            detail="Job not found",
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail={
+                "code": "JOB_NOT_FOUND",
+                "message": "Job not found.",
+            },
         )
 
     return job
 
-@app.post("/process-video")
-def process_video(
-    video: UploadFile = File(...),
-    target_language: str = Form("same"),
-    sign_language: str = Form("lsa"),
-    subtitle_mode: str = Form("original"),  # original or translated
-    country_code: Optional[str] = Form(None),
-    avatar_provider_name: str = Form("cwasa_multilang"),
-    manual_text: Optional[str] = Form(None),
+
+# ------------------------------------------------------------
+# Avatar capabilities
+# ------------------------------------------------------------
+
+@app.get(
+    "/avatar/capabilities/"
+    "{provider_name}/{language}"
+)
+def avatar_capability(
+    provider_name: str,
+    language: str,
 ):
-    extension = video.filename.split(".")[-1].lower()
-    input_path = create_file_path("uploads", extension)
-
-    with open(input_path, "wb") as f:
-        f.write(video.file.read())
-
-    audio_extensions = ["mp3", "wav", "m4a", "aac", "ogg"]
-    video_extensions = ["mp4", "mov", "avi", "mkv", "webm"]
-    is_audio_only = extension in audio_extensions
-
-    if extension not in audio_extensions + video_extensions:
-        return {
-            "error": f"Unsupported file format: {extension}",
-            "solution": "Upload MP4, MOV, AVI, MKV, WEBM, MP3, WAV, M4A, AAC, or OGG.",
-        }
-
-    file_id = str(uuid.uuid4())
-    clean_manual_text = manual_text.strip() if manual_text else ""
-
-    if clean_manual_text and clean_manual_text.lower() != "string":
-        original_text = clean_manual_text
-        transcription = {
-            "language": "manual",
-            "text": original_text,
-            "segments": [{"start": 0.0, "end": 5.0, "text": original_text}],
-        }
-    else:
-        try:
-            transcription = transcribe_video(input_path)
-            original_text = transcription["text"]
-        except Exception as e:
-            return {
-                "error": "Transcription failed",
-                "details": str(e),
-                "solution": "Use a valid MP4 with audio, M4A/WAV, or use manual_text.",
-            }
-
-    subtitle_output_dir = Path("outputs") / file_id / "subtitles"
-
-    subtitle_result = generate_subtitles(
-        result=transcription,
-        output_dir=subtitle_output_dir,
-        file_id=file_id,
-    )
-
-    original_subtitle_segments = subtitle_result["data"]["segments"]
-
     try:
-        if target_language.lower() in ["same", "original", ""]:
-            translated_text = original_text
-        else:
-            translated_text = translate_text(original_text, target_language)
-    except Exception as e:
-        return {
-            "error": "Translation failed",
-            "details": str(e),
-            "solution": "Use target_language: same, french, arabic, german, english.",
-        }
-
-    subtitle_segments = original_subtitle_segments
-
-    if subtitle_mode == "translated":
-        duration = (
-            max(seg["end"] for seg in original_subtitle_segments)
-            if original_subtitle_segments
-            else 5.0
-        )
-        subtitle_segments = [
-            {
-                "start": 0.0,
-                "end": duration,
-                "text": translated_text,
-            }
-        ]
-
-    glosses = []
-
-    if avatar_provider_name in {"cwasa_arabic", "cwasa_multilang", "cwasa_multilingual"}:
-        try:
-            glosses = generate_gloss(translated_text, language=sign_language)
-        except Exception as e:
-            return {
-                "error": "Gloss generation failed",
-                "details": str(e),
-            }
-
-    avatar_provider = get_avatar_provider(avatar_provider_name)
-    avatar_output_path = create_file_path("outputs", "mp4")
-
-    try:
-        text_for_avatar = " ".join(glosses) if glosses else translated_text
-
-        avatar_output = avatar_provider.generate(
-            text=text_for_avatar,
-            language=sign_language,
-            output_path=avatar_output_path,
-        )
-    except Exception as e:
-        return {
-            "error": "Avatar generation failed",
-            "details": str(e),
-            "solution": "Check that the selected sign_language has matching SiGML files.",
-        }
-
-    cwasa_url = None
-
-    if avatar_provider_name in {"cwasa_arabic", "cwasa_multilang", "cwasa_multilingual"}:
-        html_path = Path(avatar_output)
-        output_folder = html_path.parent.name
-        cwasa_url = (
-    f"{INTERNAL_BASE_URL}/outputs/{output_folder}/index.html"
-)
-
-        recorded_avatar_path = create_file_path("outputs", "mp4")
-
-        try:
-            record_cwasa_page(
-                page_url=cwasa_url,
-                output_path=recorded_avatar_path,
-                duration_ms=15000,
-                trim_start_seconds=5.0,
-            )
-            avatar_output = recorded_avatar_path
-        except Exception:
-            return {
-                "error": "CWASA recording failed",
-                "details": traceback.format_exc(),
-                "cwasa_url": cwasa_url,
-                "solution": "Open cwasa_url in Chrome. If the avatar does not play there, recording cannot work.",
-            }
-
-    final_output_path = create_file_path("outputs", "mp4")
-
-    try:
-        compose_final_video(
-            original_media_path=input_path,
-            avatar_video_path=avatar_output,
-            translated_text=translated_text,
-            output_path=final_output_path,
-            is_audio_only=is_audio_only,
-            subtitle_segments=subtitle_segments,
-        )
-    except Exception as e:
-        return {
-            "error": "Video composition failed",
-            "details": str(e),
-        }
-
-    filename = Path(final_output_path).name
-
-    response = {
-        "status": "success",
-        "original_language": transcription["language"],
-        "original_text": original_text,
-        "target_language": target_language,
-        "translated_text": translated_text,
-        "subtitle_mode": subtitle_mode,
-        "subtitle_segments_used": subtitle_segments,
-        "glosses": glosses,
-        "avatar_provider": avatar_provider_name,
-        "sign_language": sign_language,
-        "country_code": country_code,
-        "avatar_output": avatar_output,
-        "subtitles": subtitle_result["data"],
-        "subtitles_json": subtitle_result["json_path"],
-        "subtitles_srt": subtitle_result["srt_path"],
-        "subtitles_vtt": subtitle_result["vtt_path"],
-        "download_url": f"/download/{filename}",
-    }
-
-    if cwasa_url:
-        response["cwasa_url"] = cwasa_url
-
-    return response
-
-
-@app.post("/gloss/test")
-def test_gloss(req: AvatarRequest):
-    try:
-        glosses = generate_gloss(req.text, language=req.language)
-        return {
-            "status": "success",
-            "input_text": req.text,
-            "language": req.language,
-            "glosses": glosses,
-        }
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-
-
-@app.post("/avatar/generate")
-def generate_avatar(req: AvatarRequest):
-    try:
-        provider = get_avatar_provider(
-        req.provider_name,
-        language=req.language,
-    )
-
-        file_id = str(uuid.uuid4())
-        output_path = f"outputs/{file_id}.mp4"
-
-        glosses = []
-        text_for_avatar = req.text
-
-        if req.provider_name in {"cwasa_arabic", "cwasa_multilang", "cwasa_multilingual"}:
-            glosses = generate_gloss(req.text, language=req.language)
-            text_for_avatar = " ".join(glosses)
-
-        avatar_output = provider.generate(
-            text=text_for_avatar,
-            language=req.language,
-            output_path=output_path,
+        return get_language_capability(
+            provider_name,
+            language,
         )
 
-        avatar_output_path = Path(avatar_output)
-
-        response = {
-            "status": "success",
-            "provider": req.provider_name,
-            "language": req.language,
-            "input_text": req.text,
-            "glosses": glosses,
-            "text_sent_to_avatar": text_for_avatar,
-            "avatar_output": avatar_output,
-        }
-
-        if req.provider_name in {"cwasa_arabic", "cwasa_multilang", "cwasa_multilingual"}:
-            response["cwasa_url"] = (
-                f"/outputs/{avatar_output_path.parent.name}/{avatar_output_path.name}"
-            )
-        else:
-            response["download_url"] = f"/download/{avatar_output_path.name}"
-
-        return response
-
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-
-
-@app.get("/download/{filename}")
-def download_video(filename: str):
-    path = f"outputs/{filename}"
-    return FileResponse(path, media_type="video/mp4", filename=filename)
-
-
-@app.post("/cwasa/test-record")
-def test_cwasa_record(req: AvatarRequest):
-    try:
-        provider = get_avatar_provider(
-        "cwasa_multilang",
-        language=req.language,
-    )
-
-        file_id = str(uuid.uuid4())
-        output_path = f"outputs/{file_id}.mp4"
-
-        avatar_html = provider.generate(
-            text=req.text,
-            language=req.language,
-            output_path=output_path,
-        )
-
-        html_path = Path(avatar_html)
-        output_folder = html_path.parent.name
-
-        cwasa_url = (
-    f"{INTERNAL_BASE_URL}/outputs/{output_folder}/index.html"
-)
-        recorded_path = create_file_path("outputs", "webm")
-
-        record_cwasa_page(
-            page_url=cwasa_url,
-            output_path=recorded_path,
-            duration_ms=12000,
-        )
-
-        return {
-            "status": "success",
-            "input_text": req.text,
-            "cwasa_url": cwasa_url,
-            "recorded_avatar": recorded_path,
-        }
+    except ValueError as exc:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail={
+                "code": "INVALID_CAPABILITY_REQUEST",
+                "message": str(exc),
+            },
+        ) from exc
 
     except Exception:
-        raise HTTPException(status_code=500, detail=traceback.format_exc())
+        error_id = create_error_reference()
 
+        logger.exception(
+            "Capability lookup failed. "
+            "provider=%s language=%s error_id=%s",
+            provider_name,
+            language,
+            error_id,
+        )
+
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail={
+                "code": "CAPABILITY_LOOKUP_FAILED",
+                "message": (
+                    "The capability could not be checked."
+                ),
+                "reference": error_id,
+            },
+        )
+
+
+# ------------------------------------------------------------
+# Sign-language configuration
+# ------------------------------------------------------------
 
 @app.get("/sign-languages")
 def sign_languages():
     return {
         "countries": list_countries(),
-        "always_available": get_always_available_lsa(),
+        "always_available": (
+            get_always_available_lsa()
+        ),
     }
 
 
@@ -509,12 +331,52 @@ def sign_route(
     browser_language: Optional[str] = None,
     ip_geolocation_consent: bool = False,
 ):
-    return resolve_sign_route(
-        country_code=country_code,
-        manual_sign_language=manual_sign_language,
-        browser_language=browser_language,
-        ip_geolocation_consent=ip_geolocation_consent,
-    )
+    try:
+        return resolve_sign_route(
+            country_code=country_code,
+            manual_sign_language=(
+                manual_sign_language
+            ),
+            browser_language=browser_language,
+            ip_geolocation_consent=(
+                ip_geolocation_consent
+            ),
+        )
+
+    except ValueError as exc:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail={
+                "code": "INVALID_SIGN_ROUTE",
+                "message": str(exc),
+            },
+        ) from exc
+
+    except Exception:
+        error_id = create_error_reference()
+
+        logger.exception(
+            "Sign-route resolution failed. "
+            "error_id=%s",
+            error_id,
+        )
+
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail={
+                "code": "SIGN_ROUTE_FAILED",
+                "message": (
+                    "The sign-language route could "
+                    "not be resolved."
+                ),
+                "reference": error_id,
+            },
+        )
+
+
+# ------------------------------------------------------------
+# Asynchronous video-assets processing
+# ------------------------------------------------------------
 
 @app.post(
     "/process-video-assets",
@@ -530,25 +392,245 @@ async def process_video_assets(
         "lsf,lsa,dgs,bsl,gsl"
     ),
     manual_text: Optional[str] = Form(None),
-    avatar_provider_name: str = Form("cwasa_multilang"),
+    avatar_provider_name: str = Form(
+        "cwasa_multilang"
+    ),
     db: Session = Depends(get_db),
 ):
-    extension = Path(video.filename or "").suffix.lower()
+    extension = Path(
+        video.filename or ""
+    ).suffix.lower()
+
+    declared_content_type = video.content_type
+
+    # ---------------------------------------------------------
+    # Extension validation
+    # ---------------------------------------------------------
 
     if extension not in ALLOWED_EXTENSIONS:
+        await video.close()
+
         raise HTTPException(
-            status_code=415,
-            detail=f"Unsupported file extension: {extension}",
+            status_code=(
+                status.HTTP_415_UNSUPPORTED_MEDIA_TYPE
+            ),
+            detail={
+                "code": "UNSUPPORTED_EXTENSION",
+                "message": (
+                    "Unsupported media file extension."
+                ),
+                "extension": extension,
+                "allowed_extensions": sorted(
+                    ALLOWED_EXTENSIONS
+                ),
+            },
         )
 
-    job_id = str(uuid.uuid4())
-    input_path = UPLOAD_DIR / job_id / f"original{extension}"
+    # ---------------------------------------------------------
+    # Request parameter validation
+    # ---------------------------------------------------------
 
-    await run_in_threadpool(
-        save_uploaded_file,
-        video.file,
-        input_path,
+    requested_languages = [
+        value.strip().lower()
+        for value in languages.split(",")
+        if value.strip()
+    ]
+
+    requested_sign_languages = [
+        value.strip().lower()
+        for value in sign_languages.split(",")
+        if value.strip()
+    ]
+
+    if not requested_languages:
+        await video.close()
+
+        raise HTTPException(
+            status_code=(
+                status.HTTP_422_UNPROCESSABLE_ENTITY
+            ),
+            detail={
+                "code": "MISSING_LANGUAGES",
+                "message": (
+                    "At least one subtitle language "
+                    "must be requested."
+                ),
+            },
+        )
+
+    if not requested_sign_languages:
+        await video.close()
+
+        raise HTTPException(
+            status_code=(
+                status.HTTP_422_UNPROCESSABLE_ENTITY
+            ),
+            detail={
+                "code": "MISSING_SIGN_LANGUAGES",
+                "message": (
+                    "At least one sign language "
+                    "must be requested."
+                ),
+            },
+        )
+
+    clean_manual_text = (
+        manual_text.strip()
+        if manual_text
+        else ""
     )
+
+    has_valid_manual_text = bool(
+        clean_manual_text
+        and clean_manual_text.lower() != "string"
+    )
+
+    # ---------------------------------------------------------
+    # Server-generated storage path
+    # ---------------------------------------------------------
+
+    job_id = str(uuid.uuid4())
+
+    input_path = (
+        UPLOAD_DIR
+        / job_id
+        / f"original{extension}"
+    )
+
+    # ---------------------------------------------------------
+    # Size-limited upload
+    # ---------------------------------------------------------
+
+    try:
+        uploaded_bytes = await run_in_threadpool(
+            save_uploaded_file,
+            video.file,
+            input_path,
+            MAX_UPLOAD_BYTES,
+        )
+
+    except UploadTooLargeError as exc:
+        raise HTTPException(
+            status_code=(
+                status.HTTP_413_REQUEST_ENTITY_TOO_LARGE
+            ),
+            detail={
+                "code": "UPLOAD_TOO_LARGE",
+                "message": (
+                    "The uploaded media exceeds "
+                    "the maximum allowed size."
+                ),
+                "max_bytes": MAX_UPLOAD_BYTES,
+            },
+        ) from exc
+
+    except ValueError as exc:
+        raise HTTPException(
+            status_code=(
+                status.HTTP_422_UNPROCESSABLE_ENTITY
+            ),
+            detail={
+                "code": "EMPTY_UPLOAD",
+                "message": str(exc),
+            },
+        ) from exc
+
+    except OSError:
+        error_id = create_error_reference()
+
+        logger.exception(
+            "Upload storage failed. "
+            "job_id=%s error_id=%s",
+            job_id,
+            error_id,
+        )
+
+        raise HTTPException(
+            status_code=(
+                status.HTTP_500_INTERNAL_SERVER_ERROR
+            ),
+            detail={
+                "code": "UPLOAD_STORAGE_FAILED",
+                "message": (
+                    "The uploaded media could not "
+                    "be stored."
+                ),
+                "reference": error_id,
+            },
+        )
+
+    finally:
+        await video.close()
+
+    # ---------------------------------------------------------
+    # ffprobe validation
+    # ---------------------------------------------------------
+
+    try:
+        media_metadata = await run_in_threadpool(
+            validate_media,
+            input_path,
+            extension,
+            declared_content_type,
+            not has_valid_manual_text,
+        )
+
+    except MediaValidationError as exc:
+        input_path.unlink(
+            missing_ok=True
+        )
+
+        try:
+            input_path.parent.rmdir()
+        except OSError:
+            pass
+
+        raise HTTPException(
+            status_code=(
+                status.HTTP_422_UNPROCESSABLE_ENTITY
+            ),
+            detail={
+                "code": exc.code,
+                "message": exc.message,
+            },
+        ) from exc
+
+    except Exception:
+        input_path.unlink(
+            missing_ok=True
+        )
+
+        try:
+            input_path.parent.rmdir()
+        except OSError:
+            pass
+
+        error_id = create_error_reference()
+
+        logger.exception(
+            "Unexpected media validation failure. "
+            "job_id=%s error_id=%s",
+            job_id,
+            error_id,
+        )
+
+        raise HTTPException(
+            status_code=(
+                status.HTTP_500_INTERNAL_SERVER_ERROR
+            ),
+            detail={
+                "code": "MEDIA_VALIDATION_FAILED",
+                "message": (
+                    "The uploaded media could not "
+                    "be validated."
+                ),
+                "reference": error_id,
+            },
+        )
+
+    # ---------------------------------------------------------
+    # Persist queued job
+    # ---------------------------------------------------------
 
     job = VideoJob(
         id=job_id,
@@ -558,55 +640,174 @@ async def process_video_assets(
         input_path=str(input_path),
         parameters={
             "pipeline": "video_assets",
-            "languages": languages,
-            "sign_languages": sign_languages,
-            "manual_text": manual_text,
-            "avatar_provider_name": avatar_provider_name,
+            "languages": ",".join(
+                requested_languages
+            ),
+            "sign_languages": ",".join(
+                requested_sign_languages
+            ),
+            "manual_text": (
+                clean_manual_text
+                if has_valid_manual_text
+                else None
+            ),
+            "avatar_provider_name": (
+                avatar_provider_name
+            ),
             "extension": extension,
+            "declared_content_type": (
+                declared_content_type
+            ),
+            "uploaded_bytes": uploaded_bytes,
+            "media_metadata": media_metadata,
         },
     )
 
-    db.add(job)
-    db.commit()
-
     try:
-        process_video_assets_task.delay(job_id)
-
-    except Exception as exc:
-        job.status = JobStatus.FAILED
-        job.stage = "queue_submission"
-        job.error = str(exc)
+        db.add(job)
         db.commit()
 
-        raise HTTPException(
-            status_code=503,
-            detail="The processing queue is unavailable.",
-        ) from exc
+    except Exception:
+        db.rollback()
 
+        input_path.unlink(
+            missing_ok=True
+        )
+
+        try:
+            input_path.parent.rmdir()
+        except OSError:
+            pass
+
+        error_id = create_error_reference()
+
+        logger.exception(
+            "Job persistence failed. "
+            "job_id=%s error_id=%s",
+            job_id,
+            error_id,
+        )
+
+        raise HTTPException(
+            status_code=(
+                status.HTTP_500_INTERNAL_SERVER_ERROR
+            ),
+            detail={
+                "code": "JOB_CREATION_FAILED",
+                "message": (
+                    "The processing job could not "
+                    "be created."
+                ),
+                "reference": error_id,
+            },
+        )
+
+    # ---------------------------------------------------------
+    # Submit to Celery
+    # ---------------------------------------------------------
+
+    try:
+        process_video_assets_task.delay(
+            job_id
+        )
+
+    except Exception as exc:
+        error_id = create_error_reference()
+
+        logger.exception(
+            "Celery submission failed. "
+            "job_id=%s error_id=%s",
+            job_id,
+            error_id,
+        )
+
+        job.status = JobStatus.FAILED
+        job.stage = "queue_submission"
+        job.error = (
+            "The processing queue is unavailable. "
+            f"Reference: {error_id}"
+        )
+
+        try:
+            db.commit()
+
+        except Exception:
+            db.rollback()
+
+            logger.exception(
+                "Failed to persist queue failure. "
+                "job_id=%s error_id=%s",
+                job_id,
+                error_id,
+            )
+
+        raise HTTPException(
+            status_code=(
+                status.HTTP_503_SERVICE_UNAVAILABLE
+            ),
+            detail={
+                "code": "QUEUE_UNAVAILABLE",
+                "message": (
+                    "The processing queue is unavailable."
+                ),
+                "reference": error_id,
+            },
+        ) from exc
+    
     return {
         "job_id": job_id,
         "status": JobStatus.QUEUED,
         "status_url": f"/jobs/{job_id}",
     }
-    
-from app.director.hf_video_director import generate_director_video
 
-class DirectorRequest(BaseModel):
-    prompt: str
-    language: str = "french"
-
+# ------------------------------------------------------------
+# AI video director
+# ------------------------------------------------------------
 
 @app.post("/director/hf-video")
-def director_hf_video(req: DirectorRequest):
+def director_hf_video(
+    request: DirectorRequest,
+):
     try:
-        result = generate_director_video(req.prompt, req.language)
+        result = generate_director_video(
+            request.prompt,
+            request.language,
+        )
+
         return {
             "status": "success",
             **result,
-            "next_step": "Upload this MP4 to /process-video-assets"
+            "next_step": (
+                "Upload this MP4 to "
+                "/process-video-assets"
+            ),
         }
-    except Exception as e:
-        return {
-            "error": "PixVerse video generation failed",
-            "details": str(e),
-        }
+
+    except ValueError as exc:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail={
+                "code": "INVALID_DIRECTOR_REQUEST",
+                "message": str(exc),
+            },
+        ) from exc
+
+    except Exception:
+        error_id = create_error_reference()
+
+        logger.exception(
+            "AI video director failed. "
+            "error_id=%s",
+            error_id,
+        )
+
+        raise HTTPException(
+            status_code=status.HTTP_502_BAD_GATEWAY,
+            detail={
+                "code": "DIRECTOR_GENERATION_FAILED",
+                "message": (
+                    "The AI video could not be generated."
+                ),
+                "reference": error_id,
+            },
+        )

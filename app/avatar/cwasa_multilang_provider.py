@@ -4,7 +4,6 @@ import re
 import json
 
 from app.avatar.base import AvatarProvider
-from app.gloss_generator import generate_gloss
 from app.gloss_dictionary import get_sigml_dir, normalize_language
 
 
@@ -105,7 +104,13 @@ class CwasaMultilangProvider(AvatarProvider):
 
         return None
 
-    def generate(self, text, language, output_path):
+    def generate(
+        self,
+        text: str,
+        language: str,
+        output_path: str,
+        glosses: list[str] | None = None,
+    ):
         output_dir = Path(output_path).with_suffix("")
         output_dir.mkdir(parents=True, exist_ok=True)
 
@@ -125,11 +130,29 @@ class CwasaMultilangProvider(AvatarProvider):
         sigml_dir = output_dir / "sigml"
         sigml_dir.mkdir(parents=True, exist_ok=True)
 
-        words = generate_gloss(text, language=language) or [
-            self.normalize_word(w, language)
-            for w in text.split()
-            if self.normalize_word(w, language)
-        ]
+        if glosses is not None:
+            words = [
+                str(gloss).strip()
+                for gloss in glosses
+                if str(gloss).strip()
+            ]
+        else:
+            # Used only by direct/test calls that do not provide
+            # an already generated sign plan.
+            words = [
+                self.normalize_word(word, language)
+                for word in text.split()
+                if self.normalize_word(
+                    word,
+                    language,
+                )
+            ]
+
+        if not words:
+            raise ValueError(
+                "No validated glosses were provided "
+                "for avatar generation."
+            )
 
         found = []
         missing = []
