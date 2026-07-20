@@ -2,8 +2,19 @@ import enum
 import uuid
 from datetime import datetime, timezone
 
-from sqlalchemy import DateTime, Enum, Integer, JSON, String, Text
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy import (
+    Boolean,
+    DateTime,
+    Enum,
+    Integer,
+    JSON,
+    String,
+    Text,
+)
+from sqlalchemy.orm import (
+    Mapped,
+    mapped_column,
+)
 
 from app.database import Base
 
@@ -22,6 +33,21 @@ class VideoJob(Base):
         String(36),
         primary_key=True,
         default=lambda: str(uuid.uuid4()),
+    )
+
+    # The authenticated user or API credential that created
+    # this job.
+    owner_id: Mapped[str | None] = mapped_column(
+        String(36),
+        nullable=True,
+        index=True,
+    )
+
+    # The Cyrkil organization/tenant that owns this job.
+    tenant_id: Mapped[str | None] = mapped_column(
+        String(36),
+        nullable=True,
+        index=True,
     )
 
     status: Mapped[JobStatus] = mapped_column(
@@ -66,13 +92,88 @@ class VideoJob(Base):
 
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True),
-        default=lambda: datetime.now(timezone.utc),
+        default=lambda: datetime.now(
+            timezone.utc
+        ),
         nullable=False,
     )
 
     updated_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True),
-        default=lambda: datetime.now(timezone.utc),
-        onupdate=lambda: datetime.now(timezone.utc),
+        default=lambda: datetime.now(
+            timezone.utc
+        ),
+        onupdate=lambda: datetime.now(
+            timezone.utc
+        ),
+        nullable=False,
+    )
+
+
+class ApiCredential(Base):
+    __tablename__ = "api_credentials"
+
+    id: Mapped[str] = mapped_column(
+        String(36),
+        primary_key=True,
+        default=lambda: str(uuid.uuid4()),
+    )
+
+    # Only the SHA-256 hash is stored. Never store the raw key.
+    key_hash: Mapped[str] = mapped_column(
+        String(64),
+        unique=True,
+        nullable=False,
+        index=True,
+    )
+
+    # A short non-secret prefix used to identify the key.
+    key_prefix: Mapped[str] = mapped_column(
+        String(24),
+        nullable=False,
+    )
+
+    user_id: Mapped[str] = mapped_column(
+        String(36),
+        nullable=False,
+        index=True,
+    )
+
+    tenant_id: Mapped[str] = mapped_column(
+        String(36),
+        nullable=False,
+        index=True,
+    )
+
+    role: Mapped[str] = mapped_column(
+        String(50),
+        default="user",
+        nullable=False,
+    )
+
+    plan: Mapped[str] = mapped_column(
+        String(50),
+        default="standard",
+        nullable=False,
+    )
+
+    enabled: Mapped[bool] = mapped_column(
+        Boolean,
+        default=True,
+        nullable=False,
+    )
+
+    expires_at: Mapped[
+        datetime | None
+    ] = mapped_column(
+        DateTime(timezone=True),
+        nullable=True,
+    )
+
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True),
+        default=lambda: datetime.now(
+            timezone.utc
+        ),
         nullable=False,
     )

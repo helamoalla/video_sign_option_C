@@ -47,6 +47,12 @@ from app.media_validation import (
     validate_media,
     sanitize_media,
 )
+from sqlalchemy import select
+from sqlalchemy.orm import Session
+from app.auth import (
+    AuthenticatedPrincipal,
+    get_current_principal,
+)
 
 
 logger = logging.getLogger(__name__)
@@ -242,14 +248,24 @@ def health():
 )
 def get_video_job(
     job_id: str,
+    principal: AuthenticatedPrincipal = Depends(
+        get_current_principal
+    ),
     db: Session = Depends(get_db),
 ):
-    job = db.get(
-        VideoJob,
-        job_id,
+    job = db.scalar(
+        select(VideoJob).where(
+            VideoJob.id == job_id,
+            VideoJob.owner_id
+            == principal.user_id,
+            VideoJob.tenant_id
+            == principal.tenant_id,
+        )
     )
 
     if job is None:
+        # Return 404 for missing and unauthorized jobs.
+        # This prevents leaking another user's job IDs.
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail={
@@ -395,6 +411,9 @@ async def process_video_assets(
     manual_text: Optional[str] = Form(None),
     avatar_provider_name: str = Form(
         "cwasa_multilang"
+    ),
+    principal: AuthenticatedPrincipal = Depends(
+        get_current_principal
     ),
     db: Session = Depends(get_db),
 ):
@@ -643,6 +662,8 @@ async def process_video_assets(
 
     job = VideoJob(
         id=job_id,
+        owner_id=principal.user_id,
+        tenant_id=principal.tenant_id,
         status=JobStatus.QUEUED,
         stage="queued",
         progress=0,
@@ -776,6 +797,9 @@ async def process_video_assets(
 @app.post("/director/hf-video")
 def director_hf_video(
     request: DirectorRequest,
+    principal: AuthenticatedPrincipal = Depends(
+        get_current_principal
+    ),
 ):
     try:
         result = generate_director_video(
@@ -794,7 +818,9 @@ def director_hf_video(
 
     except ValueError as exc:
         raise HTTPException(
-            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            status_code=(
+                status.HTTP_422_UNPROCESSABLE_ENTITY
+            ),
             detail={
                 "code": "INVALID_DIRECTOR_REQUEST",
                 "message": str(exc),
@@ -806,7 +832,10 @@ def director_hf_video(
 
         logger.exception(
             "AI video director failed. "
+            "user_id=%s tenant_id=%s "
             "error_id=%s",
+            principal.user_id,
+            principal.tenant_id,
             error_id,
         )
 
@@ -815,7 +844,8 @@ def director_hf_video(
             detail={
                 "code": "DIRECTOR_GENERATION_FAILED",
                 "message": (
-                    "The AI video could not be generated."
+                    "The AI video could not "
+                    "be generated."
                 ),
                 "reference": error_id,
             },
