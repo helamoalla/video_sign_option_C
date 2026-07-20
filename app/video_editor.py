@@ -146,13 +146,28 @@ def compose_final_video(
     else:
         original = VideoFileClip(original_media_path)
 
-    avatar = VideoFileClip(avatar_video_path)
+        avatar = VideoFileClip(
+            avatar_video_path
+        )
 
-    avatar = avatar.resized(width=int(original.w * 0.30))
-    avatar = avatar.with_position(("right", "bottom"))
-    avatar = avatar.with_duration(original.duration)
+        avatar = avatar.resized(
+            width=int(original.w * 0.30)
+        )
 
-    clips = [original, avatar]
+        avatar = avatar.with_position(
+            ("right", "bottom")
+        )
+
+        # Do not extend the declared duration beyond the frames that
+        # physically exist in the avatar file. Once the signing
+        # animation finishes, the overlay disappears naturally.
+        if avatar.duration > original.duration:
+            avatar = avatar.subclipped(
+                0,
+                original.duration,
+            )
+
+        clips = [original, avatar]
 
     if subtitle_segments:
         clips.extend(
@@ -183,7 +198,11 @@ def compose_final_video(
 
         clips.append(subtitle)
 
-    final = CompositeVideoClip(clips)
+    final = CompositeVideoClip(
+        clips
+    ).with_duration(
+        original.duration
+    )
 
     final.write_videofile(
         output_path,

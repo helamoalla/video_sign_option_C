@@ -1,327 +1,760 @@
+import json
 from pathlib import Path
 
 
-def build_player(session_dir: Path, video_url: str, subtitles: dict, avatars: dict):
-    session_name = session_dir.name
-    manifest_url = "manifest.json"
+def build_player(
+    session_dir: Path,
+    video_url: str,
+    subtitles: dict,
+    avatars: dict,
+):
+    """
+    Generate the browser player for a completed video job.
 
-    html = f"""
+    video_url, subtitles and avatars remain in the function
+    signature for compatibility with existing pipeline calls.
+    """
+
+    session_name_json = json.dumps(
+        session_dir.name
+    )
+
+    html = """
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1"
+/>
+<meta
+  name="referrer"
+  content="no-referrer"
+/>
+
 <title>CYRKIL Geo-Adaptive Sign Player</title>
 
 <style>
-body {{
-  background:#111;
-  color:white;
-  font-family:Arial, sans-serif;
-  text-align:center;
-  margin:0;
-  padding:20px;
-}}
+body {
+  background: #111;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 20px;
+}
 
-.panel {{
-  width:900px;
-  max-width:95vw;
-  margin:15px auto;
-  background:#1b1b1b;
-  padding:15px;
-  border-radius:12px;
-}}
+.panel {
+  width: 900px;
+  max-width: 95vw;
+  margin: 15px auto;
+  background: #1b1b1b;
+  padding: 15px;
+  border-radius: 12px;
+}
 
-.row {{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-wrap:wrap;
-  gap:10px;
-  margin:10px 0;
-}}
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 10px 0;
+}
 
-select, button {{
-  padding:11px 16px;
-  border:0;
-  border-radius:8px;
-  cursor:pointer;
-  font-size:15px;
-}}
+select,
+button {
+  padding: 11px 16px;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+}
 
-button {{
-  background:#333;
-  color:white;
-}}
+button {
+  background: #333;
+  color: white;
+}
 
-button.active {{
-  background:#4caf50;
-}}
+button.active {
+  background: #4caf50;
+}
 
-.lsa {{
-  background:#d9362b;
-  font-weight:bold;
-}}
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
 
-video {{
-  width:900px;
-  max-width:95vw;
-  border-radius:14px;
-  background:#222;
-  margin-top:15px;
-}}
+.lsa {
+  background: #d9362b;
+  font-weight: bold;
+}
 
-.status {{
-  color:#ddd;
-  font-size:14px;
-  margin-top:8px;
-}}
+video {
+  width: 900px;
+  max-width: 95vw;
+  border-radius: 14px;
+  background: #222;
+  margin-top: 15px;
+}
 
-.debug {{
-  width:900px;
-  max-width:95vw;
-  margin:15px auto;
-  text-align:left;
-  background:#1b1b1b;
-  padding:12px;
-  border-radius:8px;
-  color:#ccc;
-  white-space:pre-wrap;
-  font-size:13px;
-}}
+.status {
+  color: #ddd;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.status.error {
+  color: #ff7777;
+}
+
+.debug {
+  width: 900px;
+  max-width: 95vw;
+  margin: 15px auto;
+  text-align: left;
+  background: #1b1b1b;
+  padding: 12px;
+  border-radius: 8px;
+  color: #ccc;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 13px;
+}
 </style>
 </head>
 
 <body>
 
 <h2>CYRKIL Geo-Adaptive Sign Player</h2>
-<p>Détection automatique + sélection manuelle + bouton LSA toujours disponible</p>
+
+<p>
+  Détection automatique, sélection manuelle
+  et LSA toujours disponible
+</p>
 
 <div class="panel">
   <div class="row">
-    <label>🌍 Pays utilisateur :</label>
+    <label for="countrySelect">
+      🌍 Pays utilisateur :
+    </label>
+
     <select id="countrySelect"></select>
   </div>
 
   <div class="row">
-    <button id="autoDetectBtn">📍 Détecter via navigateur</button>
-    <button id="lsaBtn" class="lsa">🌍 LSA toujours disponible</button>
+    <button
+      id="autoDetectBtn"
+      type="button"
+    >
+      📍 Détecter via navigateur
+    </button>
+
+    <button
+      id="lsaBtn"
+      class="lsa"
+      type="button"
+    >
+      🌍 LSA toujours disponible
+    </button>
   </div>
 
-  <div class="row" id="languageButtons"></div>
-  <div class="status" id="status"></div>
+  <div
+    class="row"
+    id="languageButtons"
+  ></div>
+
+  <div
+    class="status"
+    id="status"
+  >
+    Chargement du lecteur…
+  </div>
 </div>
 
-<video id="mainVideo" controls playsinline></video>
+<video
+  id="mainVideo"
+  controls
+  playsinline
+  preload="metadata"
+></video>
 
-<div class="debug" id="debug"></div>
+<div
+  class="debug"
+  id="debug"
+></div>
 
 <script>
-const manifestUrl = "{manifest_url}";
-const sessionName = "{session_name}";
+const sessionName = __SESSION_NAME_JSON__;
+
+const playbackToken = new URLSearchParams(
+  window.location.search
+).get("token");
 
 let manifest = null;
 
-const video = document.getElementById("mainVideo");
-const countrySelect = document.getElementById("countrySelect");
-const languageButtons = document.getElementById("languageButtons");
-const debug = document.getElementById("debug");
-const statusBox = document.getElementById("status");
-const autoDetectBtn = document.getElementById("autoDetectBtn");
-const lsaBtn = document.getElementById("lsaBtn");
+const video = document.getElementById(
+  "mainVideo"
+);
+
+const countrySelect = document.getElementById(
+  "countrySelect"
+);
+
+const languageButtons = document.getElementById(
+  "languageButtons"
+);
+
+const debug = document.getElementById(
+  "debug"
+);
+
+const statusBox = document.getElementById(
+  "status"
+);
+
+const autoDetectBtn = document.getElementById(
+  "autoDetectBtn"
+);
+
+const lsaBtn = document.getElementById(
+  "lsaBtn"
+);
 
 const COUNTRIES = [
-  {{ code:"FR", label:"🇫🇷 France", sign:"LSF" }},
-  {{ code:"DE", label:"🇩🇪 Germany", sign:"DGS" }},
-  {{ code:"GB", label:"🇬🇧 United Kingdom", sign:"BSL" }},
-  {{ code:"GR", label:"🇬🇷 Greece", sign:"GSL" }},
-  {{ code:"IT", label:"🇮🇹 Italy", sign:"LIS" }},
-  {{ code:"ES", label:"🇪🇸 Spain", sign:"LSE" }},
-  {{ code:"NL", label:"🇳🇱 Netherlands", sign:"NGT" }},
-  {{ code:"PL", label:"🇵🇱 Poland", sign:"PJM" }}
+  {
+    code: "FR",
+    label: "🇫🇷 France",
+    sign: "LSF"
+  },
+  {
+    code: "DE",
+    label: "🇩🇪 Germany",
+    sign: "DGS"
+  },
+  {
+    code: "GB",
+    label: "🇬🇧 United Kingdom",
+    sign: "BSL"
+  },
+  {
+    code: "GR",
+    label: "🇬🇷 Greece",
+    sign: "GSL"
+  },
+  {
+    code: "IT",
+    label: "🇮🇹 Italy",
+    sign: "LIS"
+  },
+  {
+    code: "ES",
+    label: "🇪🇸 Spain",
+    sign: "LSE"
+  },
+  {
+    code: "NL",
+    label: "🇳🇱 Netherlands",
+    sign: "NGT"
+  },
+  {
+    code: "PL",
+    label: "🇵🇱 Poland",
+    sign: "PJM"
+  }
 ];
 
-function makeLocalPath(path) {{
-  if (!path) return null;
 
-  if (path.startsWith("http")) {{
-    return path;
-  }}
+function setError(message) {
+  statusBox.classList.add("error");
+  statusBox.innerText = message;
+}
 
-  // Convert /outputs/session_id/... to relative path for direct HTML opening
-  const marker = "/outputs/" + sessionName + "/";
-  if (path.includes(marker)) {{
-    return path.split(marker)[1];
-  }}
 
-  if (path.startsWith("/outputs/")) {{
+function clearError() {
+  statusBox.classList.remove("error");
+}
+
+
+function addPlaybackToken(path) {
+  if (!path) {
+    return null;
+  }
+
+  const url = new URL(
+    path,
+    window.location.href
+  );
+
+  if (playbackToken) {
+    url.searchParams.set(
+      "token",
+      playbackToken
+    );
+  }
+
+  return url.toString();
+}
+
+
+function makeLocalPath(path) {
+  if (!path) {
+    return null;
+  }
+
+  let resolvedPath = path;
+
+  const marker = (
+    "/outputs/"
+    + sessionName
+    + "/"
+  );
+
+  if (path.includes(marker)) {
+    resolvedPath = path.split(
+      marker
+    )[1];
+
+  } else if (
+    path.startsWith("/outputs/")
+  ) {
     const parts = path.split("/");
-    const index = parts.indexOf(sessionName);
-    if (index !== -1) {{
-      return parts.slice(index + 1).join("/");
-    }}
-  }}
+    const sessionIndex = parts.indexOf(
+      sessionName
+    );
 
-  if (path.startsWith("/")) {{
-    return window.location.origin + path;
-  }}
+    if (sessionIndex !== -1) {
+      resolvedPath = parts
+        .slice(sessionIndex + 1)
+        .join("/");
+    }
 
-  return path;
-}}
+  } else if (
+    path.startsWith("/")
+  ) {
+    resolvedPath = (
+      window.location.origin
+      + path
+    );
+  }
 
-function getVideoKeys() {{
-  return Object.keys(manifest.rendered_videos || {{}});
-}}
+  return addPlaybackToken(
+    resolvedPath
+  );
+}
 
-function findKeyBySign(sign) {{
-  sign = sign.toUpperCase();
+
+function getVideoKeys() {
+  return Object.keys(
+    manifest?.rendered_videos || {}
+  );
+}
+
+
+function findKeyBySign(sign) {
+  const normalizedSign = (
+    sign || ""
+  ).toUpperCase();
+
   const keys = getVideoKeys();
 
-  let exact = keys.find(k => k.toUpperCase() === sign);
-  if (exact) return exact;
+  const exact = keys.find(
+    key => (
+      key.toUpperCase()
+      === normalizedSign
+    )
+  );
 
-  let suffix = keys.find(k => k.toUpperCase().endsWith("_" + sign));
-  if (suffix) return suffix;
+  if (exact) {
+    return exact;
+  }
 
-  return null;
-}}
+  return keys.find(
+    key => (
+      key.toUpperCase().endsWith(
+        "_" + normalizedSign
+      )
+    )
+  ) || null;
+}
 
-function resolveVideoKey(sign) {{
-  let key = findKeyBySign(sign);
-  if (key) return {{ key, fallback:false }};
 
-  let lsa = findKeyBySign("LSA");
-  if (lsa) return {{ key:lsa, fallback:true }};
+function resolveVideoKey(sign) {
+  const requestedKey = findKeyBySign(
+    sign
+  );
 
-  let lsf = findKeyBySign("LSF");
-  if (lsf) return {{ key:lsf, fallback:true }};
+  if (requestedKey) {
+    return {
+      key: requestedKey,
+      fallback: false
+    };
+  }
 
-  return {{ key:getVideoKeys()[0], fallback:true }};
-}}
+  const lsaKey = findKeyBySign(
+    "LSA"
+  );
 
-function loadVideoBySign(sign, source) {{
-  const resolved = resolveVideoKey(sign);
+  if (lsaKey) {
+    return {
+      key: lsaKey,
+      fallback: true
+    };
+  }
+
+  const lsfKey = findKeyBySign(
+    "LSF"
+  );
+
+  if (lsfKey) {
+    return {
+      key: lsfKey,
+      fallback: true
+    };
+  }
+
+  return {
+    key: getVideoKeys()[0] || null,
+    fallback: true
+  };
+}
+
+
+function setActiveLanguage(sign) {
+  const normalizedSign = (
+    sign || ""
+  ).toUpperCase();
+
+  document
+    .querySelectorAll(
+      "#languageButtons button"
+    )
+    .forEach(button => {
+      button.classList.toggle(
+        "active",
+        button.dataset.sign
+          === normalizedSign
+      );
+    });
+
+  lsaBtn.classList.toggle(
+    "active",
+    normalizedSign === "LSA"
+  );
+}
+
+
+function loadVideoBySign(
+  sign,
+  source
+) {
+  clearError();
+
+  const resolved = resolveVideoKey(
+    sign
+  );
+
   const key = resolved.key;
 
-  if (!key) {{
-    statusBox.innerText = "Aucune vidéo disponible.";
-    return;
-  }}
+  if (!key) {
+    setError(
+      "Aucune vidéo disponible."
+    );
 
-  const rawPath = manifest.rendered_videos[key];
-  const videoPath = makeLocalPath(rawPath);
+    return;
+  }
+
+  const rawPath = (
+    manifest.rendered_videos[key]
+  );
+
+  const videoPath = makeLocalPath(
+    rawPath
+  );
+
+  if (!videoPath) {
+    setError(
+      "Le chemin de la vidéo est invalide."
+    );
+
+    return;
+  }
 
   video.src = videoPath;
   video.load();
 
-  document.querySelectorAll("button").forEach(btn => {{
-    btn.classList.toggle("active", btn.dataset.sign === sign.toUpperCase());
-  }});
+  setActiveLanguage(sign);
 
-  lsaBtn.classList.toggle("active", sign.toUpperCase() === "LSA");
+  let message = (
+    "Source: "
+    + source
+    + " | Langue demandée: "
+    + sign.toUpperCase()
+    + " | Vidéo chargée: "
+    + key
+  );
 
-  let message =
-    "Source: " + source +
-    " | Langue demandée: " + sign.toUpperCase() +
-    " | Vidéo chargée: " + key;
-
-  if (resolved.fallback) {{
+  if (resolved.fallback) {
     message += " | Fallback utilisé";
-  }}
+  }
 
   statusBox.innerText = message;
 
-  debug.innerText =
-    "Selected video: " + key + "\\n" +
-    "Requested sign language: " + sign + "\\n" +
-    "Source: " + source + "\\n" +
-    "Video path: " + videoPath + "\\n\\n" +
-    "Original text:\\n" + (manifest.original_text || "") + "\\n\\n" +
-    "Translations:\\n" + JSON.stringify(manifest.translations || {{}}, null, 2) + "\\n\\n" +
-    "Glosses:\\n" + JSON.stringify(manifest.avatar_debug || {{}}, null, 2);
-}}
+  debug.innerText = (
+    "Selected video: "
+    + key
+    + "\\n"
+    + "Requested sign language: "
+    + sign
+    + "\\n"
+    + "Source: "
+    + source
+    + "\\n"
+    + "Video path: "
+    + videoPath
+    + "\\n\\n"
+    + "Original text:\\n"
+    + (manifest.original_text || "")
+    + "\\n\\n"
+    + "Translations:\\n"
+    + JSON.stringify(
+      manifest.translations || {},
+      null,
+      2
+    )
+    + "\\n\\n"
+    + "Glosses:\\n"
+    + JSON.stringify(
+      manifest.avatar_debug || {},
+      null,
+      2
+    )
+  );
+}
 
-function routeByCountry(countryCode) {{
-  const country = COUNTRIES.find(c => c.code === countryCode);
 
-  if (!country) {{
-    loadVideoBySign("LSA", "fallback_country_unknown");
+function routeByCountry(
+  countryCode
+) {
+  const country = COUNTRIES.find(
+    item => item.code === countryCode
+  );
+
+  if (!country) {
+    loadVideoBySign(
+      "LSA",
+      "fallback_country_unknown"
+    );
+
     return;
-  }}
+  }
 
-  loadVideoBySign(country.sign, "manual_country_" + countryCode);
-}}
+  loadVideoBySign(
+    country.sign,
+    "manual_country_" + countryCode
+  );
+}
 
-function detectFromBrowserLanguage() {{
-  const lang = (navigator.language || "").toLowerCase();
 
-  if (lang.startsWith("fr")) {{
+function detectFromBrowserLanguage() {
+  const language = (
+    navigator.language || ""
+  ).toLowerCase();
+
+  if (language.startsWith("fr")) {
     countrySelect.value = "FR";
     routeByCountry("FR");
-  }} else if (lang.startsWith("de")) {{
+
+  } else if (
+    language.startsWith("de")
+  ) {
     countrySelect.value = "DE";
     routeByCountry("DE");
-  }} else if (lang.startsWith("en")) {{
+
+  } else if (
+    language.startsWith("en")
+  ) {
     countrySelect.value = "GB";
     routeByCountry("GB");
-  }} else if (lang.startsWith("el")) {{
+
+  } else if (
+    language.startsWith("el")
+  ) {
     countrySelect.value = "GR";
     routeByCountry("GR");
-  }} else if (lang.startsWith("ar")) {{
-    loadVideoBySign("LSA", "browser_language_arabic");
-  }} else {{
+
+  } else if (
+    language.startsWith("ar")
+  ) {
+    loadVideoBySign(
+      "LSA",
+      "browser_language_arabic"
+    );
+
+  } else {
     countrySelect.value = "FR";
     routeByCountry("FR");
-  }}
-}}
+  }
+}
 
-function buildCountrySelector() {{
-  COUNTRIES.forEach(c => {{
-    const option = document.createElement("option");
-    option.value = c.code;
-    option.textContent = c.label + " → " + c.sign;
-    countrySelect.appendChild(option);
-  }});
 
-  countrySelect.onchange = () => routeByCountry(countrySelect.value);
-}}
+function buildCountrySelector() {
+  countrySelect.innerHTML = "";
 
-function buildLanguageButtons() {{
+  COUNTRIES.forEach(country => {
+    const option = document.createElement(
+      "option"
+    );
+
+    option.value = country.code;
+
+    option.textContent = (
+      country.label
+      + " → "
+      + country.sign
+    );
+
+    countrySelect.appendChild(
+      option
+    );
+  });
+
+  countrySelect.onchange = () => {
+    routeByCountry(
+      countrySelect.value
+    );
+  };
+}
+
+
+function buildLanguageButtons() {
   languageButtons.innerHTML = "";
 
-  const signs = ["LSF", "DGS", "BSL", "GSL"];
+  const signs = [
+    "LSF",
+    "DGS",
+    "BSL",
+    "GSL"
+  ];
 
-  signs.forEach(sign => {{
-    const key = findKeyBySign(sign);
-    if (!key) return;
+  signs.forEach(sign => {
+    const key = findKeyBySign(
+      sign
+    );
 
-    const btn = document.createElement("button");
-    btn.innerText = key;
-    btn.dataset.sign = sign;
-    btn.onclick = () => loadVideoBySign(sign, "manual_sign_language");
-    languageButtons.appendChild(btn);
-  }});
+    if (!key) {
+      return;
+    }
 
+    const button = document.createElement(
+      "button"
+    );
+
+    button.type = "button";
+    button.innerText = key;
+    button.dataset.sign = sign;
+
+    button.onclick = () => {
+      loadVideoBySign(
+        sign,
+        "manual_sign_language"
+      );
+    };
+
+    languageButtons.appendChild(
+      button
+    );
+  });
+
+  const lsaAvailable = Boolean(
+    findKeyBySign("LSA")
+  );
+
+  lsaBtn.disabled = !lsaAvailable;
   lsaBtn.dataset.sign = "LSA";
-  lsaBtn.onclick = () => loadVideoBySign("LSA", "manual_lsa_button");
 
-  autoDetectBtn.onclick = detectFromBrowserLanguage;
-}}
+  lsaBtn.onclick = () => {
+    loadVideoBySign(
+      "LSA",
+      "manual_lsa_button"
+    );
+  };
 
-async function init() {{
-  try {{
-    const res = await fetch(manifestUrl);
-    manifest = await res.json();
+  autoDetectBtn.onclick = (
+    detectFromBrowserLanguage
+  );
+}
+
+
+async function init() {
+  try {
+    if (!playbackToken) {
+      throw new Error(
+        "Playback token missing."
+      );
+    }
+
+    const manifestUrl = (
+      addPlaybackToken(
+        "manifest.json"
+      )
+    );
+
+    const response = await fetch(
+      manifestUrl,
+      {
+        method: "GET",
+        credentials: "omit",
+        referrerPolicy: "no-referrer"
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(
+        "Manifest request failed: "
+        + response.status
+      );
+    }
+
+    manifest = await response.json();
+
+    if (
+      !manifest
+      || !manifest.rendered_videos
+    ) {
+      throw new Error(
+        "Manifest contains no rendered videos."
+      );
+    }
 
     buildCountrySelector();
     buildLanguageButtons();
     detectFromBrowserLanguage();
 
-  }} catch (e) {{
-    statusBox.innerText =
-      "Erreur: manifest.json introuvable. Vérifiez que player.html est dans le même dossier que manifest.json.";
-    debug.innerText = String(e);
-  }}
-}}
+  } catch (error) {
+    setError(
+      "Impossible de charger le lecteur. "
+      + "Le lien est peut-être expiré."
+    );
+
+    debug.innerText = String(
+      error
+    );
+  }
+}
+
+
+video.addEventListener(
+  "error",
+  () => {
+    setError(
+      "Impossible de charger cette vidéo. "
+      + "Le lien est peut-être expiré."
+    );
+  }
+);
+
 
 init();
 </script>
@@ -330,6 +763,18 @@ init();
 </html>
 """
 
-    path = session_dir / "player.html"
-    path.write_text(html, encoding="utf-8")
-    return path
+    html = html.replace(
+        "__SESSION_NAME_JSON__",
+        session_name_json,
+    )
+
+    player_path = (
+        session_dir / "player.html"
+    )
+
+    player_path.write_text(
+        html,
+        encoding="utf-8",
+    )
+
+    return player_path

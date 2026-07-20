@@ -15,7 +15,6 @@ from fastapi import (
     status,
 )
 from fastapi.concurrency import run_in_threadpool
-from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from sqlalchemy.orm import Session
 
@@ -48,11 +47,20 @@ from app.media_validation import (
     sanitize_media,
 )
 from sqlalchemy import select
-from sqlalchemy.orm import Session
 from app.auth import (
+    ArtifactAccess,
     AuthenticatedPrincipal,
+    create_playback_token,
+    get_artifact_access,
     get_current_principal,
 )
+from fastapi.responses import FileResponse
+from datetime import (
+    datetime,
+    timedelta,
+    timezone,
+)
+from app.config import PUBLIC_BASE_URL
 
 
 logger = logging.getLogger(__name__)
@@ -148,17 +156,6 @@ app = FastAPI(
         "Geo Adaptive Sign Video"
     ),
     lifespan=lifespan,
-)
-
-
-# This remains public for the prototype.
-# It must later be replaced by authorized/signed artifact access.
-app.mount(
-    "/outputs",
-    StaticFiles(
-        directory=str(OUTPUT_DIR)
-    ),
-    name="outputs",
 )
 
 
@@ -264,8 +261,6 @@ def get_video_job(
     )
 
     if job is None:
-        # Return 404 for missing and unauthorized jobs.
-        # This prevents leaking another user's job IDs.
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail={
@@ -274,8 +269,205 @@ def get_video_job(
             },
         )
 
-    return job
+    response = (
+        JobStatusResponse
+        .model_validate(job)
+        .model_dump()
+    )
 
+    if (
+        job.status == JobStatus.COMPLETED
+        and job.result is not None
+    ):
+        token_seconds = int(
+            os.getenv(
+                "PLAYBACK_TOKEN_SECONDS",
+                "600",
+            )
+        )
+
+        token_seconds = max(
+            60,
+            min(token_seconds, 3600),
+        )
+
+        expires_at = (
+            datetime.now(timezone.utc)
+            + timedelta(
+                seconds=token_seconds
+            )
+        )
+
+        playback_token = (
+            create_playback_token(
+                job_id=job.id,
+                expires_at_timestamp=int(
+                    expires_at.timestamp()
+                ),
+            )
+        )
+
+        player_url = (
+            f"{PUBLIC_BASE_URL}/outputs/"
+            f"{job.id}/player.html"
+            f"?token={playback_token}"
+        )
+
+        result = dict(
+            response["result"] or {}
+        )
+
+        result["player_url"] = player_url
+        result["playback_expires_at"] = (
+            expires_at.isoformat()
+        )
+
+        result["iframe"] = (
+            f'<iframe src="{player_url}" '
+            'width="100%" height="650" '
+            'allow="fullscreen" '
+            'referrerpolicy="no-referrer">'
+            "</iframe>"
+        )
+
+        response["result"] = result
+
+    return response
+
+@app.get(
+    "/outputs/{job_id}/{artifact_path:path}",
+    response_class=FileResponse,
+)
+@app.head(
+    "/outputs/{job_id}/{artifact_path:path}",
+    include_in_schema=False,
+)
+def download_output_artifact(
+    job_id: str,
+    artifact_path: str,
+    access: ArtifactAccess = Depends(
+        get_artifact_access
+    ),
+    db: Session = Depends(get_db),
+):
+    """
+    Return a generated artifact to:
+
+    - The user who owns the job.
+    - An authenticated internal worker.
+
+    Missing and unauthorized artifacts both return 404.
+    """
+
+    conditions = [
+        VideoJob.id == job_id,
+    ]
+
+    if access.playback_job_id is not None:
+        if access.playback_job_id != job_id:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail={
+                    "code": "ARTIFACT_NOT_FOUND",
+                    "message": "Artifact not found.",
+                },
+            )
+
+    elif not access.is_internal_worker:
+        principal = access.principal
+
+        if principal is None:
+            raise HTTPException(
+                status_code=status.HTTP_401_UNAUTHORIZED,
+                detail={
+                    "code": "AUTHENTICATION_REQUIRED",
+                    "message": (
+                        "A valid credential is required."
+                    ),
+                },
+            )
+
+        conditions.extend(
+            [
+                VideoJob.owner_id
+                == principal.user_id,
+                VideoJob.tenant_id
+                == principal.tenant_id,
+            ]
+        )
+
+    job = db.scalar(
+        select(VideoJob).where(
+            *conditions
+        )
+    )
+
+    if job is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail={
+                "code": "ARTIFACT_NOT_FOUND",
+                "message": "Artifact not found.",
+            },
+        )
+
+    normalized_artifact_path = (
+        artifact_path.strip().lstrip("/")
+    )
+
+    if not normalized_artifact_path:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail={
+                "code": "ARTIFACT_NOT_FOUND",
+                "message": "Artifact not found.",
+            },
+        )
+
+    job_output_directory = (
+        OUTPUT_DIR / job_id
+    ).resolve()
+
+    requested_path = (
+        job_output_directory
+        / normalized_artifact_path
+    ).resolve()
+
+    # Prevent ../ traversal and symbolic-link escapes.
+    if not requested_path.is_relative_to(
+        job_output_directory
+    ):
+        logger.warning(
+            "Blocked artifact path traversal. "
+            "job_id=%s internal_worker=%s",
+            job_id,
+            access.is_internal_worker,
+        )
+
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail={
+                "code": "ARTIFACT_NOT_FOUND",
+                "message": "Artifact not found.",
+            },
+        )
+
+    if (
+        not requested_path.is_file()
+        or requested_path.is_symlink()
+    ):
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail={
+                "code": "ARTIFACT_NOT_FOUND",
+                "message": "Artifact not found.",
+            },
+        )
+
+    # No filename argument: HTML must render inline for Playwright.
+    return FileResponse(
+        path=requested_path,
+    )
 
 # ------------------------------------------------------------
 # Avatar capabilities

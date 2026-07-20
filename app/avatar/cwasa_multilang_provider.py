@@ -126,6 +126,16 @@ class CwasaMultilangProvider(AvatarProvider):
                 shutil.copytree(item, dest, dirs_exist_ok=True)
             else:
                 shutil.copy2(item, dest)
+            
+        categories_file = (
+            output_dir
+            / "categories_files.json"
+        )
+
+        categories_file.write_text(
+            "{}",
+            encoding="utf-8",
+        )
 
         sigml_dir = output_dir / "sigml"
         sigml_dir.mkdir(parents=True, exist_ok=True)
@@ -174,34 +184,67 @@ class CwasaMultilangProvider(AvatarProvider):
             )
 
         gloss_text = " ".join(found)
-        index_path = output_dir / "index.html"
 
-        html = index_path.read_text(encoding="utf-8")
+        index_path = (
+            output_dir / "index.html"
+        )
+
+        html = index_path.read_text(
+            encoding="utf-8"
+        )
+
+        # Use JSON encoding instead of placing values directly inside
+        # JavaScript string literals.
+        language_json = json.dumps(
+            language,
+            ensure_ascii=False,
+        )
+
+        gloss_text_json = json.dumps(
+            gloss_text,
+            ensure_ascii=False,
+        )
+
+        found_json = json.dumps(
+            found,
+            ensure_ascii=False,
+        )
+
+        missing_json = json.dumps(
+            missing,
+            ensure_ascii=False,
+        )
 
         injection = f"""
-<script>
-window.CYRKIL_SIGN_LANGUAGE = "{language}";
-window.CYRKIL_FOUND_GLOSSES = {json.dumps(found, ensure_ascii=False)};
-window.CYRKIL_MISSING_GLOSSES = {json.dumps(missing, ensure_ascii=False)};
+        <script>
+        window.CYRKIL_SIGN_LANGUAGE = {language_json};
+        window.CYRKIL_FOUND_GLOSSES = {found_json};
+        window.CYRKIL_MISSING_GLOSSES = {missing_json};
+        window.CYRKIL_SIGN_PLAN_READY = false;
 
-window.addEventListener("load", function() {{
-    setTimeout(function() {{
-        var input = document.getElementById("glossInput");
-        if (input) {{
-            input.value = "{gloss_text}";
-        }}
+        window.addEventListener("load", function() {{
+            setTimeout(function() {{
+                var input = document.getElementById(
+                    "glossInput"
+                );
 
-        setTimeout(function() {{
-            if (typeof playGloss === "function") {{
-                playGloss();
-            }}
-        }}, 2000);
-    }}, 2000);
-}});
-</script>
-"""
+                if (input) {{
+                    input.value = {gloss_text_json};
+                    window.CYRKIL_SIGN_PLAN_READY = true;
+                }}
+            }}, 2000);
+        }});
+        </script>
+        """
 
-        html = html.replace("</body>", injection + "\n</body>")
-        index_path.write_text(html, encoding="utf-8")
+        html = html.replace(
+            "</body>",
+            injection + "\n</body>",
+        )
+
+        index_path.write_text(
+            html,
+            encoding="utf-8",
+        )
 
         return str(index_path)

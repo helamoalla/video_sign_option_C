@@ -25,12 +25,20 @@ services:
   worker:
     image: video-sign-app:latest
     container_name: videosign-worker
-    command: >
-      celery -A app.celery_app worker
-      --loglevel=info
-      --concurrency=1
+
+    command:
+      - /bin/sh
+      - -c
+      - |
+        rm -f /tmp/.X99-lock
+        Xvfb :99 -screen 0 1280x1024x24 -nolisten tcp > /tmp/xvfb.log 2>&1 &
+        sleep 2
+        export DISPLAY=:99
+        exec celery -A app.celery_app worker --loglevel=info --concurrency=1 --hostname=videosign-worker@%h
+
     env_file:
       - .env
+
     depends_on:
       videosign:
         condition: service_healthy
@@ -38,9 +46,21 @@ services:
         condition: service_healthy
       redis:
         condition: service_healthy
+
     volumes:
       - app_outputs:/app/outputs
       - app_uploads:/app/uploads
+
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "celery -A app.celery_app inspect ping --timeout=5 | grep -q pong"
+        ]
+      interval: 30s
+      timeout: 10s
+      start_period: 30s
+      retries: 3
 
   postgres:
     image: postgres:16-alpine

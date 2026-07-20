@@ -11,6 +11,7 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
     --mount=type=cache,target=/var/lib/apt/lists,sharing=locked \
     apt-get update \
     && apt-get install -y --no-install-recommends \
+        ca-certificates \
         curl \
         ffmpeg \
         fonts-dejavu-core \
@@ -18,7 +19,10 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
         git \
         libgl1 \
         libglib2.0-0 \
-        libgomp1
+        libgomp1 \
+        xauth \
+        xvfb \
+    && update-ca-certificates
 
 COPY requirements.txt /app/requirements.txt
 
@@ -32,6 +36,15 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
     --mount=type=cache,target=/var/lib/apt/lists,sharing=locked \
     python -m playwright install --with-deps chromium \
     && chmod -R a+rX /ms-playwright
+
+RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
+    --mount=type=cache,target=/var/lib/apt/lists,sharing=locked \
+    apt-get update \
+    && apt-get install -y --no-install-recommends \
+        xauth \
+        xvfb \
+    && mkdir -p /tmp/.X11-unix \
+    && chmod 1777 /tmp/.X11-unix
 
 COPY . /app
 
