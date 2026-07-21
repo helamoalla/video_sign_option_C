@@ -1,6 +1,4 @@
 import os
-from typing import Callable
-
 from starlette.types import (
     ASGIApp,
     Message,

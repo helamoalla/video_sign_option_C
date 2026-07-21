@@ -7,6 +7,7 @@ from sqlalchemy.orm import Session
 
 from app.auth import AuthenticatedPrincipal
 from app.models import JobStatus, VideoJob
+import hashlib
 
 
 MAX_ACTIVE_JOBS_PER_USER = int(
@@ -72,6 +73,28 @@ def get_daily_limit(
         DAILY_LIMITS["development"],
     )
 
+def get_quota_lock_id(
+    tenant_id: str,
+    user_id: str,
+) -> int:
+    """
+    Produce a stable signed 64-bit PostgreSQL advisory-lock ID.
+    """
+
+    identity = (
+        f"{tenant_id}:{user_id}"
+    ).encode("utf-8")
+
+    digest = hashlib.blake2b(
+        identity,
+        digest_size=8,
+    ).digest()
+
+    return int.from_bytes(
+        digest,
+        byteorder="big",
+        signed=True,
+    )
 
 def enforce_job_quota(
     db: Session,
@@ -83,7 +106,18 @@ def enforce_job_quota(
 
     This must execute before the new VideoJob is inserted.
     """
+    lock_id = get_quota_lock_id(
+        tenant_id=principal.tenant_id,
+        user_id=principal.user_id,
+    )
 
+    db.execute(
+        select(
+            func.pg_advisory_xact_lock(
+                lock_id
+            )
+        )
+    )
     active_statuses = [
         JobStatus.QUEUED,
         JobStatus.PROCESSING,
