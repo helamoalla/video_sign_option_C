@@ -24,12 +24,16 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
         xvfb \
     && update-ca-certificates
 
+ARG PIP_VERSION=26.1.2
+
 COPY requirements.txt /app/requirements.txt
+COPY requirements.lock.txt /app/requirements.lock.txt
 
 RUN --mount=type=cache,target=/root/.cache/pip \
-    python -m pip install --upgrade pip \
+    python -m pip install \
+        "pip==${PIP_VERSION}" \
     && python -m pip install \
-        -r /app/requirements.txt \
+        --requirement /app/requirements.lock.txt \
     && python -m pip check
 
 RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \

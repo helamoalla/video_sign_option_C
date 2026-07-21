@@ -1,0 +1,83 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  python-tests:
+    name: Python tests
+    runs-on: ubuntu-latest
+
+    env:
+      DATABASE_URL: >-
+        postgresql+psycopg2://videosign:videosign@localhost:5432/videosign
+      INTERNAL_BASE_URL: http://videosign:8000
+      PUBLIC_BASE_URL: http://localhost:8000
+      API_KEY_PEPPER: >-
+        ci-only-api-key-pepper-00000000000000000000
+      INTERNAL_WORKER_TOKEN: >-
+        ci-only-worker-token-00000000000000000000
+      PLAYBACK_TOKEN_SECRET: >-
+        ci-only-playback-secret-000000000000000000
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11.15"
+          cache: pip
+          cache-dependency-path: requirements.lock.txt
+
+      - name: Install locked dependencies
+        run: |
+          python -m pip install --requirement requirements.lock.txt
+          python -m pip check
+
+      - name: Run unit tests
+        run: |
+          python -m pytest -q -m "not integration"
+
+  docker-build:
+    name: Docker build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build application image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./Dockerfile
+          push: false
+          load: true
+          tags: video-sign-ci:test
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Verify installed dependencies
+        run: |
+          docker run --rm video-sign-ci:test python -m pip check
+
+      - name: Compare image with dependency lock
+        run: |
+          docker run --rm video-sign-ci:test \
+            sh -c "python -m pip freeze | LC_ALL=C sort" \
+            > image-requirements.txt
+
+          diff -u \
+            requirements.lock.txt \
+            image-requirements.txt
