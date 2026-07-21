@@ -11,6 +11,7 @@ from moviepy import (
 
 import arabic_reshaper
 from bidi.algorithm import get_display
+import os
 
 
 DEFAULT_FONT = (
@@ -18,9 +19,10 @@ DEFAULT_FONT = (
     "DejaVuSans.ttf"
 )
 
-ARABIC_FONT = (
-    "/usr/share/fonts/truetype/dejavu/"
-    "DejaVuSans.ttf"
+ARABIC_FONT = os.getenv(
+    "ARABIC_SUBTITLE_FONT",
+    "/usr/share/fonts/truetype/noto/"
+    "NotoSansArabic-Regular.ttf",
 )
 
 def get_font(language: str) -> str:

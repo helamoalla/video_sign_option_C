@@ -129,7 +129,7 @@ async def record_cwasa_page_async(
 
         async with async_playwright() as playwright:
             browser = await playwright.chromium.launch(
-                headless=False,
+                headless=True,
             )
 
             context = None
