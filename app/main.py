@@ -61,6 +61,13 @@ from datetime import (
     timezone,
 )
 from app.config import PUBLIC_BASE_URL
+from app.request_limits import (
+    RequestBodyLimitMiddleware,
+)
+from app.job_quotas import (
+    JobQuotaExceededError,
+    enforce_job_quota,
+)
 
 
 logger = logging.getLogger(__name__)
@@ -158,7 +165,9 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
-
+app.add_middleware(
+    RequestBodyLimitMiddleware
+)
 # ------------------------------------------------------------
 # Upload helpers
 # ------------------------------------------------------------
@@ -851,6 +860,35 @@ async def process_video_assets(
     # ---------------------------------------------------------
     # Persist queued job
     # ---------------------------------------------------------
+    try:
+        quota_usage = enforce_job_quota(
+            db,
+            principal,
+        )
+
+    except JobQuotaExceededError as exc:
+        input_path.unlink(
+            missing_ok=True
+        )
+
+        try:
+            input_path.parent.rmdir()
+        except OSError:
+            pass
+
+        raise HTTPException(
+            status_code=(
+                status.HTTP_429_TOO_MANY_REQUESTS
+            ),
+            detail={
+                "code": exc.code,
+                "message": exc.message,
+                "limit": exc.limit,
+            },
+            headers={
+                "Retry-After": "60",
+            },
+        ) from exc
 
     job = VideoJob(
         id=job_id,
@@ -881,7 +919,39 @@ async def process_video_assets(
                 declared_content_type
             ),
             "uploaded_bytes": uploaded_bytes,
-            "media_metadata": media_metadata,
+            "media_metadata": {
+                "duration_seconds": (
+                    media_metadata[
+                        "duration_seconds"
+                    ]
+                ),
+                "detected_formats": (
+                    media_metadata[
+                        "detected_formats"
+                    ]
+                ),
+                "content_type": (
+                    media_metadata[
+                        "content_type"
+                    ]
+                ),
+                "has_audio": (
+                    media_metadata["has_audio"]
+                ),
+                "has_video": (
+                    media_metadata["has_video"]
+                ),
+                "video_streams": (
+                    media_metadata[
+                        "video_streams"
+                    ]
+                ),
+                "audio_streams": (
+                    media_metadata[
+                        "audio_streams"
+                    ]
+                ),
+            },
         },
     )
 
