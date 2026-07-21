@@ -30,7 +30,7 @@ jobs:
         INTERNAL_WORKER_TOKEN: >-
           ci-only-worker-token-00000000000000000000
 
-        PLAYBACK_TOKEN_SECRET: >-
+        PLAYBACK_SIGNING_SECRET: >-
           ci-only-playback-secret-000000000000000000
     steps:
       - name: Check out repository

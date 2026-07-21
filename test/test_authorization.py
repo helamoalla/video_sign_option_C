@@ -11,6 +11,7 @@ from fastapi import HTTPException
 from fastapi.responses import FileResponse
 
 from app.auth import (
+    ArtifactAccess,
     AuthenticatedPrincipal,
     get_current_principal,
 )
@@ -148,7 +149,11 @@ def test_other_users_artifact_returns_404(
                 "55555555-5555-5555-5555-555555555555"
             ),
             artifact_path="rendered/video.mp4",
-            principal=principal,
+            access=ArtifactAccess(
+                principal=principal,
+                is_internal_worker=False,
+                playback_job_id=None,
+            ),
             db=FakeDatabase(result=None),
         )
 
@@ -191,7 +196,11 @@ def test_owner_can_access_artifact(
     response = download_output_artifact(
         job_id=job_id,
         artifact_path="rendered/video.mp4",
-        principal=principal,
+        access=ArtifactAccess(
+            principal=principal,
+            is_internal_worker=False,
+            playback_job_id=None,
+        ),
         db=FakeDatabase(
             result=SimpleNamespace(id=job_id)
         ),
@@ -225,7 +234,11 @@ def test_path_traversal_is_rejected(
         download_output_artifact(
             job_id=job_id,
             artifact_path="../../secret.txt",
-            principal=principal,
+            access=ArtifactAccess(
+                principal=principal,
+                is_internal_worker=False,
+                playback_job_id=None,
+            ),
             db=FakeDatabase(
                 result=SimpleNamespace(id=job_id)
             ),
