@@ -15,23 +15,29 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      DATABASE_URL: >-
-        postgresql+psycopg2://videosign:videosign@localhost:5432/videosign
-      INTERNAL_BASE_URL: http://videosign:8000
-      PUBLIC_BASE_URL: http://localhost:8000
-      API_KEY_PEPPER: >-
-        ci-only-api-key-pepper-00000000000000000000
-      INTERNAL_WORKER_TOKEN: >-
-        ci-only-worker-token-00000000000000000000
-      PLAYBACK_TOKEN_SECRET: >-
-        ci-only-playback-secret-000000000000000000
+        DATABASE_URL: >-
+          postgresql+psycopg2://videosign:videosign@localhost:5432/videosign
 
+        CELERY_BROKER_URL: memory://
+        CELERY_RESULT_BACKEND: cache+memory://
+
+        INTERNAL_BASE_URL: http://videosign:8000
+        PUBLIC_BASE_URL: http://localhost:8000
+
+        API_KEY_PEPPER: >-
+          ci-only-api-key-pepper-00000000000000000000
+
+        INTERNAL_WORKER_TOKEN: >-
+          ci-only-worker-token-00000000000000000000
+
+        PLAYBACK_TOKEN_SECRET: >-
+          ci-only-playback-secret-000000000000000000
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.11.15"
           cache: pip
@@ -52,7 +58,7 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
