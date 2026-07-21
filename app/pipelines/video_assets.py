@@ -877,8 +877,7 @@ def run_video_assets_pipeline(
                     output_path=str(
                         recorded_path
                     ),
-                    duration_ms=15000,
-                    trim_start_seconds=5.0,
+                    trim_start_seconds=3.0,
                 )
 
                 avatar_debug[

@@ -1,9 +1,6 @@
 {
   "description"     : "========  CWASA installation configuration data : Development release ========",
 
-  "jasBase"         : "http://localhost/jas/loc2023/",
-  "jasVersionTag"   : "loc2023",
-
   "sigmlBase"       : "sigml",
   "avJARBase"       : "avatars",
   "avJSONBase"      : "avjson",

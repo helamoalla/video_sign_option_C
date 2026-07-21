@@ -3,14 +3,12 @@ import logging
 import os
 import sys
 import tempfile
-import time
 from pathlib import Path
+from urllib.parse import urlparse
 
 from moviepy import VideoFileClip
-from playwright.async_api import (
-    async_playwright,
-)
-from urllib.parse import urlparse
+from playwright.async_api import async_playwright
+
 
 logger = logging.getLogger(__name__)
 
@@ -24,20 +22,12 @@ if sys.platform.startswith("win"):
 def trim_video(
     input_path: str,
     output_path: str,
-    trim_start_seconds: float = 0.0,
+    trim_start_seconds: float = 3.0,
 ) -> str:
-    """
-    Convert the Playwright WebM recording to MP4 and remove
-    the initial CWASA loading period.
-    """
+    """Convert the isolated Playwright WebM recording to MP4."""
 
-    input_file = Path(
-        input_path
-    ).resolve()
-
-    output_file = Path(
-        output_path
-    ).resolve()
+    input_file = Path(input_path).resolve()
+    output_file = Path(output_path).resolve()
 
     if not input_file.is_file():
         raise FileNotFoundError(
@@ -60,31 +50,24 @@ def trim_video(
     trimmed_clip = None
 
     try:
-        clip = VideoFileClip(
-            str(input_file)
-        )
+        clip = VideoFileClip(str(input_file))
 
-        safe_trim_start = max(
-            0.0,
-            float(trim_start_seconds),
-        )
+        if clip.duration <= 0:
+            raise RuntimeError(
+                "Recorded Playwright video has no duration."
+            )
 
-        # Never attempt to start beyond the end of the clip.
-        if (
-            clip.duration <= 0
-            or safe_trim_start
-            >= clip.duration
-        ):
-            safe_trim_start = 0.0
+        safe_trim_start = min(
+            max(0.0, float(trim_start_seconds)),
+            max(0.0, clip.duration - 0.1),
+        )
 
         if safe_trim_start > 0:
             trimmed_clip = clip.subclipped(
                 safe_trim_start,
                 clip.duration,
             )
-
             output_clip = trimmed_clip
-
         else:
             output_clip = clip
 
@@ -121,55 +104,33 @@ def trim_video(
 async def record_cwasa_page_async(
     page_url: str,
     output_path: str,
-    duration_ms: int = 12_000,
     trim_start_seconds: float = 3.0,
+    completion_timeout_seconds: float = 120.0,
 ) -> str:
     """
     Record one CWASA page in an isolated directory.
 
-    The function:
-
-    - Uses one temporary directory per recording.
-    - Tracks Playwright's exact video path.
-    - Authenticates as the internal worker.
-    - Enables software WebGL in headless Chromium.
-    - Waits for a visible CWASA canvas.
-    - Captures a diagnostic screenshot.
-    - Dynamically removes the complete page-loading period.
+    The browser remains headed as required. Recording ends when the
+    JavaScript gloss sequence finishes. The timeout is only a guard
+    against a permanently stuck browser.
     """
 
-    final_output_path = Path(
-        output_path
-    ).resolve()
-
+    final_output_path = Path(output_path).resolve()
     final_output_path.parent.mkdir(
         parents=True,
         exist_ok=True,
     )
 
     with tempfile.TemporaryDirectory(
-        prefix=(
-            f".{final_output_path.stem}"
-            "_recording_"
-        ),
-        dir=str(
-            final_output_path.parent
-        ),
+        prefix=f".{final_output_path.stem}_recording_",
+        dir=str(final_output_path.parent),
     ) as temporary_directory:
-        recording_directory = Path(
-            temporary_directory
-        )
+        recording_directory = Path(temporary_directory)
 
         async with async_playwright() as playwright:
             browser = await playwright.chromium.launch(
-            headless=False,
-            args=[
-                "--enable-webgl",
-                "--ignore-gpu-blocklist",
-                "--use-angle=swiftshader",
-                "--disable-dev-shm-usage",
-            ],
-        )
+                headless=False,
+            )
 
             context = None
 
@@ -179,9 +140,7 @@ async def record_cwasa_page_async(
                         "width": 720,
                         "height": 720,
                     },
-                    record_video_dir=str(
-                        recording_directory
-                    ),
+                    record_video_dir=str(recording_directory),
                     record_video_size={
                         "width": 720,
                         "height": 720,
@@ -189,115 +148,110 @@ async def record_cwasa_page_async(
                 )
 
                 page = await context.new_page()
-
-                # Playwright begins recording when the page is
-                # created, not when playGloss() is called.
-                recording_started_at = (
-                    time.monotonic()
-                )
-
                 page_video = page.video
 
                 if page_video is None:
                     raise RuntimeError(
-                        "Playwright video recording was "
-                        "not enabled for the CWASA page."
+                        "Playwright video recording was not enabled "
+                        "for the CWASA page."
                     )
 
                 page_errors: list[str] = []
                 failed_requests: list[str] = []
+                critical_asset_errors: list[str] = []
 
+                critical_asset_names = (
+                    "qskin.vert",
+                    "qskin.frag",
+                    "anna.jar",
+                    "COMMON.jar",
+                    "h2s.xsl",
+                )
 
-                def handle_page_error(
-                    error,
-                ) -> None:
+                def handle_page_error(error) -> None:
                     message = str(error)
-
-                    page_errors.append(
-                        message
-                    )
-
+                    page_errors.append(message)
                     logger.error(
                         "CWASA browser error: %s",
                         message,
                     )
 
-
-                def handle_failed_request(
-                    request,
-                ) -> None:
+                def handle_failed_request(request) -> None:
                     message = (
-                        f"{request.method} "
-                        f"{request.url}: "
+                        f"{request.method} {request.url}: "
                         f"{request.failure}"
                     )
+                    failed_requests.append(message)
 
-                    failed_requests.append(
-                        message
-                    )
+                    if any(
+                        name in request.url
+                        for name in critical_asset_names
+                    ):
+                        critical_asset_errors.append(message)
 
                     logger.error(
                         "CWASA request failed: %s",
                         message,
                     )
 
+                def handle_response(response) -> None:
+                    if response.status < 400:
+                        return
 
-                page.on(
-                    "pageerror",
-                    handle_page_error,
-                )
+                    message = (
+                        f"HTTP {response.status} {response.url}"
+                    )
 
-                page.on(
-                    "requestfailed",
-                    handle_failed_request,
-                )
+                    if any(
+                        name in response.url
+                        for name in critical_asset_names
+                    ):
+                        critical_asset_errors.append(message)
 
-                page.on(
-                    "console",
-                    lambda message: logger.info(
+                    logger.error(
+                        "CWASA HTTP error: %s %s",
+                        response.status,
+                        response.url,
+                    )
+
+                def handle_console(message) -> None:
+                    logger.info(
                         "CWASA console [%s]: %s",
                         message.type,
                         message.text,
-                    ),
-                )
+                    )
+
+                page.on("pageerror", handle_page_error)
+                page.on("requestfailed", handle_failed_request)
+                page.on("response", handle_response)
+                page.on("console", handle_console)
 
                 internal_worker_token = os.getenv(
                     "INTERNAL_WORKER_TOKEN",
                     "",
                 ).strip()
 
-                if (
-                    len(internal_worker_token)
-                    < 32
-                ):
+                if len(internal_worker_token) < 32:
                     raise RuntimeError(
-                        "INTERNAL_WORKER_TOKEN must "
-                        "contain at least 32 characters."
+                        "INTERNAL_WORKER_TOKEN must contain at least "
+                        "32 characters."
                     )
-                internal_host = urlparse(page_url).netloc
 
+                internal_host = urlparse(page_url).netloc
 
                 async def authorize_internal_requests(
                     route,
                     request,
-                ):
-                    request_host = urlparse(
-                        request.url
-                    ).netloc
-
+                ) -> None:
+                    request_host = urlparse(request.url).netloc
                     headers = dict(request.headers)
 
-                    # Only authenticate requests sent to our API.
-                    # Never send the internal token to external servers.
                     if request_host == internal_host:
                         headers[
                             "X-Internal-Worker-Token"
                         ] = internal_worker_token
 
-                    await route.continue_(
-                        headers=headers
-                    )
-
+                    await route.continue_(headers=headers)
 
                 await page.route(
                     "**/*",
@@ -312,8 +266,7 @@ async def record_cwasa_page_async(
 
                 if response is None:
                     raise RuntimeError(
-                        "CWASA page returned no "
-                        "HTTP response."
+                        "CWASA page returned no HTTP response."
                     )
 
                 if response.status != 200:
@@ -326,137 +279,179 @@ async def record_cwasa_page_async(
                     """
                     () => (
                         typeof playGloss === "function"
+                        && typeof playGlossesSequentially
+                            === "function"
                         && window.CYRKIL_SIGN_PLAN_READY === true
                     )
                     """,
                     timeout=30_000,
                 )
-                # The function existing is insufficient. Confirm
-                # that CWASA created a visible rendering canvas.
+
                 await page.wait_for_function(
                     """
-                    () => {
-                        const canvases = Array.from(
-                            document.querySelectorAll(
-                                "canvas"
-                            )
-                        );
+                    () => Array.from(
+                        document.querySelectorAll("canvas")
+                    ).some(canvas => {
+                        const rectangle =
+                            canvas.getBoundingClientRect();
 
-                        return canvases.some(
-                            canvas => {
-                                const rectangle =
-                                    canvas
-                                    .getBoundingClientRect();
-
-                                return (
-                                    canvas.width > 0
-                                    && canvas.height > 0
-                                    && rectangle.width > 0
-                                    && rectangle.height > 0
-                                );
-                            }
+                        return (
+                            canvas.width > 0
+                            && canvas.height > 0
+                            && rectangle.width > 0
+                            && rectangle.height > 0
                         );
-                    }
+                    })
                     """,
                     timeout=30_000,
                 )
 
-                # Give the avatar/model a short initialization
-                # period before starting the animation.
-                await page.wait_for_timeout(
-                    2_000
+                # Allow CWASA and the selected avatar to initialize.
+                await page.wait_for_timeout(2_000)
+
+                if critical_asset_errors:
+                    raise RuntimeError(
+                        "CWASA cannot render the avatar because "
+                        "required runtime assets failed to load: "
+                        + "; ".join(critical_asset_errors)
+                    )
+
+                expected_glosses = await page.evaluate(
+                    """
+                    () => {
+                        const glosses =
+                            window.CYRKIL_FOUND_GLOSSES;
+
+                        return Array.isArray(glosses)
+                            ? glosses.length
+                            : 0;
+                    }
+                    """
                 )
 
-                # Calculate how much blank loading footage
-                # Playwright has recorded so far.
-                animation_start_offset = (
-                    time.monotonic()
-                    - recording_started_at
+                if expected_glosses < 1:
+                    raise RuntimeError(
+                        "CWASA received no glosses to play."
+                    )
+
+                # Instrument the existing CWASA sequence without
+                # changing the simulator template. Recursive calls to
+                # playGlossesSequentially pass through this wrapper,
+                # which marks the sequence complete after its last item.
+                await page.evaluate(
+                    """
+                    () => {
+                        if (
+                            window.CYRKIL_SEQUENCE_INSTRUMENTED
+                            === true
+                        ) {
+                            window.CYRKIL_PLAYBACK_DONE = false;
+                            return;
+                        }
+
+                        const originalSequence =
+                            window.playGlossesSequentially;
+
+                        if (
+                            typeof originalSequence
+                            !== "function"
+                        ) {
+                            throw new Error(
+                                "playGlossesSequentially is missing"
+                            );
+                        }
+
+                        window.playGlossesSequentially = function (
+                            glosses,
+                            index
+                        ) {
+                            if (
+                                index >= glosses.length
+                                || window.stopRequested === true
+                            ) {
+                                window.CYRKIL_PLAYBACK_DONE = true;
+                                return;
+                            }
+
+                            return originalSequence.call(
+                                window,
+                                glosses,
+                                index
+                            );
+                        };
+
+                        window.CYRKIL_SEQUENCE_INSTRUMENTED = true;
+                        window.CYRKIL_PLAYBACK_DONE = false;
+                    }
+                    """
                 )
 
                 logger.info(
-                    "CWASA animation begins %.2f seconds "
-                    "after recording start.",
-                    animation_start_offset,
+                    "Starting CWASA playback for %s glosses.",
+                    expected_glosses,
                 )
 
                 await page.evaluate(
-                    "() => playGloss()"
+                    """
+                    () => {
+                        window.CYRKIL_PLAYBACK_DONE = false;
+                        playGloss();
+                    }
+                    """
                 )
 
-                # Allow the first rendered animation frame to
-                # become visible.
-                await page.wait_for_timeout(
-                    1_000
-                )
+                # Capture a diagnostic frame while short signs are
+                # still in progress.
+                await page.wait_for_timeout(250)
 
                 debug_screenshot_path = (
                     final_output_path.parent
-                    / (
-                        final_output_path.stem
-                        + "-cwasa-debug.png"
-                    )
+                    / f"{final_output_path.stem}-cwasa-debug.png"
                 )
 
                 await page.screenshot(
-                    path=str(
-                        debug_screenshot_path
-                    ),
+                    path=str(debug_screenshot_path),
                     full_page=True,
                 )
 
-                canvas_information = (
-                    await page.evaluate(
+                try:
+                    await page.wait_for_function(
                         """
-                        () => Array.from(
-                            document.querySelectorAll(
-                                "canvas"
-                            )
-                        ).map(
-                            canvas => {
-                                const rectangle =
-                                    canvas
-                                    .getBoundingClientRect();
-
-                                return {
-                                    id: canvas.id,
-                                    width: canvas.width,
-                                    height: canvas.height,
-                                    displayedWidth:
-                                        rectangle.width,
-                                    displayedHeight:
-                                        rectangle.height
-                                };
-                            }
+                        () => (
+                            window.CYRKIL_PLAYBACK_DONE === true
                         )
-                        """
+                        """,
+                        timeout=int(
+                            completion_timeout_seconds * 1000
+                        ),
                     )
-                )
+                except Exception as exc:
+                    raise RuntimeError(
+                        "CWASA gloss sequence did not complete "
+                        "before the safety timeout."
+                    ) from exc
 
-                logger.info(
-                    "CWASA canvas information: %s",
-                    canvas_information,
-                )
+                # Keep a short tail after the final scheduled sign.
+                await page.wait_for_timeout(750)
+
+                if critical_asset_errors:
+                    raise RuntimeError(
+                        "CWASA runtime assets failed while recording: "
+                        + "; ".join(critical_asset_errors)
+                    )
 
                 if page_errors:
                     logger.warning(
-                        "CWASA page reported JavaScript "
-                        "errors: %s",
+                        "CWASA page reported JavaScript errors: %s",
                         page_errors,
                     )
 
                 if failed_requests:
                     logger.warning(
-                        "CWASA page reported failed "
-                        "requests: %s",
+                        "CWASA page reported failed requests: %s",
                         failed_requests,
                     )
 
-                await page.wait_for_timeout(
-                    duration_ms
-                )
-
-                # Closing the context finalizes the WebM file.
                 await context.close()
                 context = None
 
@@ -464,54 +459,27 @@ async def record_cwasa_page_async(
                     await page_video.path()
                 ).resolve()
 
-                if (
-                    not playwright_video_path
-                    .is_file()
-                ):
+                if not playwright_video_path.is_file():
                     raise FileNotFoundError(
-                        "Playwright did not create "
-                        "the expected recording: "
-                        f"{playwright_video_path}"
+                        "Playwright did not create the expected "
+                        f"recording: {playwright_video_path}"
                     )
 
-                if (
-                    playwright_video_path
-                    .stat()
-                    .st_size
-                    == 0
-                ):
+                if playwright_video_path.stat().st_size == 0:
                     raise RuntimeError(
-                        "Playwright created an empty "
-                        "recording: "
+                        "Playwright created an empty recording: "
                         f"{playwright_video_path}"
                     )
 
-                # Keep half a second before playGloss() so the
-                # first sign frame is not cut.
-                dynamic_trim_start = max(
-                    0.0,
-                    animation_start_offset
-                    - 0.5,
-                )
-
-                effective_trim_start = dynamic_trim_start
-                
                 logger.info(
-                    "Trimming %.2f seconds from CWASA "
-                    "recording.",
-                    effective_trim_start,
+                    "Trimming %.2f seconds from CWASA recording.",
+                    trim_start_seconds,
                 )
 
                 trim_video(
-                    input_path=str(
-                        playwright_video_path
-                    ),
-                    output_path=str(
-                        final_output_path
-                    ),
-                    trim_start_seconds=(
-                        effective_trim_start
-                    ),
+                    input_path=str(playwright_video_path),
+                    output_path=str(final_output_path),
+                    trim_start_seconds=trim_start_seconds,
                 )
 
             finally:
@@ -520,24 +488,22 @@ async def record_cwasa_page_async(
 
                 await browser.close()
 
-    return str(
-        final_output_path
-    )
+    return str(final_output_path)
 
 
 def record_cwasa_page(
     page_url: str,
     output_path: str,
-    duration_ms: int = 12_000,
     trim_start_seconds: float = 3.0,
+    completion_timeout_seconds: float = 120.0,
 ) -> str:
     return asyncio.run(
         record_cwasa_page_async(
             page_url=page_url,
             output_path=output_path,
-            duration_ms=duration_ms,
-            trim_start_seconds=(
-                trim_start_seconds
+            trim_start_seconds=trim_start_seconds,
+            completion_timeout_seconds=(
+                completion_timeout_seconds
             ),
         )
     )

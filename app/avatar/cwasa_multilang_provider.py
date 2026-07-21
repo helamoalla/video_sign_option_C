@@ -126,6 +126,69 @@ class CwasaMultilangProvider(AvatarProvider):
                 shutil.copytree(item, dest, dirs_exist_ok=True)
             else:
                 shutil.copy2(item, dest)
+        
+                # The repository stores shaders at:
+        # web-simulator/shaders/
+        #
+        # CWASA resolves them relative to allcsa.js and requests:
+        # web-simulator/cwa/shaders/
+        source_shaders_dir = (
+            self.web_simulator
+            / "shaders"
+        )
+
+        runtime_shaders_dir = (
+            output_dir
+            / "cwa"
+            / "shaders"
+        )
+
+        if not source_shaders_dir.is_dir():
+            raise FileNotFoundError(
+                "CWASA shaders directory was not found: "
+                f"{source_shaders_dir}"
+            )
+
+        shutil.copytree(
+            source_shaders_dir,
+            runtime_shaders_dir,
+            dirs_exist_ok=True,
+        )
+
+        required_shaders = [
+            runtime_shaders_dir / "qskin.vert",
+            runtime_shaders_dir / "qskin.frag",
+        ]
+
+        for shader_path in required_shaders:
+            if (
+                not shader_path.is_file()
+                or shader_path.stat().st_size == 0
+            ):
+                raise RuntimeError(
+                    "Required CWASA shader is missing "
+                    f"or empty: {shader_path}"
+                )
+
+
+        # Older simulator layouts store h2s.xsl beside index.html,
+        # but this CWASA build may request it from cwa/h2s.xsl.
+        source_h2s_path = (
+            self.web_simulator
+            / "h2s.xsl"
+        )
+
+        runtime_h2s_path = (
+            output_dir
+            / "cwa"
+            / "h2s.xsl"
+        )
+
+        if source_h2s_path.is_file():
+            shutil.copy2(
+                source_h2s_path,
+                runtime_h2s_path,
+            )
             
         categories_file = (
             output_dir
