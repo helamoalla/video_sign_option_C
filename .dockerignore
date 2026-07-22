@@ -1,22 +1,27 @@
 .git
+.gitignore
 .github
-.vscode
-.idea
-
-__pycache__
-*.pyc
-*.pyo
-
-.venv
-venv
 
 .env
+.env.*
+!.env.example
 
-outputs
-uploads
-temp
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
 
-.pytest_cache
-.mypy_cache
+outputs/
+uploads/
+temp/
 
 *.log
+
+.venv/
+venv/
+
+.vscode/
+.idea/
+desktop.ini
