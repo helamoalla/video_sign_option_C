@@ -1,0 +1,26 @@
+{
+  "bundle_version": "alsl-avatar-assets-2026-07-22",
+  "bundle_sha256": "aba21c285f29a2857564e82cdf35bad26d8280c5a5c9d452df104e125b782a55",
+  "languages": {
+    "lsf": {
+      "folder": "lsf",
+      "expected_files": 1003
+    },
+    "lsa": {
+      "folder": "lsa",
+      "expected_files": 418
+    },
+    "dgs": {
+      "folder": "dgs",
+      "expected_files": 1021
+    },
+    "bsl": {
+      "folder": "BSL",
+      "expected_files": 964
+    },
+    "gsl": {
+      "folder": "GSL",
+      "expected_files": 1015
+    }
+  }
+}

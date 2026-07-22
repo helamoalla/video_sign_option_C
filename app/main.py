@@ -15,8 +15,15 @@ from fastapi import (
     HTTPException,
     UploadFile,
     status,
+    Request,
 )
-from fastapi.responses import FileResponse
+from fastapi.responses import (
+    FileResponse,
+    JSONResponse,
+)
+from app.asset_readiness import (
+    validate_sign_asset_bundle,
+)
 from pydantic import BaseModel
 from sqlalchemy import select
 from sqlalchemy.orm import Session
@@ -95,14 +102,32 @@ create_runtime_directories()
 async def lifespan(app: FastAPI):
     create_runtime_directories()
 
-    # Temporary table creation until Alembic migrations
-    # are introduced.
+    asset_report = validate_sign_asset_bundle()
+
+    app.state.sign_asset_readiness = (
+        asset_report
+    )
+
+    if not asset_report["ready"]:
+        logger.error(
+            "Sign-asset readiness validation failed. "
+            "code=%s problems=%s",
+            asset_report["code"],
+            asset_report["problems"],
+        )
+    else:
+        logger.info(
+            "Sign-asset bundle validated. "
+            "version=%s",
+            asset_report["bundle_version"],
+        )
+
+    # Temporary until Alembic migrations are introduced.
     Base.metadata.create_all(
         bind=engine
     )
 
     yield
-
 
 app = FastAPI(
     title=(
@@ -130,7 +155,33 @@ def health():
         "status": "healthy",
     }
 
+@app.get("/ready")
+def readiness(request: Request):
+    report = (
+        request.app.state
+        .sign_asset_readiness
+    )
 
+    return JSONResponse(
+        status_code=(
+            status.HTTP_200_OK
+            if report["ready"]
+            else status.HTTP_503_SERVICE_UNAVAILABLE
+        ),
+        content={
+            "status": (
+                "ready"
+                if report["ready"]
+                else "not_ready"
+            ),
+            "code": report["code"],
+            "bundle_version": (
+                report["bundle_version"]
+            ),
+            "languages": report["languages"],
+            "problems": report["problems"],
+        },
+    )
 # ------------------------------------------------------------
 # Job status
 # ------------------------------------------------------------

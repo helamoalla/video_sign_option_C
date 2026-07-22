@@ -73,6 +73,6 @@ HEALTHCHECK \
     --timeout=10s \
     --start-period=60s \
     --retries=3 \
-    CMD curl --fail http://localhost:8000/health || exit 1
+    CMD curl --fail http://localhost:8000/ready || exit 1
 
 CMD ["python", "-m", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
