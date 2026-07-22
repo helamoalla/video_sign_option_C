@@ -2,6 +2,7 @@ import logging
 import os
 import uuid
 from contextlib import asynccontextmanager
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Optional
 
@@ -10,43 +11,16 @@ from fastapi import (
     FastAPI,
     File,
     Form,
+    Header,
     HTTPException,
     UploadFile,
     status,
 )
-from fastapi.concurrency import run_in_threadpool
+from fastapi.responses import FileResponse
 from pydantic import BaseModel
+from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from app import models
-from app.avatar.capabilities import (
-    get_language_capability,
-)
-from app.database import (
-    Base,
-    engine,
-    get_db,
-)
-from app.director.hf_video_director import (
-    generate_director_video,
-)
-from app.geo_router import resolve_sign_route
-from app.models import JobStatus, VideoJob
-from app.schemas import (
-    JobCreatedResponse,
-    JobStatusResponse,
-)
-from app.sign_language_config import (
-    get_always_available_lsa,
-    list_countries,
-)
-from app.tasks import process_video_assets_task
-from app.media_validation import (
-    MediaValidationError,
-    validate_media,
-    sanitize_media,
-)
-from sqlalchemy import select
 from app.auth import (
     ArtifactAccess,
     AuthenticatedPrincipal,
@@ -54,19 +28,23 @@ from app.auth import (
     get_artifact_access,
     get_current_principal,
 )
-from fastapi.responses import FileResponse
-from datetime import (
-    datetime,
-    timedelta,
-    timezone,
-)
+from app.avatar.capabilities import get_language_capability
 from app.config import PUBLIC_BASE_URL
-from app.request_limits import (
-    RequestBodyLimitMiddleware,
+from app.database import Base, engine, get_db
+from app.director.hf_video_director import generate_director_video
+from app.geo_router import resolve_sign_route
+from app.job_submission import (
+    submit_video_assets_job,
 )
-from app.job_quotas import (
-    JobQuotaExceededError,
-    enforce_job_quota,
+from app.models import JobStatus, VideoJob
+from app.request_limits import RequestBodyLimitMiddleware
+from app.schemas import (
+    JobCreatedResponse,
+    JobStatusResponse,
+)
+from app.sign_language_config import (
+    get_always_available_lsa,
+    list_countries,
 )
 
 
@@ -82,37 +60,6 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 OUTPUT_DIR = PROJECT_ROOT / "outputs"
 UPLOAD_DIR = PROJECT_ROOT / "uploads"
 TEMP_DIR = PROJECT_ROOT / "temp"
-
-
-# ------------------------------------------------------------
-# Upload configuration
-# ------------------------------------------------------------
-
-MAX_UPLOAD_BYTES = int(
-    os.getenv(
-        "MAX_UPLOAD_BYTES",
-        str(100 * 1024 * 1024),
-    )
-)
-
-UPLOAD_CHUNK_SIZE = 1024 * 1024
-
-ALLOWED_EXTENSIONS = {
-    ".mp4",
-    ".mov",
-    ".avi",
-    ".mkv",
-    ".webm",
-    ".mp3",
-    ".wav",
-    ".m4a",
-    ".aac",
-    ".ogg",
-}
-
-
-class UploadTooLargeError(Exception):
-    """Raised when an upload exceeds MAX_UPLOAD_BYTES."""
 
 
 # ------------------------------------------------------------
@@ -168,66 +115,6 @@ app = FastAPI(
 app.add_middleware(
     RequestBodyLimitMiddleware
 )
-# ------------------------------------------------------------
-# Upload helpers
-# ------------------------------------------------------------
-
-def save_uploaded_file(
-    source,
-    destination: Path,
-    max_bytes: int,
-) -> int:
-    """
-    Save an uploaded file in chunks while enforcing a maximum
-    byte size.
-
-    The partial file is removed if validation or writing fails.
-    """
-
-    destination.parent.mkdir(
-        parents=True,
-        exist_ok=True,
-    )
-
-    total_bytes = 0
-
-    try:
-        with destination.open("wb") as output:
-            while True:
-                chunk = source.read(
-                    UPLOAD_CHUNK_SIZE
-                )
-
-                if not chunk:
-                    break
-
-                total_bytes += len(chunk)
-
-                if total_bytes > max_bytes:
-                    raise UploadTooLargeError(
-                        "The uploaded file exceeds "
-                        f"{max_bytes} bytes."
-                    )
-
-                output.write(chunk)
-
-    except Exception:
-        destination.unlink(
-            missing_ok=True
-        )
-        raise
-
-    if total_bytes == 0:
-        destination.unlink(
-            missing_ok=True
-        )
-
-        raise ValueError(
-            "The uploaded file is empty."
-        )
-
-    return total_bytes
-
 
 def create_error_reference() -> str:
     return str(uuid.uuid4())
@@ -595,7 +482,6 @@ def sign_route(
 # ------------------------------------------------------------
 # Asynchronous video-assets processing
 # ------------------------------------------------------------
-
 @app.post(
     "/process-video-assets",
     response_model=JobCreatedResponse,
@@ -613,444 +499,28 @@ async def process_video_assets(
     avatar_provider_name: str = Form(
         "cwasa_multilang"
     ),
+    idempotency_key: str | None = Header(
+        default=None,
+        alias="Idempotency-Key",
+    ),
     principal: AuthenticatedPrincipal = Depends(
         get_current_principal
     ),
     db: Session = Depends(get_db),
 ):
-    extension = Path(
-        video.filename or ""
-    ).suffix.lower()
-
-    declared_content_type = video.content_type
-
-    # ---------------------------------------------------------
-    # Extension validation
-    # ---------------------------------------------------------
-
-    if extension not in ALLOWED_EXTENSIONS:
-        await video.close()
-
-        raise HTTPException(
-            status_code=(
-                status.HTTP_415_UNSUPPORTED_MEDIA_TYPE
-            ),
-            detail={
-                "code": "UNSUPPORTED_EXTENSION",
-                "message": (
-                    "Unsupported media file extension."
-                ),
-                "extension": extension,
-                "allowed_extensions": sorted(
-                    ALLOWED_EXTENSIONS
-                ),
-            },
-        )
-
-    # ---------------------------------------------------------
-    # Request parameter validation
-    # ---------------------------------------------------------
-
-    requested_languages = [
-        value.strip().lower()
-        for value in languages.split(",")
-        if value.strip()
-    ]
-
-    requested_sign_languages = [
-        value.strip().lower()
-        for value in sign_languages.split(",")
-        if value.strip()
-    ]
-
-    if not requested_languages:
-        await video.close()
-
-        raise HTTPException(
-            status_code=(
-                status.HTTP_422_UNPROCESSABLE_ENTITY
-            ),
-            detail={
-                "code": "MISSING_LANGUAGES",
-                "message": (
-                    "At least one subtitle language "
-                    "must be requested."
-                ),
-            },
-        )
-
-    if not requested_sign_languages:
-        await video.close()
-
-        raise HTTPException(
-            status_code=(
-                status.HTTP_422_UNPROCESSABLE_ENTITY
-            ),
-            detail={
-                "code": "MISSING_SIGN_LANGUAGES",
-                "message": (
-                    "At least one sign language "
-                    "must be requested."
-                ),
-            },
-        )
-
-    clean_manual_text = (
-        manual_text.strip()
-        if manual_text
-        else ""
+    return await submit_video_assets_job(
+        video=video,
+        languages=languages,
+        sign_languages=sign_languages,
+        manual_text=manual_text,
+        avatar_provider_name=(
+            avatar_provider_name
+        ),
+        idempotency_key=idempotency_key,
+        principal=principal,
+        db=db,
+        upload_dir=UPLOAD_DIR,
     )
-
-    has_valid_manual_text = bool(
-        clean_manual_text
-        and clean_manual_text.lower() != "string"
-    )
-
-    # ---------------------------------------------------------
-    # Server-generated storage path
-    # ---------------------------------------------------------
-
-    job_id = str(uuid.uuid4())
-
-    input_path = (
-        UPLOAD_DIR
-        / job_id
-        / f"original{extension}"
-    )
-
-    # ---------------------------------------------------------
-    # Size-limited upload
-    # ---------------------------------------------------------
-
-    try:
-        uploaded_bytes = await run_in_threadpool(
-            save_uploaded_file,
-            video.file,
-            input_path,
-            MAX_UPLOAD_BYTES,
-        )
-
-    except UploadTooLargeError as exc:
-        raise HTTPException(
-            status_code=(
-                status.HTTP_413_REQUEST_ENTITY_TOO_LARGE
-            ),
-            detail={
-                "code": "UPLOAD_TOO_LARGE",
-                "message": (
-                    "The uploaded media exceeds "
-                    "the maximum allowed size."
-                ),
-                "max_bytes": MAX_UPLOAD_BYTES,
-            },
-        ) from exc
-
-    except ValueError as exc:
-        raise HTTPException(
-            status_code=(
-                status.HTTP_422_UNPROCESSABLE_ENTITY
-            ),
-            detail={
-                "code": "EMPTY_UPLOAD",
-                "message": str(exc),
-            },
-        ) from exc
-
-    except OSError:
-        error_id = create_error_reference()
-
-        logger.exception(
-            "Upload storage failed. "
-            "job_id=%s error_id=%s",
-            job_id,
-            error_id,
-        )
-
-        raise HTTPException(
-            status_code=(
-                status.HTTP_500_INTERNAL_SERVER_ERROR
-            ),
-            detail={
-                "code": "UPLOAD_STORAGE_FAILED",
-                "message": (
-                    "The uploaded media could not "
-                    "be stored."
-                ),
-                "reference": error_id,
-            },
-        )
-
-    finally:
-        await video.close()
-
-    # ---------------------------------------------------------
-    # ffprobe validation
-    # ---------------------------------------------------------
-
-    try:
-        # Validate the original upload first.
-        await run_in_threadpool(
-            validate_media,
-            input_path,
-            extension,
-            declared_content_type,
-            not has_valid_manual_text,
-        )
-
-        # Remove metadata, chapters and unrelated streams.
-        await run_in_threadpool(
-            sanitize_media,
-            input_path,
-        )
-
-        # Verify that the sanitized result is still valid.
-        media_metadata = await run_in_threadpool(
-            validate_media,
-            input_path,
-            extension,
-            declared_content_type,
-            not has_valid_manual_text,
-        )
-
-    except MediaValidationError as exc:
-        input_path.unlink(missing_ok=True)
-
-        try:
-            input_path.parent.rmdir()
-        except OSError:
-            pass
-
-        raise HTTPException(
-            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
-            detail={
-                "code": exc.code,
-                "message": exc.message,
-            },
-        ) from exc
-
-    except Exception:
-        input_path.unlink(missing_ok=True)
-
-        try:
-            input_path.parent.rmdir()
-        except OSError:
-            pass
-
-        error_id = create_error_reference()
-
-        logger.exception(
-            "Unexpected media validation failure. "
-            "job_id=%s error_id=%s",
-            job_id,
-            error_id,
-        )
-
-        raise HTTPException(
-            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail={
-                "code": "MEDIA_VALIDATION_FAILED",
-                "message": (
-                    "The uploaded media could not "
-                    "be validated."
-                ),
-                "reference": error_id,
-            },
-        )
-
-    # ---------------------------------------------------------
-    # Persist queued job
-    # ---------------------------------------------------------
-    try:
-        quota_usage = enforce_job_quota(
-            db,
-            principal,
-        )
-
-    except JobQuotaExceededError as exc:
-        input_path.unlink(
-            missing_ok=True
-        )
-
-        try:
-            input_path.parent.rmdir()
-        except OSError:
-            pass
-
-        raise HTTPException(
-            status_code=(
-                status.HTTP_429_TOO_MANY_REQUESTS
-            ),
-            detail={
-                "code": exc.code,
-                "message": exc.message,
-                "limit": exc.limit,
-            },
-            headers={
-                "Retry-After": "60",
-            },
-        ) from exc
-
-    job = VideoJob(
-        id=job_id,
-        owner_id=principal.user_id,
-        tenant_id=principal.tenant_id,
-        status=JobStatus.QUEUED,
-        stage="queued",
-        progress=0,
-        input_path=str(input_path),
-        parameters={
-            "pipeline": "video_assets",
-            "languages": ",".join(
-                requested_languages
-            ),
-            "sign_languages": ",".join(
-                requested_sign_languages
-            ),
-            "manual_text": (
-                clean_manual_text
-                if has_valid_manual_text
-                else None
-            ),
-            "avatar_provider_name": (
-                avatar_provider_name
-            ),
-            "extension": extension,
-            "declared_content_type": (
-                declared_content_type
-            ),
-            "uploaded_bytes": uploaded_bytes,
-            "media_metadata": {
-                "duration_seconds": (
-                    media_metadata[
-                        "duration_seconds"
-                    ]
-                ),
-                "detected_formats": (
-                    media_metadata[
-                        "detected_formats"
-                    ]
-                ),
-                "content_type": (
-                    media_metadata[
-                        "content_type"
-                    ]
-                ),
-                "has_audio": (
-                    media_metadata["has_audio"]
-                ),
-                "has_video": (
-                    media_metadata["has_video"]
-                ),
-                "video_streams": (
-                    media_metadata[
-                        "video_streams"
-                    ]
-                ),
-                "audio_streams": (
-                    media_metadata[
-                        "audio_streams"
-                    ]
-                ),
-            },
-        },
-    )
-
-    try:
-        db.add(job)
-        db.commit()
-
-    except Exception:
-        db.rollback()
-
-        input_path.unlink(
-            missing_ok=True
-        )
-
-        try:
-            input_path.parent.rmdir()
-        except OSError:
-            pass
-
-        error_id = create_error_reference()
-
-        logger.exception(
-            "Job persistence failed. "
-            "job_id=%s error_id=%s",
-            job_id,
-            error_id,
-        )
-
-        raise HTTPException(
-            status_code=(
-                status.HTTP_500_INTERNAL_SERVER_ERROR
-            ),
-            detail={
-                "code": "JOB_CREATION_FAILED",
-                "message": (
-                    "The processing job could not "
-                    "be created."
-                ),
-                "reference": error_id,
-            },
-        )
-
-    # ---------------------------------------------------------
-    # Submit to Celery
-    # ---------------------------------------------------------
-
-    try:
-        process_video_assets_task.delay(
-            job_id
-        )
-
-    except Exception as exc:
-        error_id = create_error_reference()
-
-        logger.exception(
-            "Celery submission failed. "
-            "job_id=%s error_id=%s",
-            job_id,
-            error_id,
-        )
-
-        job.status = JobStatus.FAILED
-        job.stage = "queue_submission"
-        job.error = (
-            "The processing queue is unavailable. "
-            f"Reference: {error_id}"
-        )
-
-        try:
-            db.commit()
-
-        except Exception:
-            db.rollback()
-
-            logger.exception(
-                "Failed to persist queue failure. "
-                "job_id=%s error_id=%s",
-                job_id,
-                error_id,
-            )
-
-        raise HTTPException(
-            status_code=(
-                status.HTTP_503_SERVICE_UNAVAILABLE
-            ),
-            detail={
-                "code": "QUEUE_UNAVAILABLE",
-                "message": (
-                    "The processing queue is unavailable."
-                ),
-                "reference": error_id,
-            },
-        ) from exc
-    
-    return {
-        "job_id": job_id,
-        "status": JobStatus.QUEUED,
-        "status_url": f"/jobs/{job_id}",
-    }
 
 # ------------------------------------------------------------
 # AI video director

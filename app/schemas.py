@@ -5,11 +5,12 @@ from pydantic import BaseModel, ConfigDict
 
 from app.models import JobStatus
 
-
 class JobCreatedResponse(BaseModel):
     job_id: str
     status: JobStatus
     status_url: str
+    idempotency_key: str
+    idempotent_replay: bool = False
 
 
 class JobStatusResponse(BaseModel):

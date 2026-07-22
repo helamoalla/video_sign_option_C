@@ -6,11 +6,14 @@ from sqlalchemy import (
     Boolean,
     DateTime,
     Enum,
+    Index,
     Integer,
     JSON,
     String,
     Text,
+    text,
 )
+
 from sqlalchemy.orm import (
     Mapped,
     mapped_column,
@@ -28,6 +31,19 @@ class JobStatus(str, enum.Enum):
 
 class VideoJob(Base):
     __tablename__ = "video_jobs"
+    
+    __table_args__ = (
+        Index(
+            "uq_video_jobs_owner_idempotency",
+            "owner_id",
+            "tenant_id",
+            "idempotency_key",
+            unique=True,
+            postgresql_where=text(
+                "idempotency_key IS NOT NULL"
+            ),
+        ),
+    )
 
     id: Mapped[str] = mapped_column(
         String(36),
@@ -107,6 +123,21 @@ class VideoJob(Base):
             timezone.utc
         ),
         nullable=False,
+    )
+
+    idempotency_key: Mapped[str | None] = mapped_column(
+        String(128),
+        nullable=True,
+    )
+
+    request_fingerprint: Mapped[str | None] = mapped_column(
+        String(64),
+        nullable=True,
+    )
+
+    celery_task_id: Mapped[str | None] = mapped_column(
+        String(50),
+        nullable=True,
     )
 
 
