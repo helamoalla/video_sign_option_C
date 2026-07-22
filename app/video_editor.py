@@ -1,71 +1,136 @@
+import os
 from pathlib import Path
-
-from moviepy import (
-    VideoFileClip,
-    AudioFileClip,
-    CompositeVideoClip,
-    TextClip,
-    ColorClip,
-    concatenate_videoclips,
-)
 
 import arabic_reshaper
 from bidi.algorithm import get_display
-import os
+from moviepy import (
+    AudioFileClip,
+    ColorClip,
+    CompositeVideoClip,
+    TextClip,
+    VideoFileClip,
+    concatenate_videoclips,
+)
+from PIL import features
 
+FONT_DIRECTORY = (
+    Path(__file__).resolve().parent
+    / "assets"
+    / "fonts"
+)
 
-DEFAULT_FONT = (
-    "/usr/share/fonts/truetype/dejavu/"
-    "DejaVuSans.ttf"
+BUNDLED_ARABIC_FONT = (
+    FONT_DIRECTORY
+    / "IBMPlexSansArabic-SemiBold.ttf"
+)
+
+DEFAULT_FONT = os.getenv(
+    "DEFAULT_SUBTITLE_FONT",
+    (
+        "/usr/share/fonts/truetype/"
+        "dejavu/DejaVuSans.ttf"
+    ),
 )
 
 ARABIC_FONT = os.getenv(
     "ARABIC_SUBTITLE_FONT",
-    "/usr/share/fonts/truetype/noto/"
-    "NotoSansArabic-Regular.ttf",
+    str(BUNDLED_ARABIC_FONT),
 )
 
-def get_font(language: str) -> str:
-    normalized_language = (
+ARABIC_LANGUAGES = {
+    "arabic",
+    "ar",
+    "lsa",
+}
+
+
+def normalize_subtitle_language(
+    language: str,
+) -> str:
+    return (
         language
         or "english"
     ).lower().strip()
 
-    if normalized_language in {
-        "arabic",
-        "ar",
-        "lsa",
-    }:
+
+def get_font(language: str) -> str:
+    normalized_language = (
+        normalize_subtitle_language(language)
+    )
+
+    if normalized_language in ARABIC_LANGUAGES:
         font_path = ARABIC_FONT
     else:
         font_path = DEFAULT_FONT
 
     if not Path(font_path).is_file():
         raise RuntimeError(
-            f"Required subtitle font was not found: "
-            f"{font_path}"
+            "Required subtitle font is unavailable "
+            f"for language={normalized_language}."
         )
 
     return font_path
 
-def prepare_text(text: str, language: str = "english") -> str:
-    if not text:
+
+def prepare_text(
+    text: str,
+    language: str = "english",
+) -> str:
+    clean_text = (text or "").strip()
+
+    if not clean_text:
         return ""
 
-    if language in ["arabic", "ar", "lsa"]:
-        reshaped_text = arabic_reshaper.reshape(text)
-        return get_display(reshaped_text)
+    normalized_language = (
+        normalize_subtitle_language(language)
+    )
 
-    return text
+    if (
+        normalized_language
+        not in ARABIC_LANGUAGES
+    ):
+        return clean_text
+
+    # Pillow with RAQM already performs Arabic shaping,
+    # ligatures and right-to-left ordering. Applying
+    # arabic_reshaper/python-bidi as well would corrupt text.
+    if features.check("raqm"):
+        return clean_text
+
+    # Fallback for minimal Pillow installations without RAQM.
+    reshaped_text = arabic_reshaper.reshape(
+        clean_text
+    )
+
+    return get_display(
+        reshaped_text
+    )
 
 
-def create_subtitle_clips(segments, video_width, language="english"):
+def create_subtitle_clips(
+    segments,
+    video_width,
+    language="english",
+):
     clips = []
 
-    for seg in segments:
-        text = prepare_text(seg["text"].strip(), language)
-        start = seg["start"]
-        end = seg["end"]
+    normalized_language = (
+        normalize_subtitle_language(language)
+    )
+
+    is_arabic = (
+        normalized_language
+        in ARABIC_LANGUAGES
+    )
+
+    for segment in segments:
+        text = prepare_text(
+            segment["text"],
+            normalized_language,
+        )
+
+        start = float(segment["start"])
+        end = float(segment["end"])
         duration = end - start
 
         if not text or duration <= 0:
@@ -74,18 +139,39 @@ def create_subtitle_clips(segments, video_width, language="english"):
         clip = (
             TextClip(
                 text=text,
-                font=get_font(language),
-                font_size=46,
+                font=get_font(
+                    normalized_language
+                ),
+                font_size=(
+                    40 if is_arabic else 44
+                ),
                 color="white",
                 method="caption",
-                size=(int(video_width * 0.85), None),
+                size=(
+                    int(video_width * 0.78),
+                    None,
+                ),
+                text_align=(
+                    "right"
+                    if is_arabic
+                    else "center"
+                ),
+                horizontal_align=(
+                    "right"
+                    if is_arabic
+                    else "center"
+                ),
+                interline=8,
                 bg_color=None,
                 stroke_color="black",
-                stroke_width=3,
+                stroke_width=2,
             )
             .with_start(start)
             .with_duration(duration)
-            .with_position(("center", 0.82), relative=True)
+            .with_position(
+                ("center", 0.80),
+                relative=True,
+            )
         )
 
         clips.append(clip)

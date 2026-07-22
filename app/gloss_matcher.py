@@ -1,112 +1,503 @@
-from app.gloss_dictionary import load_dictionary, normalize_token
+from app.gloss_dictionary import (
+    load_dictionary,
+    normalize_language,
+    normalize_token,
+)
+
 
 STOPWORDS = {
-    "a", "an", "the", "to", "of", "in", "on", "for", "with", "and", "or",
-    "à", "de", "du", "la", "le", "les", "des", "un", "une", "et", "ou", "en",
-    "der", "die", "das", "und", "mit", "für", "von", "zu", "ein", "eine",
-    "في", "من", "على", "الى", "إلى", "عن", "و", "مع", "هذا", "هذه", "كم",
+    # English
+    "a",
+    "an",
+    "the",
+    "to",
+    "of",
+    "in",
+    "on",
+    "for",
+    "with",
+    "and",
+    "or",
+
+    # French
+    "à",
+    "de",
+    "du",
+    "la",
+    "le",
+    "les",
+    "des",
+    "un",
+    "une",
+    "et",
+    "ou",
+    "en",
+
+    # German
+    "der",
+    "die",
+    "das",
+    "und",
+    "mit",
+    "für",
+    "von",
+    "zu",
+    "ein",
+    "eine",
+
+    # Arabic
+    "في",
+    "من",
+    "على",
+    "الى",
+    "إلى",
+    "عن",
+    "و",
+    "مع",
+    "هذا",
+    "هذه",
+    "كم",
 }
+
 
 SYNONYMS = {
-    "welcome": ["hello", "hi", "greet", "greeting"],
-    "accueille": ["bonjour", "bienvenue", "salut"],
-    "مرحبا": ["اهلا", "أهلا", "سلام"],
+    "welcome": [
+        "hello",
+        "hi",
+        "greet",
+        "greeting",
+    ],
+    "accueille": [
+        "bonjour",
+        "bienvenue",
+        "salut",
+    ],
+    "مرحبا": [
+        "اهلا",
+        "أهلا",
+        "سلام",
+    ],
 
-    "food": ["meal", "dish", "cuisine", "restaurant"],
-    "repas": ["manger", "plat", "nourriture"],
-    "وجبة": ["اكل", "أكل", "طعام"],
+    "food": [
+        "meal",
+        "dish",
+        "cuisine",
+        "restaurant",
+    ],
+    "repas": [
+        "manger",
+        "plat",
+        "nourriture",
+    ],
+    "وجبة": [
+        "اكل",
+        "أكل",
+        "طعام",
+    ],
 
-    "tunisia": ["tunis", "tunisian"],
-    "tunisie": ["tunis", "tunisien"],
-    "تونس": ["تونسي", "تونسية"],
+    "tunisia": [
+        "tunis",
+        "tunisian",
+    ],
+    "tunisie": [
+        "tunis",
+        "tunisien",
+    ],
+    "تونس": [
+        "تونسي",
+        "تونسية",
+    ],
 
-    "paris": ["france"],
-    "heart": ["love", "centre", "center"],
-    "coeur": ["amour", "centre"],
-    "قلب": ["حب", "وسط"],
+    "paris": [
+        "france",
+    ],
+    "باريس": [
+        "بباريس",
+        "وباريس",
+    ],
 
-    "come": ["visit", "join", "go"],
-    "venez": ["venir", "visiter"],
-    "تعالوا": ["زوروا", "زيارة"],
+    "heart": [
+        "love",
+        "centre",
+        "center",
+    ],
+    "coeur": [
+        "amour",
+        "centre",
+    ],
+    "قلب": [
+        "حب",
+        "وسط",
+    ],
 
-    "journey": ["travel", "trip"],
-    "voyage": ["visite", "trajet"],
-    "رحلة": ["سفر", "زيارة"],
+    "come": [
+        "visit",
+        "join",
+        "go",
+    ],
+    "venez": [
+        "venir",
+        "visiter",
+    ],
+    "تعالوا": [
+        "زوروا",
+        "زيارة",
+    ],
 
-    "authentic": ["traditional", "real", "original"],
-    "authentique": ["tradition", "original"],
-    "أصيل": ["تقليدي", "اصلي", "أصلي"],
+    "journey": [
+        "travel",
+        "trip",
+    ],
+    "voyage": [
+        "visite",
+        "trajet",
+    ],
+    "رحلة": [
+        "سفر",
+        "زيارة",
+    ],
+
+    "authentic": [
+        "traditional",
+        "real",
+        "original",
+    ],
+    "authentique": [
+        "tradition",
+        "original",
+    ],
+    "أصيل": [
+        "تقليدي",
+        "اصلي",
+        "أصلي",
+    ],
 }
 
 
-def expand_token(token):
-    token = normalize_token(token)
-    expanded = [token]
+ARABIC_PREFIXES = {
+    "و",  # and
+    "ف",  # then/so
+    "ب",  # in/with/at
+    "ك",  # like/as
+    "ل",  # to/for
+}
+
+
+def is_arabic_language(
+    language: str,
+) -> bool:
+    try:
+        return (
+            normalize_language(language)
+            == "lsa"
+        )
+    except ValueError:
+        return (
+            language
+            or ""
+        ).lower().strip() in {
+            "lsa",
+            "arabic",
+            "ar",
+        }
+
+
+def get_arabic_token_variants(
+    token: str,
+) -> list[str]:
+    """
+    Generate possible dictionary forms after removing common
+    attached Arabic prefixes.
+
+    Examples:
+        بباريس -> باريس
+        وباريس -> باريس
+        بالبيت -> البيت -> بيت
+
+    A maximum depth prevents excessive or unsafe stripping.
+    """
+
+    normalized = normalize_token(token)
+
+    if not normalized:
+        return []
+
+    variants = [normalized]
+    queue = [
+        (normalized, 0),
+    ]
+    seen = {
+        normalized,
+    }
+
+    while queue:
+        current, depth = queue.pop(0)
+
+        if depth >= 3:
+            continue
+
+        candidates = []
+
+        if (
+            len(current) >= 4
+            and current[0]
+            in ARABIC_PREFIXES
+        ):
+            candidates.append(
+                current[1:]
+            )
+
+        if (
+            len(current) >= 5
+            and current.startswith("ال")
+        ):
+            candidates.append(
+                current[2:]
+            )
+
+        for candidate in candidates:
+            if (
+                not candidate
+                or candidate in seen
+            ):
+                continue
+
+            seen.add(candidate)
+            variants.append(candidate)
+            queue.append(
+                (
+                    candidate,
+                    depth + 1,
+                )
+            )
+
+    return variants
+
+
+def expand_token(
+    token: str,
+) -> list[str]:
+    normalized_token = normalize_token(
+        token
+    )
+
+    if not normalized_token:
+        return []
+
+    expanded = [
+        normalized_token,
+    ]
 
     for key, values in SYNONYMS.items():
-        norm_key = normalize_token(key)
-        norm_values = [normalize_token(v) for v in values]
+        normalized_key = normalize_token(
+            key
+        )
 
-        if token == norm_key:
-            expanded.extend(norm_values)
+        normalized_values = [
+            normalize_token(value)
+            for value in values
+        ]
 
-        if token in norm_values:
-            expanded.append(norm_key)
-            expanded.extend(norm_values)
+        if normalized_token == normalized_key:
+            expanded.extend(
+                normalized_values
+            )
 
-    return list(dict.fromkeys(expanded))
+        if normalized_token in normalized_values:
+            expanded.append(
+                normalized_key
+            )
+            expanded.extend(
+                normalized_values
+            )
+
+    return list(
+        dict.fromkeys(expanded)
+    )
 
 
-def clean_tokens(text: str):
+def clean_tokens(
+    text: str,
+    language: str | None = None,
+) -> list[str]:
     tokens = []
+    arabic = bool(
+        language
+        and is_arabic_language(language)
+    )
 
-    for w in text.split():
-        t = normalize_token(w)
+    for word in (text or "").split():
+        normalized_word = normalize_token(
+            word
+        )
 
-        if len(t) >= 3 and t not in STOPWORDS:
-            tokens.extend(expand_token(t))
+        if not normalized_word:
+            continue
 
-    return list(dict.fromkeys(tokens))
+        variants = [
+            normalized_word,
+        ]
+
+        if arabic:
+            variants = (
+                get_arabic_token_variants(
+                    normalized_word
+                )
+            )
+
+        for variant in variants:
+            if (
+                len(variant) >= 3
+                and variant not in STOPWORDS
+            ):
+                tokens.extend(
+                    expand_token(variant)
+                )
+
+    return list(
+        dict.fromkeys(tokens)
+    )
 
 
-def get_best_gloss_matches(text: str, language: str, max_results: int = 20):
-    words = clean_tokens(text)
-    dictionary = load_dictionary(language)
+def get_high_confidence_gloss_matches(
+    text: str,
+    language: str,
+) -> list[str]:
+    """
+    Return deterministic exact dictionary matches.
+
+    For Arabic, common attached prefixes are removed, but a
+    result is accepted only when it exists in the requested
+    sign-language dictionary.
+    """
+
+    dictionary = load_dictionary(
+        language
+    )
+
+    normalized_dictionary = {
+        normalize_token(gloss): gloss
+        for gloss in dictionary
+        if normalize_token(gloss)
+    }
+
+    matches = []
+    arabic = is_arabic_language(
+        language
+    )
+
+    for word in (text or "").split():
+        normalized_word = normalize_token(
+            word
+        )
+
+        if not normalized_word:
+            continue
+
+        variants = [
+            normalized_word,
+        ]
+
+        if arabic:
+            variants = (
+                get_arabic_token_variants(
+                    normalized_word
+                )
+            )
+
+        for variant in variants:
+            gloss = (
+                normalized_dictionary.get(
+                    variant
+                )
+            )
+
+            if gloss is None:
+                continue
+
+            if gloss not in matches:
+                matches.append(gloss)
+
+            # Prefer the first, least-stripped valid form.
+            break
+
+    return matches
+
+
+def get_best_gloss_matches(
+    text: str,
+    language: str,
+    max_results: int = 20,
+) -> list[str]:
+    words = clean_tokens(
+        text,
+        language,
+    )
+
+    dictionary = load_dictionary(
+        language
+    )
 
     scored = []
 
     for gloss in dictionary:
-        norm_gloss = normalize_token(gloss)
+        normalized_gloss = normalize_token(
+            gloss
+        )
 
-        if len(norm_gloss) < 3 or norm_gloss in STOPWORDS:
+        if (
+            len(normalized_gloss) < 3
+            or normalized_gloss
+            in STOPWORDS
+        ):
             continue
 
         score = 0
 
         for word in words:
-            if word == norm_gloss:
+            if word == normalized_gloss:
                 score += 30
-            elif len(word) >= 4 and word in norm_gloss:
+
+            elif (
+                len(word) >= 4
+                and word in normalized_gloss
+            ):
                 score += 10
-            elif len(norm_gloss) >= 4 and norm_gloss in word:
+
+            elif (
+                len(normalized_gloss) >= 4
+                and normalized_gloss in word
+            ):
                 score += 8
 
         if score > 0:
-            scored.append((score, gloss))
+            scored.append(
+                (
+                    score,
+                    gloss,
+                )
+            )
 
-    scored.sort(reverse=True, key=lambda x: x[0])
+    scored.sort(
+        reverse=True,
+        key=lambda item: item[0],
+    )
 
-    result = []
+    results = []
     seen = set()
 
-    for score, gloss in scored:
-        key = normalize_token(gloss)
+    for _, gloss in scored:
+        normalized_gloss = normalize_token(
+            gloss
+        )
 
-        if key not in seen:
-            seen.add(key)
-            result.append(gloss)
+        if normalized_gloss in seen:
+            continue
 
-        if len(result) >= max_results:
+        seen.add(normalized_gloss)
+        results.append(gloss)
+
+        if len(results) >= max_results:
             break
 
-    return result
+    return results
