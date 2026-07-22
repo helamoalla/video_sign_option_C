@@ -16,13 +16,22 @@ MAX_ACTIVE_JOBS_PER_USER = int(
 
 DAILY_LIMITS = {
     "development": int(
-        os.getenv("DAILY_JOB_LIMIT_DEVELOPMENT", "20")
+        os.getenv(
+            "DEVELOPMENT_DAILY_JOB_LIMIT",
+            "20",
+        )
     ),
     "standard": int(
-        os.getenv("DAILY_JOB_LIMIT_STANDARD", "100")
+        os.getenv(
+            "STANDARD_DAILY_JOB_LIMIT",
+            "100",
+        )
     ),
-    "business": int(
-        os.getenv("DAILY_JOB_LIMIT_BUSINESS", "500")
+    "enterprise": int(
+        os.getenv(
+            "ENTERPRISE_DAILY_JOB_LIMIT",
+            "1000",
+        )
     ),
 }
 
