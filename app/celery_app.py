@@ -20,3 +20,14 @@ celery_app.conf.update(
     worker_prefetch_multiplier=1,
     task_acks_late=True,
 )
+
+celery_app.conf.beat_schedule = {
+    "cleanup-expired-media-hourly": {
+        "task": (
+            "app.tasks.cleanup_expired_media"
+        ),
+        "schedule": 3600.0,
+    },
+}
+
+celery_app.conf.timezone = "UTC"

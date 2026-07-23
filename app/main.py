@@ -28,6 +28,11 @@ from pydantic import BaseModel
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
+from app.media_retention import (
+    ActiveJobDeletionError,
+    delete_all_media_for_job,
+)
+
 from app.auth import (
     ArtifactAccess,
     AuthenticatedPrincipal,
@@ -280,6 +285,103 @@ def get_video_job(
         response["result"] = result
 
     return response
+
+@app.delete(
+    "/jobs/{job_id}/media",
+)
+def delete_job_media(
+    job_id: str,
+    principal: AuthenticatedPrincipal = Depends(
+        get_current_principal
+    ),
+    db: Session = Depends(get_db),
+):
+    job = db.scalar(
+        select(VideoJob)
+        .where(
+            VideoJob.id == job_id,
+            VideoJob.owner_id
+            == principal.user_id,
+            VideoJob.tenant_id
+            == principal.tenant_id,
+        )
+        .with_for_update()
+    )
+
+    if job is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail={
+                "code": "JOB_NOT_FOUND",
+                "message": "Job not found.",
+            },
+        )
+
+    try:
+        audit = delete_all_media_for_job(
+            db,
+            job,
+            reason="user_requested",
+            requested_by=principal.user_id,
+        )
+
+        db.flush()
+        db.commit()
+        db.refresh(audit)
+
+    except ActiveJobDeletionError as exc:
+        db.rollback()
+
+        raise HTTPException(
+            status_code=status.HTTP_409_CONFLICT,
+            detail={
+                "code": "JOB_STILL_ACTIVE",
+                "message": (
+                    "Media cannot be deleted while "
+                    "the job is processing."
+                ),
+            },
+        ) from exc
+
+    except Exception as exc:
+        db.rollback()
+
+        error_id = create_error_reference()
+
+        logger.exception(
+            "Media deletion failed. "
+            "job_id=%s error_id=%s",
+            job_id,
+            error_id,
+        )
+
+        raise HTTPException(
+            status_code=(
+                status.HTTP_500_INTERNAL_SERVER_ERROR
+            ),
+            detail={
+                "code": "MEDIA_DELETION_FAILED",
+                "message": (
+                    "The job media could not be deleted."
+                ),
+                "reference": error_id,
+            },
+        ) from exc
+
+    return {
+        "job_id": job.id,
+        "media_available": False,
+        "media_deleted_at": (
+            job.media_deleted_at
+        ),
+        "audit_id": audit.id,
+        "upload_deleted": (
+            audit.upload_deleted
+        ),
+        "output_deleted": (
+            audit.output_deleted
+        ),
+    }
 
 @app.get(
     "/outputs/{job_id}/{artifact_path:path}",

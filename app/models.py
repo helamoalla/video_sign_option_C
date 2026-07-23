@@ -125,6 +125,20 @@ class VideoJob(Base):
         nullable=False,
     )
 
+    # Generated media remains available only until this time.
+    media_expires_at: Mapped[datetime | None] = mapped_column(
+        DateTime(timezone=True),
+        nullable=True,
+        index=True,
+    )
+
+    # The job metadata is retained after its private media is deleted.
+    media_deleted_at: Mapped[datetime | None] = mapped_column(
+        DateTime(timezone=True),
+        nullable=True,
+        index=True,
+    )
+
     idempotency_key: Mapped[str | None] = mapped_column(
         String(128),
         nullable=True,
@@ -207,4 +221,67 @@ class ApiCredential(Base):
             timezone.utc
         ),
         nullable=False,
+    )
+
+
+class MediaDeletionAudit(Base):
+    __tablename__ = "media_deletion_audits"
+
+    id: Mapped[str] = mapped_column(
+        String(36),
+        primary_key=True,
+        default=lambda: str(uuid.uuid4()),
+    )
+
+    job_id: Mapped[str] = mapped_column(
+        String(36),
+        nullable=False,
+        index=True,
+    )
+
+    owner_id: Mapped[str | None] = mapped_column(
+        String(36),
+        nullable=True,
+        index=True,
+    )
+
+    tenant_id: Mapped[str | None] = mapped_column(
+        String(36),
+        nullable=True,
+        index=True,
+    )
+
+    reason: Mapped[str] = mapped_column(
+        String(80),
+        nullable=False,
+    )
+
+    requested_by: Mapped[str] = mapped_column(
+        String(80),
+        nullable=False,
+    )
+
+    upload_deleted: Mapped[bool] = mapped_column(
+        Boolean,
+        default=False,
+        nullable=False,
+    )
+
+    output_deleted: Mapped[bool] = mapped_column(
+        Boolean,
+        default=False,
+        nullable=False,
+    )
+
+    details: Mapped[dict] = mapped_column(
+        JSON,
+        default=dict,
+        nullable=False,
+    )
+
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True),
+        default=lambda: datetime.now(timezone.utc),
+        nullable=False,
+        index=True,
     )

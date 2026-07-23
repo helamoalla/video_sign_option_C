@@ -493,6 +493,24 @@ async def submit_video_assets_job(
                     },
                 )
 
+            if existing_job.media_deleted_at is not None:
+                raise HTTPException(
+                    status_code=(
+                        status.HTTP_409_CONFLICT
+                    ),
+                    detail={
+                        "code": (
+                            "IDEMPOTENT_JOB_MEDIA_DELETED"
+                        ),
+                        "message": (
+                            "The job created with this "
+                            "Idempotency-Key no longer has "
+                            "media. Submit the upload again "
+                            "with a new Idempotency-Key."
+                        ),
+                    },
+                )
+
             return {
                 "job_id": existing_job.id,
                 "status": existing_job.status,
@@ -506,28 +524,29 @@ async def submit_video_assets_job(
             }
 
         existing_fingerprint_job = db.scalar(
-            select(VideoJob)
-            .where(
-                VideoJob.owner_id
-                == principal.user_id,
-                VideoJob.tenant_id
-                == principal.tenant_id,
-                VideoJob.request_fingerprint
-                == request_fingerprint,
-                VideoJob.status.in_(
-                    [
-                        JobStatus.QUEUED,
-                        JobStatus.PROCESSING,
-                        JobStatus.COMPLETED,
-                    ]
-                ),
-            )
-            .order_by(
-                VideoJob.created_at.desc()
-            )
+                select(VideoJob)
+                .where(
+                    VideoJob.owner_id == principal.user_id,
+                    VideoJob.tenant_id == principal.tenant_id,
+                    VideoJob.request_fingerprint == request_fingerprint,
+                    VideoJob.media_deleted_at.is_(None),
+                    VideoJob.status.in_(
+                        [
+                            JobStatus.QUEUED,
+                            JobStatus.PROCESSING,
+                            JobStatus.COMPLETED,
+                        ]
+                    ),
+                )
+                .order_by(VideoJob.created_at.desc()
+                )
         )
 
-        if existing_fingerprint_job is not None:
+        if (
+            existing_fingerprint_job is not None
+            and existing_fingerprint_job.media_deleted_at
+            is None
+        ):
             db.rollback()
             delete_job_upload(input_path)
 

@@ -93,6 +93,25 @@ services:
       timeout: 3s
       retries: 10
 
+  beat:
+    image: video-sign-app:latest
+    container_name: videosign-beat
+    command:
+      - celery
+      - -A
+      - app.celery_app
+      - beat
+      - --loglevel=info
+    env_file:
+      - .env
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    healthcheck:
+      disable: true
+
 volumes:
   postgres_data:
   redis_data:
