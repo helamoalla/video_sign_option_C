@@ -227,9 +227,67 @@ def get_video_job(
         .model_dump()
     )
 
+    # ---------------------------------------------------------
+    # Determine whether the generated media is still available
+    # ---------------------------------------------------------
+
+    now = datetime.now(timezone.utc)
+    media_expires_at = job.media_expires_at
+
+    # Defensive support for databases returning a naive datetime.
+    if (
+        media_expires_at is not None
+        and media_expires_at.tzinfo is None
+    ):
+        media_expires_at = (
+            media_expires_at.replace(
+                tzinfo=timezone.utc
+            )
+        )
+
+    media_expired = (
+        media_expires_at is not None
+        and media_expires_at <= now
+    )
+
+    media_available = (
+        job.media_deleted_at is None
+        and not media_expired
+    )
+
+    result = dict(
+        response["result"] or {}
+    )
+
+    result["media_available"] = (
+        media_available
+    )
+
+    result["media_expires_at"] = (
+        media_expires_at.isoformat()
+        if media_expires_at is not None
+        else None
+    )
+
+    result["media_deleted_at"] = (
+        job.media_deleted_at.isoformat()
+        if job.media_deleted_at is not None
+        else None
+    )
+
+    # Never return old or expired playback links.
+    result.pop("player_url", None)
+    result.pop("playback_expires_at", None)
+    result.pop("iframe", None)
+
+    # ---------------------------------------------------------
+    # Generate playback access only for available media
+    # ---------------------------------------------------------
+
     if (
         job.status == JobStatus.COMPLETED
         and job.result is not None
+        and media_available
     ):
         token_seconds = int(
             os.getenv(
@@ -243,18 +301,28 @@ def get_video_job(
             min(token_seconds, 3600),
         )
 
-        expires_at = (
-            datetime.now(timezone.utc)
+        playback_expires_at = (
+            now
             + timedelta(
                 seconds=token_seconds
             )
         )
 
+        # The playback token must not outlive media retention.
+        if (
+            media_expires_at is not None
+            and playback_expires_at
+            > media_expires_at
+        ):
+            playback_expires_at = (
+                media_expires_at
+            )
+
         playback_token = (
             create_playback_token(
                 job_id=job.id,
                 expires_at_timestamp=int(
-                    expires_at.timestamp()
+                    playback_expires_at.timestamp()
                 ),
             )
         )
@@ -265,13 +333,9 @@ def get_video_job(
             f"?token={playback_token}"
         )
 
-        result = dict(
-            response["result"] or {}
-        )
-
         result["player_url"] = player_url
         result["playback_expires_at"] = (
-            expires_at.isoformat()
+            playback_expires_at.isoformat()
         )
 
         result["iframe"] = (
@@ -282,7 +346,7 @@ def get_video_job(
             "</iframe>"
         )
 
-        response["result"] = result
+    response["result"] = result
 
     return response
 
@@ -410,6 +474,7 @@ def download_output_artifact(
 
     conditions = [
         VideoJob.id == job_id,
+        VideoJob.media_deleted_at.is_(None),
     ]
 
     if access.playback_job_id is not None:
