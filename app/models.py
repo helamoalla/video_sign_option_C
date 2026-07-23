@@ -25,8 +25,10 @@ from app.database import Base
 class JobStatus(str, enum.Enum):
     QUEUED = "queued"
     PROCESSING = "processing"
+    RETRYING = "retrying"
     COMPLETED = "completed"
     FAILED = "failed"
+    CANCELLED = "cancelled"
 
 
 class VideoJob(Base):
@@ -151,6 +153,53 @@ class VideoJob(Base):
 
     celery_task_id: Mapped[str | None] = mapped_column(
         String(50),
+        nullable=True,
+    )
+    
+    attempt_count: Mapped[int] = mapped_column(
+        Integer,
+        default=0,
+        nullable=False,
+    )
+
+    max_attempts: Mapped[int] = mapped_column(
+        Integer,
+        default=3,
+        nullable=False,
+    )
+
+    last_error_code: Mapped[
+        str | None
+    ] = mapped_column(
+        String(80),
+        nullable=True,
+    )
+
+    retry_requested_at: Mapped[
+        datetime | None
+    ] = mapped_column(
+        DateTime(timezone=True),
+        nullable=True,
+    )
+
+    cancel_requested_at: Mapped[
+        datetime | None
+    ] = mapped_column(
+        DateTime(timezone=True),
+        nullable=True,
+    )
+
+    cancelled_at: Mapped[
+        datetime | None
+    ] = mapped_column(
+        DateTime(timezone=True),
+        nullable=True,
+    )
+
+    dead_lettered_at: Mapped[
+        datetime | None
+    ] = mapped_column(
+        DateTime(timezone=True),
         nullable=True,
     )
 

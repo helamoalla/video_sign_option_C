@@ -35,8 +35,8 @@ RETENTION_CLEANUP_BATCH_SIZE = int(
 TERMINAL_JOB_STATUSES = {
     JobStatus.COMPLETED,
     JobStatus.FAILED,
+    JobStatus.CANCELLED,
 }
-
 
 class ActiveJobDeletionError(Exception):
     pass

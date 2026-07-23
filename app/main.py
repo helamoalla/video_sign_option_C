@@ -58,6 +58,12 @@ from app.sign_language_config import (
     get_always_available_lsa,
     list_countries,
 )
+from app.celery_app import celery_app
+
+from app.job_control import (
+    JobCannotBeCancelledError,
+    request_job_cancellation,
+)
 
 
 logger = logging.getLogger(__name__)
@@ -349,6 +355,128 @@ def get_video_job(
     response["result"] = result
 
     return response
+
+@app.post(
+    "/jobs/{job_id}/cancel",
+)
+def cancel_video_job(
+    job_id: str,
+    principal: AuthenticatedPrincipal = Depends(
+        get_current_principal
+    ),
+    db: Session = Depends(get_db),
+):
+    job = db.scalar(
+        select(VideoJob)
+        .where(
+            VideoJob.id == job_id,
+            VideoJob.owner_id
+            == principal.user_id,
+            VideoJob.tenant_id
+            == principal.tenant_id,
+        )
+        .with_for_update()
+    )
+
+    if job is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail={
+                "code": "JOB_NOT_FOUND",
+                "message": "Job not found.",
+            },
+        )
+
+    try:
+        cancellation = (
+            request_job_cancellation(
+                db,
+                job,
+                requested_by=(
+                    principal.user_id
+                ),
+            )
+        )
+
+        db.commit()
+
+    except JobCannotBeCancelledError as exc:
+        db.rollback()
+
+        raise HTTPException(
+            status_code=status.HTTP_409_CONFLICT,
+            detail={
+                "code": (
+                    "JOB_CANNOT_BE_CANCELLED"
+                ),
+                "message": str(exc),
+            },
+        ) from exc
+
+    except Exception as exc:
+        db.rollback()
+
+        error_id = create_error_reference()
+
+        logger.exception(
+            "Job cancellation failed. "
+            "job_id=%s error_id=%s",
+            job_id,
+            error_id,
+        )
+
+        raise HTTPException(
+            status_code=(
+                status.HTTP_500_INTERNAL_SERVER_ERROR
+            ),
+            detail={
+                "code": (
+                    "JOB_CANCELLATION_FAILED"
+                ),
+                "message": (
+                    "The cancellation request "
+                    "could not be completed."
+                ),
+                "reference": error_id,
+            },
+        ) from exc
+
+    # A queued or retrying task can be revoked safely.
+    # Processing tasks stop cooperatively at their next checkpoint.
+    if (
+        cancellation.revoke_task
+        and cancellation.celery_task_id
+    ):
+        try:
+            celery_app.control.revoke(
+                cancellation.celery_task_id,
+                terminate=False,
+            )
+
+        except Exception:
+            # The database cancellation remains authoritative.
+            # If the task is delivered, the worker sees
+            # cancel_requested_at and exits safely.
+            logger.exception(
+                "Celery revoke failed for cancelled job. "
+                "job_id=%s task_id=%s",
+                job_id,
+                cancellation.celery_task_id,
+            )
+
+    return {
+        "job_id": cancellation.job_id,
+        "status": cancellation.status,
+        "stage": cancellation.stage,
+        "cancellation_pending": (
+            cancellation.cancellation_pending
+        ),
+        "cancel_requested_at": (
+            job.cancel_requested_at
+        ),
+        "cancelled_at": job.cancelled_at,
+        "audit_id": cancellation.audit_id,
+    }
 
 @app.delete(
     "/jobs/{job_id}/media",
