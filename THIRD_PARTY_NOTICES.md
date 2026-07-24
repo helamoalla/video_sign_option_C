@@ -209,3 +209,12 @@ configuration:
 ```env
 APP_ENV=development
 ALLOW_RESEARCH_ASSETS=true
+
+Production must disable prototype assets:
+
+```env
+APP_ENV=production
+ALLOW_RESEARCH_ASSETS=false
+```
+
+In production, CWASA, ALSL and Dicta-Sign resources must not be used unless Cyrkil obtains the appropriate commercial licences. The planned production replacement is Cyrkil-owned or commercially licensed avatar videos.
