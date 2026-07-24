@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "production_provider": "licensed_video",
+  "prototype_provider": "cwasa_multilang",
+  "production_replacement": "Cyrkil-owned or commercially licensed avatar videos",
+  "assets": {
+    "cwasa_multilang": {
+      "license": "research-only",
+      "evidence": "docs/DATA_SOURCES.md",
+      "production_allowed": false
+    },
+    "cwasa_arabic": {
+      "license": "cc-by-nc-4.0",
+      "evidence": "external/alsl_avatar/README.md",
+      "production_allowed": false
+    },
+    "ibm_plex_arabic": {
+      "license": "ofl-1.1",
+      "evidence": "licenses/IBM-Plex-OFL-1.1.txt",
+      "production_allowed": true
+    }
+  }
+}

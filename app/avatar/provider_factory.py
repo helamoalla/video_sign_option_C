@@ -11,6 +11,9 @@ from app.avatar.cwasa_multilang_provider import (
 from app.avatar.placeholder_provider import (
     PlaceholderAvatarProvider,
 )
+from app.avatar.license_policy import (
+    ensure_provider_is_approved,
+)
 
 
 PROVIDER_ALIASES = {
@@ -55,6 +58,9 @@ def get_avatar_provider(
 ):
     canonical_name = normalize_provider_name(
         provider_name
+    )
+    ensure_provider_is_approved(
+        canonical_name
     )
 
     if language is not None:

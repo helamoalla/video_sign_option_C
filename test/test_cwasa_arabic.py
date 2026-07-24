@@ -20,7 +20,18 @@ def test_arabic_provider_uses_multilang_provider():
     )
 
 
-def test_factory_returns_arabic_provider():
+def test_factory_returns_arabic_provider(
+    monkeypatch,
+):
+    monkeypatch.setenv(
+        "APP_ENV",
+        "development",
+    )
+    monkeypatch.setenv(
+        "ALLOW_RESEARCH_ASSETS",
+        "true",
+    )
+
     provider = get_avatar_provider(
         "cwasa_arabic"
     )
